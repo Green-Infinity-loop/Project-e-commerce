@@ -1,8 +1,7 @@
 import { Fragment, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { IoNotificationsOutline } from "react-icons/io5";
 import {
-  RiAccountCircleLine,
+  IoNotificationsOutline,
   IoPersonOutline,
   IoSearchSharp,
 } from "react-icons/io5";
@@ -35,7 +34,6 @@ export function Search() {
             type="search"
             placeholder="Search"
             aria-label="Search"
-            autofocus
           />
         </form>
       </div>
