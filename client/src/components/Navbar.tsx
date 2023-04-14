@@ -22,25 +22,17 @@ function classNames(...classes) {
 
 export function Search() {
   return (
-    <div id="modal-full" className="uk-modal-full uk-modal" uk-modal>
-      <div
-        className="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle"
-        uk-height-viewport
-      >
-        <button className="uk-modal-close-full" type="button" uk-close></button>
-        <form className="uk-search uk-search-large">
-          <input
-            className="uk-search-input uk-text-center "
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-        </form>
-      </div>
+    <div className="fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-70 z-40 w-full">
+      <form>
+        <input
+          type="text"
+          placeholder="Search"
+          className=" px-4 py-2 rounded-lg bg-gray-600 h-12 w-60 "
+        />
+      </form>
     </div>
   );
 }
-
 export default function Example() {
   const [search, setSearch] = useState(false);
 
@@ -100,7 +92,7 @@ export default function Example() {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
-                  className=" p-1 text-[#181D31]  focus:outline-none focus:ring-2  focus:ring-white focus:ring-offset-2 "
+                  className=" p-1 text-[#181D31]  focus:outline-none focus:ring-2   focus:ring-offset-2 "
                 >
                   <span className="sr-only ">Search</span>
                   <div>{search && <Search />}</div>
@@ -167,6 +159,7 @@ export default function Example() {
                           </a>
                         )}
                       </Menu.Item>
+                      <hr />
                       <Menu.Item>
                         {({ active }) => (
                           <a
