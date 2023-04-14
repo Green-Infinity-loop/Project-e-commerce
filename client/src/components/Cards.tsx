@@ -44,33 +44,34 @@ const products = [
   },
 ];
 
-export const Cards: FC<SelectProps>=({
+export const Cards: FC<SelectProps> = ({
   value,
   onChange,
   className,
   items,
   itemLabel,
   itemValue,
-})=>{
-  const baseClass = `container flex flex-wrap`
+}) => {
+  const baseClass = `container flex flex-wrap`;
 
   return (
     <div className={twMerge(baseClass)}>
-      {products.map(function (product){
-        return(
+      {products.map(function (product) {
+        return (
           <div key={""} className={twMerge(className)}>
+            <a href="/">
+              <img
+                className={twMerge(className)}
+                src={product.image}
+                alt={product.name}
+              />
+            </a>
+            <div className={className}>
               <a href="/">
-                <img className={twMerge(className)} src={product.image} alt={product.name}/>
+                <h5 className={className}>{product.name}</h5>
               </a>
               <div className={className}>
-                <a href="/">
-                  <h5 className={className}>
-                    {product.name}
-                  </h5>
-
-                </a>
-                <div className={className}>
-                  <svg
+                <svg
                   aria-hidden="true"
                   className="w-5 h-5 text-yellow-300"
                   fill="currentColor"
@@ -123,22 +124,15 @@ export const Cards: FC<SelectProps>=({
                 <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
                   5.0
                 </span>
-                </div>
-                <span className={className}>
-                  {product.price}
-                </span>
-                <a
-                  href="/"
-                  className={className}
-                >
-                  Add to cart
-                </a>
               </div>
+              <span className={className}>{product.price}</span>
+              <a href="/" className={className}>
+                Add to cart
+              </a>
+            </div>
           </div>
-        )
+        );
       })}
     </div>
-  )
-}
-
-
+  );
+};
