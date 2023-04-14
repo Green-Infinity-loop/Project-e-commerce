@@ -8,7 +8,7 @@ export default function Bottom(){
             <Card />
         </div>
         <div className="">
-            
+
         </div>
         </div>
     )
