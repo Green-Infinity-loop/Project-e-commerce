@@ -7,7 +7,7 @@ export default function Home(): any {
   return (
     <>
       {/* <Navbar /> */}
-      {/* <Card/> */}
+      {/* <Card /> */}
       {/* <Footer /> */}
       <Bottom/>
     </>
