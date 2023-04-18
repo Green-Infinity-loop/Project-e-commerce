@@ -29,11 +29,6 @@ const products = [
     image: "http://via.placeholder.com/480x600",
     price: "599$",
   },
-  {
-    name: "Apple Watch Series 7 GPS",
-    image: "http://via.placeholder.com/480x600",
-    price: "599$",
-  },
 ];
 
 export default function Card(): any {
