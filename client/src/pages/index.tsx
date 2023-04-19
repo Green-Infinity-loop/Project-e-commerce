@@ -6,10 +6,10 @@ import Bottom from "@/components/Bottom";
 export default function Home(): any {
   return (
     <>
-      {/* <Navbar /> */}
-      {/* <Card /> */}
-      {/* <Footer /> */}
-      <Bottom/>
+      <Navbar />
+      <Card />
+      <Bottom />
+      <Footer />
     </>
   );
 }
