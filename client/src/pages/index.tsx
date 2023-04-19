@@ -9,10 +9,11 @@ import HomePageTop from "@/components/HomePageTop";
 export default function Home(): any {
   return (
     <>
-      {/* <Navbar /> */}
-      {/* <Card /> */}
-      {/* <Footer /> */}
+      <Navbar />
+      <HomePageTop />
+      <Card />
       <Bottom />
+      <Footer />
     </>
   );
 }
