@@ -21,6 +21,9 @@ module.exports = {
           xl: "1250px",
         },
       },
+      colors: {
+        main: "#00887A",
+      },
     },
   },
   plugins: [],
