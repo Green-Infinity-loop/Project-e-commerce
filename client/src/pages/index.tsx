@@ -10,9 +10,9 @@ export default function Home(): any {
   return (
     <>
       <Navbar />
-      <HomePageTop />
-      <Card />
-      <Bottom />
+      {/* <HomePageTop /> */}
+      {/* <Card /> */}
+      {/* <Bottom /> */}
       <Footer />
     </>
   );
