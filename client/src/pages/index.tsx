@@ -18,11 +18,18 @@ export default function Home(): any {
   return (
     <>
       <Navbar />
+
       <Button onClick={showModal}>modal</Button>
       <HomePageTop />
+
+      {/* <HomePageTop /> */}
+
       <Card />
-      <Bottom />
+      {/* <Bottom /> */}
       <Footer />
+      {/* <Card /> */}
+      {/* <Bottom /> */}
+      {/* <Footer /> */}
     </>
   );
 }
