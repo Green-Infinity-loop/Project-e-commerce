@@ -28,7 +28,7 @@ export function Search() {
         <input
           type="text"
           placeholder="Search"
-          className=" px-4 py-2 rounded-lg bg-gray-600 h-12 w-60 "
+          className=" px-4 py-2 rounded-lg bg-gray-500 bg-opacity-70 z-40  h-14 w-72 "
         />
       </form>
     </div>
@@ -38,10 +38,13 @@ export default function Example() {
   const [search, setSearch] = useState(false);
 
   return (
-    <Disclosure as="nav">
+    <Disclosure
+      className="bg-gradient-to-l from-green-400 to-green-700 "
+      as="nav"
+    >
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 bg-gradient-to-l from-green-400 to-green-700 ">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white ">
@@ -55,8 +58,12 @@ export default function Example() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start ">
                 <div className="flex flex-shrink-0 items-center">
-                  <IoLogoElectron className="block h-8 w-auto lg:hidden" />
-                  <IoLogoElectron className="hidden h-8 w-auto lg:block" />
+                  <a href="/home">
+                    <IoLogoElectron className="block h-8 w-auto lg:hidden" />
+                  </a>
+                  <a href="/home">
+                    <IoLogoElectron className="hidden h-8 w-auto lg:block" />
+                  </a>
                   <h1 className="px-4 text-bold text-xl font-black">
                     Infinity Loop
                   </h1>
@@ -84,7 +91,7 @@ export default function Example() {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
-                  className=" p-1 text-[#181D31]  focus:outline-none focus:ring-2   focus:ring-offset-2 "
+                  className="   focus:outline-none focus:ring-3   focus:ring-offset-4 "
                 >
                   <span className="sr-only ">Search</span>
                   <div>{search && <Search />}</div>
@@ -92,10 +99,11 @@ export default function Example() {
                     onClick={() => {
                       setSearch(!search);
                     }}
-                    className="h-5 w-9 text-xs"
+                    className="h-5 w-11 text-xs relative "
                     aria-hidden="true"
                   />
                 </button>
+
                 <button
                   type="button"
                   className=" p-1 text-[#181D31]  focus:outline-none focus:ring-2  focus:ring-white focus:ring-offset-2 "
