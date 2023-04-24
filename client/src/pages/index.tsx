@@ -13,7 +13,7 @@ export default function Home(): any {
       {/* <HomePageTop /> */}
       {/* <Card /> */}
       {/* <Bottom /> */}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

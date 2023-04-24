@@ -5,6 +5,7 @@ import {
   IoPersonOutline,
   IoSearchSharp,
   IoMenu,
+  IoLogoElectron,
 } from "react-icons/io5";
 import { defer } from "react-router-dom";
 // import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -40,7 +41,7 @@ export default function Example() {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 bg-[#00887A]">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 bg-gradient-to-l from-green-400 to-green-700 ">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white ">
@@ -54,21 +55,13 @@ export default function Example() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start ">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="block h-8 w-auto lg:hidden"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
-                  />
-                  <img
-                    className="hidden h-8 w-auto lg:block"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
-                  />
+                  <IoLogoElectron className="block h-8 w-auto lg:hidden" />
+                  <IoLogoElectron className="hidden h-8 w-auto lg:block" />
                   <h1 className="px-4 text-bold text-xl font-black">
                     Infinity Loop
                   </h1>
                 </div>
-                <div className="hidden sm:ml-6 sm:block absolute right-24 font-light text-xs  place-content-center bg-[#00887A]">
+                <div className="hidden sm:ml-6 sm:block absolute right-24 font-light text-xs  place-content-center ">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <a
@@ -114,7 +107,6 @@ export default function Example() {
                   />
                 </button>
 
-                {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="flex  text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 ">
