@@ -5,15 +5,17 @@ import Footer from "@/components/Footer";
 import Bottom from "@/components/Bottom";
 
 import HomePageTop from "@/components/HomePageTop";
+import LogIn from "@/components/LogIn";
 
 export default function Home(): any {
   return (
     <>
-      <Navbar />
+      <LogIn/>
+      {/* <Navbar /> */}
       {/* <HomePageTop /> */}
-      <Card />
+      {/* <Card /> */}
       {/* <Bottom /> */}
-      <Footer />
+      {/* <Footer /> */}
       {/* <Card /> */}
       {/* <Bottom /> */}
       {/* <Footer /> */}
