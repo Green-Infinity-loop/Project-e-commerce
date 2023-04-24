@@ -14,6 +14,9 @@ export default function Home(): any {
       <Card />
       {/* <Bottom /> */}
       <Footer />
+      {/* <Card /> */}
+      {/* <Bottom /> */}
+      {/* <Footer /> */}
     </>
   );
 }
