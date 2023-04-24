@@ -1,4 +1,3 @@
-
 const products = [
   {
     name: "Apple Watch Series 7 GPS",
@@ -31,7 +30,6 @@ const products = [
     price: "599$",
   },
 ];
-
 
 export default function Card(): any {
   return (
