@@ -13,22 +13,17 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { useModal } from "@/Hooks/useModal";
-
+import HomeCard from "@/components/HomeCard";
 
 export default function Home(): any {
   const showModal = useModal();
   return (
     <>
       <Navbar />
-
-
       <Button onClick={showModal}>modal</Button>
-      <HomePageTop />
-
-
       {/* <HomePageTop /> */}
-
-      <Card />
+      <HomeCard />
+      {/* <Card /> */}
       {/* <Bottom /> */}
       <Footer />
       {/* <Card /> */}
