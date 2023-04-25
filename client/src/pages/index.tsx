@@ -23,7 +23,7 @@ export default function Home(): any {
       <Button onClick={showModal}>modal</Button>
       {/* <HomePageTop /> */}
       <HomeCard />
-      {/* <Card /> */}
+      <Card />
       {/* <Bottom /> */}
       <Footer />
       {/* <Card /> */}
