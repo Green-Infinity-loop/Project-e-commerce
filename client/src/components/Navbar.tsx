@@ -62,7 +62,7 @@ export default function Example() {
                     <IoLogoElectron className="block h-8 w-auto lg:hidden" />
                     <IoLogoElectron className="hidden h-8 w-auto lg:block" />
                     <h1 className="px-4 text-bold text-xl font-black">
-                      Infinity Loop
+                      MedZone
                     </h1>
                   </div>
                   <div className="hidden sm:ml-6 sm:block absolute right-24 font-light text-xs  place-content-center ">
@@ -198,11 +198,6 @@ export default function Example() {
           </>
         )}
       </Disclosure>
-      <img
-        src="https://placeimg.com/640/200/nature"
-        alt=""
-        className="w-full"
-      />
     </>
   );
 }
