@@ -2,6 +2,7 @@ import Range from "@/components/Range";
 import SearchPageCard from "@/components/SearchPageCard";
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer";
+import Search from "@/components/Search";
 
 export default function searchPage() {
   return (
@@ -9,7 +10,9 @@ export default function searchPage() {
       <Navbar/>
     <div className="my-10">
     <div className="container">
-      <div className="text-black">Search</div>
+      <div className="text-black">
+        <Search/>
+      </div>
       <div className="grid grid-cols-3 gap-4">
         <div className="text-black">
           <Range />
@@ -19,7 +22,6 @@ export default function searchPage() {
         </div>
       </div>
     </div>
-    
     </div>
     <Footer/>
     </>
