@@ -8,11 +8,6 @@ const nextConfig = {
         hostname: "via.placeholder.com",
         pathname: "/**",
       },
-      {
-        protocol: "https",
-        hostname: "cdn3.shoppy.mn",
-        pathname: "/**",
-      },
     ]
   }
 }
