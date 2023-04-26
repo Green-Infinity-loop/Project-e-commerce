@@ -7,12 +7,20 @@ import { UsersModule } from './users/users.module';
 import { CaegoriesModule } from './caegories/caegories.module';
 import { PharmaciesModule } from './pharmacies/pharmacies.module';
 import env from '../env';
+import { AuthModule } from './auth/auth.module';
 
 const MONGO = process.env.MONGODB_URL;
 console.log(MONGO);
 
 @Module({
-  imports: [MongooseModule.forRoot(env.MONGODB_URL), ProductsModule, UsersModule, CaegoriesModule, PharmaciesModule],
+  imports: [
+    MongooseModule.forRoot(env.MONGODB_URL),
+    ProductsModule,
+    UsersModule,
+    CaegoriesModule,
+    PharmaciesModule,
+    AuthModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
