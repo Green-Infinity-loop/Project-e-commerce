@@ -23,14 +23,14 @@ export default function Home(): any {
       <Navbar />
       <Header />
       {/* <Button onClick={showModal}>modal</Button> */}
-      {/* <HomePageTop /> */}
+      <HomePageTop />
       <HomeCard />
       <Card />
       {/* <Bottom /> */}
-      <Footer />
+      {/* <Footer /> */}
       {/* <Card /> */}
       {/* <Bottom /> */}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
