@@ -33,7 +33,7 @@ export default function Range() {
           </div>
         </div>
 
-        {/* <div className=" mt-5">
+        <div className=" mt-5">
           <h1>Хэлбэр</h1>
           <div className="  ">
             {filter.map((helber) => {
@@ -57,7 +57,7 @@ export default function Range() {
                 </>
               );
             })}
-          </div> */}
+          </div>
         <h1>Хайрцаг дахь шахмал</h1>
         <div className="  ">
           {filter.map((helber) => {
@@ -86,7 +86,7 @@ export default function Range() {
           })}
         </div>
       </div>
-      {/* </div> */}
+      </div>
     </>
   );
 }
