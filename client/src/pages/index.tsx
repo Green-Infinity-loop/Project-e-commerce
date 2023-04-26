@@ -15,22 +15,24 @@ import Modal from "@mui/material/Modal";
 import { useModal } from "@/Hooks/useModal";
 import HomeCard from "@/components/HomeCard";
 import Header from "@/components/Header";
+import SearchPageCard from "@/components/SearchPageCard";
 
 export default function Home(): any {
   const showModal = useModal();
   return (
     <>
-      <Navbar />
-      <Header />
+      {/* <Navbar /> */}
+      {/* <Header /> */}
       {/* <Button onClick={showModal}>modal</Button> */}
       {/* <HomePageTop /> */}
-      <HomeCard />
-      <Card />
-      {/* <Bottom /> */}
-      <Footer />
+      {/* <HomeCard /> */}
       {/* <Card /> */}
       {/* <Bottom /> */}
       {/* <Footer /> */}
+      {/* <Card /> */}
+      {/* <Bottom /> */}
+      {/* <Footer /> */}
+      <SearchPageCard/>
     </>
   );
 }
