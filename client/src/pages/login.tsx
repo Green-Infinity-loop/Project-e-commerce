@@ -9,21 +9,24 @@ import { ToastContainer, toast } from "react-toastify";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const router = useRouter();
 
   const submitSingIn = () => {
+    let status = 201;
     axios
-      .post("https://localhost:8081/api/login", { email, password })
-      .then((res) => {
-        if (res.status !== 200) {
-          toast.error(res.data.message, );
+      .post("http://localhost:8080/signin", { email, password })
+      .then((data) => {
+        if (status !== 201) {
         } else {
-          toast.success(res.Textdata.message,);
-          localStorage.setItem("token", res.data.body.token);
+          console.log(data);
+          
+          localStorage.setItem("token", data.data.token);
           router.push("/");
         }
       })
       .catch((err) => {
+
         console.log(err);
       });
   };
@@ -78,7 +81,7 @@ export default function Login() {
             Forget Password?
           </Link>
           <div className="mt-2">
-            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+            <button type="submit" className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
               Sign In
             </button>
           </div>
@@ -89,7 +92,7 @@ export default function Login() {
         </div>
         <div className="flex mt-4 gap-x-2">
           <button
-            type="button"
+            type="submit"
             className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600"
           >
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
