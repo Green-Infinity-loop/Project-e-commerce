@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Bottom from "@/components/Bottom";
 
 import HomePageTop from "@/components/HomePageTop";
+import LogIn from "@/components/LogIn";
 
 import { useState } from "react";
 import * as React from "react";
@@ -20,14 +21,21 @@ export default function Home(): any {
   const showModal = useModal();
   return (
     <>
+
+      <LogIn/>
+      {/* <Navbar /> */}
+      {/* <HomePageTop /> */}
+      {/* <Card /> */}
+
       <Navbar />
       <Header />
       {/* <Button onClick={showModal}>modal</Button> */}
       {/* <HomePageTop /> */}
       <HomeCard />
       <Card />
+
       {/* <Bottom /> */}
-      <Footer />
+      {/* <Footer /> */}
       {/* <Card /> */}
       {/* <Bottom /> */}
       {/* <Footer /> */}
