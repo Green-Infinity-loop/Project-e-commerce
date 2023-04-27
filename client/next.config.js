@@ -8,6 +8,11 @@ const nextConfig = {
         hostname: "via.placeholder.com",
         pathname: "/**",
       },
+      {
+        protocol: "http",
+        hostname: "www.w3.org",
+        pathname: "/**",
+      },
     ]
   }
 }
