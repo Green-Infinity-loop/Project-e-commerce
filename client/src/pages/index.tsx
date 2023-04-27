@@ -22,22 +22,14 @@ export default function Home(): any {
   const showModal = useModal();
   return (
     <>
-
-      
       <Navbar />
-      {/* <HomePageTop /> */}
-      {/* <Card /> */}
 
-      {/* <Navbar /> */}
-      {/* <Header /> */}
+      <Header />
       {/* <Button onClick={showModal}>modal</Button> */}
-      {/* <HomePageTop /> */}
-      {/* <HomeCard /> */}
+      <HomeCard />
+      <HomePageTop />
       {/* <Card /> */}
 
-      {/* <Bottom /> */}
-      {/* <Footer /> */}
-      {/* <Card /> */}
       {/* <Bottom /> */}
       {/* <Footer /> */}
     </>

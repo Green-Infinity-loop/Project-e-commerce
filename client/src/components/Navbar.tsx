@@ -7,8 +7,6 @@ import {
   IoMenu,
   IoLogoElectron,
 } from "react-icons/io5";
-import { defer } from "react-router-dom";
-// import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
   { name: "Home", href: "#", current: true },
