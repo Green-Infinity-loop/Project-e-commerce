@@ -9,31 +9,20 @@ export default function SignUp() {
     const [password, setPassword] = useState("");
     const [repassword, setRepassword] = useState("");
 
-  const submitSignup = () => {
     const router = useRouter();
+  const submitSignup = () => {
     let status = 200;
-    axios.post("http://localhost:8081/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password, repassword }),
-    })
-      .then((res) => {
-        status = res.status;
-        return res.json();
-      })
-      .then((data) => {
+    axios.post("http://localhost:8080/signup",{ email, password, repassword })
+      .then(({data}) => {
         if (status !== 200) {
-          toast.error(data.message);
         } else {
-          toast.success(data.message);
           setTimeout(() => {    
             router.push("/login");
           }, 1000);
         }
       })
       .catch((err) => {
+        console.log(err);
         toast.error(err.message);
       });
   };
@@ -106,7 +95,7 @@ export default function SignUp() {
         </div>
         <div className="flex mt-4 gap-x-2">
           <button
-            type="button"
+            type="submit"
             className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600"
           >
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
