@@ -51,7 +51,7 @@ export default function HomePageTop() {
                 <img src={data.imgUrl} alt="" />
                 <p className="  absolute text-white -bottom-52 group-hover:inset-0 right-2 left-2 transition-all delay-300 duration-100  dark:bg-gray-900 p-4 rounded shadow dark:shadow-gray-200">
                   {data.title}
-                  
+
                   <p className="py-6">{data.description}</p>
                 </p>
               </div>

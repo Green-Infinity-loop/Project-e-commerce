@@ -1,0 +1,44 @@
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Headers,
+} from '@nestjs/common';
+import { AuthService } from './auth.service';
+import { CheckOTPDto } from './dto/checkOTP.dto';
+import { CreateOTPDto } from './dto/createOTP.dto';
+import { SigninDto } from './dto/signin.dto';
+import { SignupDto } from './dto/signup.dto';
+
+@Controller()
+export class AuthController {
+  constructor(private readonly authService: AuthService) {}
+
+  @Post('/signin')
+  signin(@Body() signinDto: SigninDto) {
+    return this.authService.signin(signinDto);
+  }
+  @Post('/signup')
+  signup(@Body() signupDto: SignupDto) {
+    return this.authService.signup(signupDto);
+  }
+
+  @Post('/otp/signin')
+  signinOTP(@Body() createOTPDto: CreateOTPDto) {
+    console.log(createOTPDto);
+
+    return this.authService.createOTP(createOTPDto);
+  }
+  @Post('/otp/signin/verify')
+  signinOTPConfirm(@Body() checkOTPDto: CheckOTPDto) {
+    return this.authService.verifyOTP(checkOTPDto);
+  }
+  @Post('/me')
+  currentUser(@Headers('authorization') authorization: string) {
+    return this.authService.getCurrentUserFromToken(authorization);
+  }
+}

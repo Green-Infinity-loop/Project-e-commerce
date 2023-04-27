@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../icon/logo-no-background.svg";
+
 import Link from "next/link";
 
 const resources = [
@@ -33,7 +33,7 @@ export default function Footer(): any {
                   className="mb-6 bg-white rounded-[35px] inline-block max-w-[160px]"
                 >
                   <Image
-                    src={logo}
+                    src="icon/logo.svg"
                     alt="Picture of the author"
                     width={500}
                     height={500}

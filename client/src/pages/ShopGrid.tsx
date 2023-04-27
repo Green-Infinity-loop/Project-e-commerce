@@ -1,4 +1,4 @@
-import { useQuery } from "@/components/Hooks/useQuery";
+import { useQuery } from "@/Hooks/useQuery";
 import { Select } from "@/ui/Select";
 import { Selector } from "@/ui/Selector";
 import { GetServerSidePropsContext } from "next";

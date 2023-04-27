@@ -9,8 +9,13 @@ const nextConfig = {
         pathname: "/**",
       },
       {
+
         protocol: "http",
         hostname: "www.w3.org",
+
+        protocol: "https",
+        hostname: "cdn3.shoppy.mn",
+
         pathname: "/**",
       },
     ]
