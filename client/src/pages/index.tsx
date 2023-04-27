@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Bottom from "@/components/Bottom";
 
 import HomePageTop from "@/components/HomePageTop";
+import LogIn from "@/pages/login";
 
 import { useState } from "react";
 import * as React from "react";
@@ -15,19 +16,27 @@ import Modal from "@mui/material/Modal";
 import { useModal } from "@/Hooks/useModal";
 import HomeCard from "@/components/HomeCard";
 import Header from "@/components/Header";
+import SignUp from "@/pages/signup";
 
 export default function Home(): any {
   const showModal = useModal();
   return (
     <>
+
+      
       <Navbar />
-      <Header />
+      {/* <HomePageTop /> */}
+      {/* <Card /> */}
+
+      {/* <Navbar /> */}
+      {/* <Header /> */}
       {/* <Button onClick={showModal}>modal</Button> */}
       {/* <HomePageTop /> */}
-      <HomeCard />
-      <Card />
+      {/* <HomeCard /> */}
+      {/* <Card /> */}
+
       {/* <Bottom /> */}
-      <Footer />
+      {/* <Footer /> */}
       {/* <Card /> */}
       {/* <Bottom /> */}
       {/* <Footer /> */}
