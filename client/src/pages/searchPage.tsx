@@ -18,7 +18,7 @@ export default function searchPage() {
               <Range />
             </div>
             <div className="col-span-2 text-black">
-              {/* <SearchPageCard/> */}
+              <SearchPageCard />
             </div>
           </div>
         </div>

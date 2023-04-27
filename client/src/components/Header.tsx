@@ -4,7 +4,7 @@ import React from "react";
 export default function Header() {
   return (
     <>
-      <div className="bg-red-800 w-full  border rounded shadow py-40 relative h-[24rem] ">
+      <div className="bg-white-800 w-full   rounded  py-40 relative h-[24rem] ">
         <div className="grid grid-cols-2 text-center align-center">
           <div className=" text-center align-center ">
             <h1 className="text-2xl text-black text-center">medZone</h1>
@@ -16,7 +16,7 @@ export default function Header() {
 
           <img
             src="icon/medical.png"
-            className="absolute right-0  w-24 "
+            className="absolute right-0  w-72 "
             alt=""
           />
         </div>
