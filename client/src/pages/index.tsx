@@ -31,7 +31,7 @@ export default function Home(): any {
       {/* <Card /> */}
 
       {/* <Bottom /> */}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

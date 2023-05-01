@@ -7,9 +7,10 @@ import {
   IoMenu,
   IoLogoElectron,
 } from "react-icons/io5";
+import Link from "next/link";
 
 const navigation = [
-  { name: "Home", href: "#", current: true },
+  { name: "Home", href: "/", current: true },
   { name: "Shop", href: "#", current: false },
   { name: "News", href: "#", current: false },
   { name: "Pages", href: "#", current: false },
@@ -98,16 +99,19 @@ export default function Example() {
                       aria-hidden="true"
                     />
                   </button>
-                  <button
-                    type="button"
-                    className=" p-1 text-[#181D31]  focus:outline-none focus:ring-2  focus:ring-white focus:ring-offset-2 "
-                  >
-                    <span className="sr-only ">View notifications</span>
-                    <IoNotificationsOutline
-                      className="h-5 w-5"
-                      aria-hidden="true"
-                    />
-                  </button>
+                  <Link href="/k">
+                    <button
+                      type="button"
+                      className=" p-1 text-[#181D31]  focus:outline-none focus:ring-2  focus:ring-white focus:ring-offset-2 "
+                    >
+                      <span className="sr-only ">View notifications</span>
+
+                      <IoNotificationsOutline
+                        className="h-5 w-5"
+                        aria-hidden="true"
+                      />
+                    </button>
+                  </Link>
 
                   <Menu as="div" className="relative ml-3">
                     <div>
