@@ -17,13 +17,16 @@ import { useModal } from "@/Hooks/useModal";
 import HomeCard from "@/components/HomeCard";
 import Header from "@/components/Header";
 import SignUp from "@/pages/signup";
+import Sidebar from "@/components/Sidebar";
+import Layout from "@/components/Layout";
 
 export default function Home(): any {
   const showModal = useModal();
   return (
     <>
       <Navbar />
-
+      <Layout />
+      <Sidebar />
       <Header />
       {/* <Button onClick={showModal}>modal</Button> */}
       <HomeCard />

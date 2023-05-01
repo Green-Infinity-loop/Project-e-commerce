@@ -9,7 +9,6 @@ const nextConfig = {
         pathname: "/**",
       },
       {
-
         protocol: "http",
         hostname: "www.w3.org",
 
@@ -18,8 +17,13 @@ const nextConfig = {
 
         pathname: "/**",
       },
-    ]
-  }
-}
+      {
+        protocol: "https",
+        hostname: "www.google.com",
+        pathname: "/**",
+      },
+    ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
