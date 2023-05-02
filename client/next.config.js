@@ -18,6 +18,16 @@ const nextConfig = {
 
         pathname: "/**",
       },
+      {
+        protocol: "http",
+        hostname: "localhost:8080",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "back.emonos.mn",
+        pathname: "/**",
+      },
     ]
   }
 }

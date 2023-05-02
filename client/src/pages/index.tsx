@@ -28,19 +28,19 @@ export default function Home(): any {
     <>
       <Navbar />
 
-      <Button onClick={showToast}>Open simple snackbar</Button>
+      {/* <Button onClick={showToast}>Open simple snackbar</Button> */}
 
       {/* <HomePageTop /> */}
 
 
 
       <Header />
-      {/* <Button onClick={showModal}>modal</Button> */}
+      <Button onClick={showModal}>modal</Button>
       <HomeCard />
       <HomePageTop />
-      {/* <Card /> */}
+      <Card />
 
-      {/* <Bottom /> */}
+      <Bottom />
       <Footer />
     </>
   );
