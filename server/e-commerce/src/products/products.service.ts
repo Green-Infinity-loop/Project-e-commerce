@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { Brand } from 'src/brands/entities/brand.entity';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Product } from './entities/product.entity';
@@ -9,27 +10,28 @@ import { Product } from './entities/product.entity';
 export class ProductsService {
   constructor(
     @InjectModel(Product.name) private readonly productModel: Model<Product>,
+    @InjectModel(Brand.name) private readonly brandModel: Model<Brand>,
   ) {}
-  async create(createProductDto: CreateProductDto): Promise<Product> {
-    const result = new this.productModel(createProductDto);
-    return result.save();
+  create(createProductDto: CreateProductDto) {
+    return this.productModel.create(createProductDto);
   }
 
-  async findAll(createProductDto: CreateProductDto): Promise<Product[]> {
-    const result = await this.productModel.find();
-    return result;
+  async findAll() {
+    return await this.productModel.find().populate('brand');
   }
 
   async findOne(_id: string) {
-    return await this.productModel.findById(_id);
+    return await this.productModel.findOne({ _id });
   }
 
   async update(_id: string, updateProductDto: UpdateProductDto) {
     const result = await this.productModel.updateOne({ _id }, updateProductDto);
-    return;
+    return result;
   }
 
   async remove(_id: string) {
-    return await this.productModel.deleteOne({ _id });
+    await this.productModel.deleteOne({ _id });
+
+    return _id;
   }
 }
