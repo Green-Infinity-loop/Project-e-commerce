@@ -16,8 +16,24 @@ export class ProductsService {
     return this.productModel.create(createProductDto);
   }
 
-  async findAll() {
-    return await this.productModel.find().populate('brand');
+  async findAll(search: string, limit: number, filter: string, page: number) {
+    const condition: any = {};
+    console.log('limit is ', limit);
+
+    if (filter) {
+      condition.genres = { $regex: new RegExp(`${filter}`, 'i') };
+    }
+
+    if (search) {
+      condition.title = { $regex: new RegExp(`${search}`, 'i') };
+    }
+    const skip = Number(limit * page);
+
+    return await this.productModel
+      .find(condition)
+      .skip(Number(skip))
+      .limit(Number(limit))
+      .populate('brand');
   }
 
   async findOne(_id: string) {
@@ -33,5 +49,9 @@ export class ProductsService {
     await this.productModel.deleteOne({ _id });
 
     return _id;
+  }
+
+  async findAllCOunt() {
+    return await this.productModel.find().count({});
   }
 }
