@@ -8,7 +8,7 @@ export default function searchPage() {
   return (
     <>
       <Navbar />
-      <div className="my-10">
+      <div className="my-10 ">
         <div className="container">
           <div className="text-black">
             <Search />

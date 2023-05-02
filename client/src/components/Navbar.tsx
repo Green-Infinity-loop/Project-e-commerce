@@ -39,10 +39,7 @@ export default function Example() {
 
   return (
     <>
-      <Disclosure
-        as="nav"
-        className="w-full bg-gradient-to-l from-green-400 to-green-700"
-      >
+      <Disclosure as="nav" className="w-full ">
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  ">
@@ -85,7 +82,7 @@ export default function Example() {
                     </div>
                   </div>
                 </div>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <div className="absolute inset-y-0 right-0 flex items-center  sm:static sm:inset-auto sm:ml-6 sm:pr-0 ">
                   <button
                     type="button"
                     className=" p-1 text-[#181D31]  focus:outline-none focus:ring-2   focus:ring-offset-2 "
@@ -113,8 +110,9 @@ export default function Example() {
                       />
                     </button>
                   </Link>
-
-                  {/* <Sidebar /> */}
+                  <div className="px-6">
+                    <Sidebar />
+                  </div>
                 </div>
               </div>
             </div>

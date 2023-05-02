@@ -26,14 +26,12 @@ export default function Home(): any {
 
   return (
     <>
+      {/* <div className="bg-gradient-to-r from-cyan-100 to-blue-500 "> */}
       <Navbar />
-      <Sidebar />
 
       <Button onClick={showToast}>Open simple snackbar</Button>
 
       {/* <HomePageTop /> */}
-
-
 
       <Header />
       {/* <Button onClick={showModal}>modal</Button> */}
@@ -43,6 +41,7 @@ export default function Home(): any {
 
       {/* <Bottom /> */}
       <Footer />
+      {/* </div> */}
     </>
   );
 }

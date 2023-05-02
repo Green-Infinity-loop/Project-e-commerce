@@ -1,47 +1,22 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
-import Divider from "@mui/material/Divider";
-import { Avatar, Grid, SvgIcon } from "@mui/material";
-import { IoPersonOutline } from "react-icons/io5";
+
+import { Grid } from "@mui/material";
 import Image from "next/image";
+import ButtonLink from "./ButtonLink";
+import {
+  FaTwitter,
+  FaTelegram,
+  FaSnapchatSquare,
+  FaPinterest,
+} from "react-icons/fa";
 
-// function HomeIcon(props) {
-//   return (
-//     <SvgIcon {...props}>
-//       <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-//     </SvgIcon>
-//   );
-// }
-type Anchor = "kk";
-
-export default function TemporaryDrawer() {
-  const [state, setState] = React.useState({
-    right: false,
-  });
-
-  const toggleDrawer =
-    (anchor: Anchor, open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
-      if (
-        event.type === "keydown" &&
-        ((event as React.KeyboardEvent).key === "Tab" ||
-          (event as React.KeyboardEvent).key === "Shift")
-      ) {
-        return;
-      }
-
-      setState({ ...state, [anchor]: open });
-    };
-
-  const list = (anchor: Anchor) => (
+export function Sidebar() {
+  return (
     <Box
-      sx={{ width: 500, height: "100%" }}
+      sx={{ width: 350, height: "100%" }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-      className=" pl-10 p-4 bg-[#bef264]"
+      className=" p-4 bg-[#80cbc4]"
     >
       <div className="flex justify-center">
         <Image
@@ -49,7 +24,7 @@ export default function TemporaryDrawer() {
           src="http://via.placeholder.com/300x300"
           width={300}
           height={300}
-          className="mb-6 rounded-full"
+          className="mb-8 rounded-full"
         />
       </div>
       <Grid container spacing={2} className="flex justify-center gap-4">
@@ -64,24 +39,39 @@ export default function TemporaryDrawer() {
           </div>
         </Grid>
       </Grid>
-      <Divider />
+
+      <ButtonLink />
+      <div className="border-t-4 flex items-end my-96">
+        <div className="flex justify-around">
+          <FaTwitter />
+          <FaTelegram />
+          <FaSnapchatSquare />
+          <FaPinterest />
+        </div>
+      </div>
     </Box>
   );
+}
+
+export default function Example() {
+  const [sideBar, setSidebar] = React.useState(false);
 
   return (
-    <div>
-      {(["kk"] as const).map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
-    </div>
+    <>
+      <button
+        type="button"
+        className=" p-1 text-[#181D31]  focus:outline-none focus:ring-2   focus:ring-offset-2 absolute z-10"
+      >
+        <span className="sr-only ">Search</span>
+        <div>{sideBar && <Sidebar />}</div>
+        <FaTwitter
+          onClick={() => {
+            setSidebar(!sideBar);
+          }}
+          className="h-6 w-9 text-xs"
+          aria-hidden="true"
+        />
+      </button>
+    </>
   );
 }
