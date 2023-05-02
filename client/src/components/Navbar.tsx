@@ -7,11 +7,10 @@ import {
   IoMenu,
   IoLogoElectron,
 } from "react-icons/io5";
-import { defer } from "react-router-dom";
-// import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 const navigation = [
-  { name: "Home", href: "#", current: true },
+  { name: "Home", href: "/", current: true },
   { name: "Shop", href: "#", current: false },
   { name: "News", href: "#", current: false },
   { name: "Pages", href: "#", current: false },
@@ -100,16 +99,19 @@ export default function Example() {
                       aria-hidden="true"
                     />
                   </button>
-                  <button
-                    type="button"
-                    className=" p-1 text-[#181D31]  focus:outline-none focus:ring-2  focus:ring-white focus:ring-offset-2 "
-                  >
-                    <span className="sr-only ">View notifications</span>
-                    <IoNotificationsOutline
-                      className="h-5 w-5"
-                      aria-hidden="true"
-                    />
-                  </button>
+                  <Link href="/k">
+                    <button
+                      type="button"
+                      className=" p-1 text-[#181D31]  focus:outline-none focus:ring-2  focus:ring-white focus:ring-offset-2 "
+                    >
+                      <span className="sr-only ">View notifications</span>
+
+                      <IoNotificationsOutline
+                        className="h-5 w-5"
+                        aria-hidden="true"
+                      />
+                    </button>
+                  </Link>
 
                   <Menu as="div" className="relative ml-3">
                     <div>
@@ -130,15 +132,15 @@ export default function Example() {
                       <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <Menu.Item>
                           {({ active }) => (
-                            <a
-                              href="#"
+                            <Link
+                              href="#s"
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
                               Your Profile
-                            </a>
+                            </Link>
                           )}
                         </Menu.Item>
                         <Menu.Item>

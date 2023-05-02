@@ -27,23 +27,21 @@ export default function Home(): any {
   return (
     <>
       <Navbar />
+
       <Button onClick={showToast}>Open simple snackbar</Button>
 
       {/* <HomePageTop /> */}
-      {/* <Card /> */}
 
-      {/* <Navbar /> */}
-      {/* <Header /> */}
+
+
+      <Header />
       {/* <Button onClick={showModal}>modal</Button> */}
-      {/* <HomePageTop /> */}
-      {/* <HomeCard /> */}
+      <HomeCard />
+      <HomePageTop />
       {/* <Card /> */}
 
       {/* <Bottom /> */}
-      {/* <Footer /> */}
-      {/* <Card /> */}
-      {/* <Bottom /> */}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
