@@ -7,7 +7,6 @@ import Bottom from "@/components/Bottom";
 import HomePageTop from "@/components/HomePageTop";
 import LogIn from "@/pages/login";
 
-import { useState } from "react";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -17,6 +16,7 @@ import { useModal } from "@/Hooks/useModal";
 import HomeCard from "@/components/HomeCard";
 import Header from "@/components/Header";
 import SignUp from "@/pages/signup";
+import Sidebar from "@/components/Sidebar";
 import { useToast } from "@/Hooks/useToast";
 import { Alert, AlertTitle, IconButton, Snackbar, Stack } from "@mui/material";
 
@@ -27,6 +27,7 @@ export default function Home(): any {
   return (
     <>
       <Navbar />
+      <Sidebar />
 
       {/* <Button onClick={showToast}>Open simple snackbar</Button> */}
 
