@@ -7,7 +7,6 @@ import Bottom from "@/components/Bottom";
 import HomePageTop from "@/components/HomePageTop";
 import LogIn from "@/pages/login";
 
-import { useState } from "react";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -26,7 +25,7 @@ export default function Home(): any {
     <>
       <Navbar />
       <Layout />
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Header />
       {/* <Button onClick={showModal}>modal</Button> */}
       <HomeCard />

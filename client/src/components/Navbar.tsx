@@ -114,7 +114,7 @@ export default function Example() {
                     </button>
                   </Link>
 
-                  <Sidebar />
+                  {/* <Sidebar /> */}
                 </div>
               </div>
             </div>
