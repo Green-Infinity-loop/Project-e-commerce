@@ -19,7 +19,7 @@ export class CrawlersService {
 
   async findAll() {
     const body = {
-      cat_id: '20',
+      cat_id: '40',
       brand: [],
       sort: 'top',
       filters: {
