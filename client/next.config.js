@@ -18,7 +18,6 @@ const nextConfig = {
         pathname: "/**",
       },
       {
-<<<<<<< HEAD
         protocol: "http",
         hostname: "localhost:8080",
         pathname: "/**",
@@ -31,14 +30,5 @@ const nextConfig = {
     ]
   }
 }
-=======
-        protocol: "https",
-        hostname: "www.google.com",
-        pathname: "/**",
-      },
-    ],
-  },
-};
->>>>>>> e758b2fa5c2f96fba64e72a9a41a6cd9caec7d06
 
 module.exports = nextConfig;
