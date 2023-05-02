@@ -18,12 +18,17 @@ const nextConfig = {
         pathname: "/**",
       },
       {
-        protocol: "https",
-        hostname: "www.google.com",
+        protocol: "http",
+        hostname: "localhost:8080",
         pathname: "/**",
       },
-    ],
-  },
-};
+      {
+        protocol: "https",
+        hostname: "back.emonos.mn",
+        pathname: "/**",
+      },
+    ]
+  }
+}
 
 module.exports = nextConfig;

@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   Put,
+  Query,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -21,11 +22,25 @@ export class ProductsController {
     return this.productsService.create(createProductDto);
   }
 
+  // @Get()
+  // async findAllProducts() {
+  //   return await this.productsService.;
+  // }
   @Get()
-  findAll() {
-    return this.productsService.findAll();
+  async findAll(
+    @Query('search') search: string,
+    @Query('limit') limit: number,
+    @Query('filter') filter: string,
+    @Query('page') page: number,
+  ) {
+    return await this.productsService.findAll(search, limit, filter, page);
+  }
+  @Get('count')
+  async findAllCount() {
+    return await this.productsService.findAllCOunt();
   }
 
+  @Get()
   @Put(':_id')
   findOne(@Param('_id') _id: string) {
     return this.productsService.findOne(_id);
