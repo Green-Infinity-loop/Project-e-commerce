@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Put,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -21,13 +22,11 @@ export class ProductsController {
   }
 
   @Get()
-  findAll(createProductDto: CreateProductDto) {
-    console.log(createProductDto);
-
-    return this.productsService.findAll(createProductDto);
+  findAll() {
+    return this.productsService.findAll();
   }
 
-  @Get(':_id')
+  @Put(':_id')
   findOne(@Param('_id') _id: string) {
     return this.productsService.findOne(_id);
   }

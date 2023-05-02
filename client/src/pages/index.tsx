@@ -17,13 +17,24 @@ import HomeCard from "@/components/HomeCard";
 import Header from "@/components/Header";
 import SignUp from "@/pages/signup";
 import Sidebar from "@/components/Sidebar";
+import { useToast } from "@/Hooks/useToast";
+import { Alert, AlertTitle, IconButton, Snackbar, Stack } from "@mui/material";
 
 export default function Home(): any {
   const showModal = useModal();
+  const showToast = useToast();
+
   return (
     <>
       <Navbar />
       <Sidebar />
+
+      <Button onClick={showToast}>Open simple snackbar</Button>
+
+      {/* <HomePageTop /> */}
+
+
+
       <Header />
       {/* <Button onClick={showModal}>modal</Button> */}
       <HomeCard />
