@@ -1,8 +1,7 @@
-import { Fragment, useState } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { useEffect, useState } from "react";
+import { Disclosure } from "@headlessui/react";
 import {
   IoNotificationsOutline,
-  IoPersonOutline,
   IoSearchSharp,
   IoMenu,
   IoLogoElectron,
@@ -34,18 +33,39 @@ export function Search() {
     </div>
   );
 }
+
+
+
 export default function Example() {
   const [search, setSearch] = useState(false);
-
+  const [navSize, setnavSize] = useState("10rem");
+  const [navColor, setnavColor] = useState("transparent");
+  const listenScrollEvent = () => {
+    window.scrollY > 10 ? setnavColor("#BC986A") : setnavColor("transparent");
+    window.scrollY > 10 ? setnavSize("5rem") : setnavSize("10rem");
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", listenScrollEvent);
+    return () => {
+      window.removeEventListener("scroll", listenScrollEvent);
+    };
+  }, []);
   return (
     <>
-      <Disclosure as="nav" className="w-full ">
+      <Disclosure as="nav" style={{
+          backgroundColor: navColor,
+          height: navSize,
+          transition: "all 1s",
+          position: "fixed",
+          width:'100%',
+          zIndex: 1
+        }}>
         {({ open }) => (
           <>
-            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  ">
+            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
               <div className="relative flex h-16 items-center justify-between">
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                  <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white ">
+                  <Disclosure.Button className="inline-flex  items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white ">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <IoMenu className="block h-6 w-6" aria-hidden="true" />

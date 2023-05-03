@@ -56,11 +56,7 @@ export default function Home({ data }: { data: any }): JSX.Element {
   return (
     <>
       {/* <div className="bg-gradient-to-r from-cyan-100 to-blue-500 "> */}
-      <Navbar />
-
-      {/* <Button onClick={showToast}>Open simple snackbar</Button> */}
-
-      {/* <HomePageTop /> */}
+      
 
       <Header />
 
@@ -93,7 +89,7 @@ export default function Home({ data }: { data: any }): JSX.Element {
         </div>
       </div>
 
-      {/* <Bottom /> */}
+      <Bottom />
       <Footer />
       {/* </div> */}
     </>

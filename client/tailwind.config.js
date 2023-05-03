@@ -11,6 +11,8 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+          'header': "url('../image/pexels-karolina-grabowska-4040573.jpg')",
+          'bottom':"url('../image/pexels-nataliya-vaitkevich-7615577.jpg')"
       },
       container: {
         center: true,
