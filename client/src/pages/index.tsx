@@ -27,6 +27,7 @@ import { nanoid } from "nanoid";
 import { CardSkelton } from "@/components/CardSkelton";
 import useLoader from "@/Hooks/useLoader";
 import { Select } from "@/components/Select";
+import Other from "@/components/other";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;
@@ -56,7 +57,6 @@ export default function Home({ data }: { data: any }): JSX.Element {
   return (
     <>
       {/* <div className="bg-gradient-to-r from-cyan-100 to-blue-500 "> */}
-      <Navbar />
 
       {/* <Button onClick={showToast}>Open simple snackbar</Button> */}
       
@@ -68,7 +68,7 @@ export default function Home({ data }: { data: any }): JSX.Element {
       {/* <HomePageTop /> */}
       <HomePageTop />
 
-      {/* <Select
+      <Select
         items={[
           { value: "6", label: "6" },
           { value: "12", label: "12" },
@@ -91,9 +91,10 @@ export default function Home({ data }: { data: any }): JSX.Element {
               ))
             : Array.from(Array(limit), () => <CardSkelton key={nanoid()} />)}
         </div>
-      </div> */}
+      </div>
 
       <Bottom />
+      <Other/>
       <Footer />
       {/* </div> */}
     </>
