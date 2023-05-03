@@ -59,6 +59,7 @@ export default function Home({ data }: { data: any }): JSX.Element {
       <Navbar />
 
       {/* <Button onClick={showToast}>Open simple snackbar</Button> */}
+      
 
       <Header />
 
@@ -92,7 +93,7 @@ export default function Home({ data }: { data: any }): JSX.Element {
         </div>
       </div> */}
 
-      {/* <Bottom /> */}
+      <Bottom />
       <Footer />
       {/* </div> */}
     </>
