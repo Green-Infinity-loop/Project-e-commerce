@@ -56,15 +56,19 @@ export default function Home({ data }: { data: any }): JSX.Element {
   return (
     <>
       {/* <div className="bg-gradient-to-r from-cyan-100 to-blue-500 "> */}
+      <Navbar />
+
+      {/* <Button onClick={showToast}>Open simple snackbar</Button> */}
       
 
       <Header />
 
       {/* <Button onClick={showModal}>modal</Button> */}
-      {/* <HomeCard /> */}
+      <HomeCard />
       {/* <HomePageTop /> */}
+      <HomePageTop />
 
-      <Select
+      {/* <Select
         items={[
           { value: "6", label: "6" },
           { value: "12", label: "12" },
@@ -87,7 +91,7 @@ export default function Home({ data }: { data: any }): JSX.Element {
               ))
             : Array.from(Array(limit), () => <CardSkelton key={nanoid()} />)}
         </div>
-      </div>
+      </div> */}
 
       <Bottom />
       <Footer />
