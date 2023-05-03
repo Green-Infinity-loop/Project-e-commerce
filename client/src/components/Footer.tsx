@@ -23,7 +23,7 @@ const links = ["Premium Support", "Our Services", "Know Our Team"];
 export default function Footer(): any {
   return (
     <>
-      <footer className="relative z-10 bg-[#181D31] text-white pt-20 pb-10 lg:pt-[120px] lg:pb-20">
+      <footer className="relative z-10 bg-[#BC986A] text-white pt-20 pb-10 lg:pt-[120px] lg:pb-20">
         <div className="container mx-auto ">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
