@@ -60,15 +60,14 @@ export default function Home({ data }: { data: any }): JSX.Element {
 
       {/* <Button onClick={showToast}>Open simple snackbar</Button> */}
 
-      {/* <HomePageTop /> */}
-
       <Header />
 
       {/* <Button onClick={showModal}>modal</Button> */}
-      {/* <HomeCard /> */}
+      <HomeCard />
       {/* <HomePageTop /> */}
+      <HomePageTop />
 
-      <Select
+      {/* <Select
         items={[
           { value: "6", label: "6" },
           { value: "12", label: "12" },
@@ -91,7 +90,7 @@ export default function Home({ data }: { data: any }): JSX.Element {
               ))
             : Array.from(Array(limit), () => <CardSkelton key={nanoid()} />)}
         </div>
-      </div>
+      </div> */}
 
       {/* <Bottom /> */}
       <Footer />
