@@ -1,20 +1,35 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
+import { FiArrowRight } from "react-icons/fi";
+
 export default function Header() {
   return (
-    <div>
+    <div className="h-[800px]  bg-white">
       <Navbar />
-      <div className="grid grid-cols-2 my-9 ">
-        <div>
-          <h1>dsfgv</h1>
+      <div className="grid grid-cols-2 ">
+        <div className="p-64">
+          <h1 className="  text-6xl font-bold m-auto ">
+            Believe in Obatin for Medicine
+          </h1>
+          <p className="my-6">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis
+            ipsa consequatur quas, alias officia harum!
+          </p>
+          <div className="grid grid-cols-2 gap-8">
+            <button className="bg-[#17887a] p-6 rounded-lg text-white ">
+              Set Appointment
+            </button>
+            <button className=" p-6 rounded-lg flex  ">
+              Set Appointment <FiArrowRight className=" w-16 h-6 " />
+            </button>
+          </div>
         </div>
-        <div className="h-[600px]">
-          <img
-            src="https://img.freepik.com/premium-vector/online-consultation-doctor-concept-medical-diagnostics-internet_162329-437.jpg?w=2000"
-            alt="header img"
-            className="p-5 "
-          />
-        </div>
+
+        <img
+          src="https://cdn.dribbble.com/users/1355613/screenshots/6637974/doctor_4x.jpg?compress=1&resize=1600x1200&vertical=top"
+          alt="header img"
+          className="p-5 h-[800px] "
+        />
       </div>
     </div>
   );
