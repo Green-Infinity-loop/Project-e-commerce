@@ -28,6 +28,7 @@ import { CardSkelton } from "@/components/CardSkelton";
 import useLoader from "@/Hooks/useLoader";
 import { Select } from "@/components/Select";
 import Other from "@/components/other";
+import TopBottom from "@/components/TopBottom";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;
@@ -92,7 +93,7 @@ export default function Home({ data }: { data: any }): JSX.Element {
             : Array.from(Array(limit), () => <CardSkelton key={nanoid()} />)}
         </div>
       </div>
-
+      <TopBottom/>
       <Bottom />
       <Other/>
       <Footer />

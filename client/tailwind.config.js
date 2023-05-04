@@ -7,12 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily:{
+        "font": 'Open Sans',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        header: "url('../image/kk.jpg')",
-        bottom: "url('../image/pexels-nataliya-vaitkevich-7615577.jpg')",
+        // header: "url('../image/kk.jpg')",
+        bottom: "url('../image/undraw_doctor_kw-5-l.svg')",
       },
       container: {
         center: true,
@@ -28,6 +31,7 @@ module.exports = {
       colors: {
         main: "#00887A",
       },
+
     },
   },
   plugins: [],
