@@ -95,7 +95,7 @@ export default function Home({ data }: { data: any }): JSX.Element {
       </div> */}
       <TopBottom/>
       <Bottom />
-      <Other/>
+      {/* <Other/> */}
       <Footer />
       {/* </div> */}
     </>
