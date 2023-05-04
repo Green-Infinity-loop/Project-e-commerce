@@ -17,6 +17,7 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  /* background-color: #659dbd; */
+  background-color: #615cbe;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto Slab", serif;
 }
