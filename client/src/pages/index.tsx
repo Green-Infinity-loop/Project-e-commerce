@@ -69,7 +69,7 @@ export default function Home({ data }: { data: any }): JSX.Element {
       {/* <HomePageTop /> */}
       <HomePageTop />
 
-      <Select
+      {/* <Select
         items={[
           { value: "6", label: "6" },
           { value: "12", label: "12" },
@@ -92,7 +92,7 @@ export default function Home({ data }: { data: any }): JSX.Element {
               ))
             : Array.from(Array(limit), () => <CardSkelton key={nanoid()} />)}
         </div>
-      </div>
+      </div> */}
       <TopBottom/>
       <Bottom />
       <Other/>
