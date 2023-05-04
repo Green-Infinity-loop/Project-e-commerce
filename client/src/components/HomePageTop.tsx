@@ -3,40 +3,77 @@ import { text } from "stream/consumers";
 import Card from "./Card";
 import Dashed from "./Dashed";
 
+// export default function HomePageTop() {
+//   const datas = [
+//     {
+//       imgUrl: "icon/darhlaaa.svg",
+//       title: "Дархлаа",
+//       description:
+//         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, itaque?",
+//     },
+//     {
+//       imgUrl: "icon/darhlaaa.svg",
+//       title: "Эм бэлдмэл",
+//       description:
+//         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, itaque?",
+//     },
+//     {
+//       imgUrl: "icon/darhlaaa.svg",
+//       title: "Эм бэлдмэл",
+//       description:
+//         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, itaque?",
+//     },
+//   ];
+// }
 export default function HomePageTop() {
   const datas = [
     {
-      imgUrl: "icon/darhlaa.jpg",
+      imgUrl: "icon/darhlaaa.svg",
       title: "Дархлаа",
+      description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, itaque?",
     },
     {
-      imgUrl: "icon/em.jpg",
+      imgUrl: "icon/darhlaaa.svg",
       title: "Эм бэлдмэл",
+      description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, itaque?",
+    },
+    {
+      imgUrl: "icon/darhlaaa.svg",
+      title: "Эм бэлдмэл",
+      description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, itaque?",
     },
   ];
+
   return (
     <>
-      <div className="  mx-auto ">
-        <div className="grid grid-flow-col gap-4 w-full ">
-          {datas.map((data, index) => {
-            let odd = index === 2;
+      <div className="   mx-auto  h-[80vh]  bg-[#615cbe] py-9">
+        <h1 className="my-8 font-bold text-4xl text-center text-white">
+          Эмийн төрөл
+        </h1>
+        <div className="grid grid-flow-col grid-cols-3 gap-4 container">
+          {datas.map((data) => {
             return (
               <>
-                <div
-                  className={`${
-                    odd && "row-start-1  row-end-4 "
-                  } group relative overflow-hidden duration-500  shadow-2xl`}
-                >
-                  <div className="group relative overflow-hidden duration-500 flex flex-wrap border   m-auto">
+                <div className="group relative">
+                  <div className=" h-96 group duration-500 flex flex-wrap bg-[#c4b5fd] border-t-4 border-[#d946ef] group-hover:bg-white group-hover:translate-y-0 translate-y-4 transform transition duration-300 ease-in-out">
                     <img
                       src={data.imgUrl}
                       alt=" darhlaa bolon em "
-                      className="m-auto group-hover:scale-110 transition duration-300 ease-in-out h-[650px] w-full "
+                      className=" group-hover:scale-110 transition duration-300 ease-in-out  object-cover w-66 m-auto h-60 flex justify-center p-5"
                     />
-                    <div className="z-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2  text-white ">
-                      <div className="h-[400px]   text-white font-bold opacity-75 flex justify-center align-center transform-gpu  p-4 space-y-20  text-6xl group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 pb-10 transform transition duration-300 ease-in-out">
-                        {data.title}
-                      </div>
+                    <div className="text-white font-bold opacity-75 p-5  transform-gpu space-y-6  group-hover:text-slate-900">
+                      <h1 className="text-2xl"> {data.title}</h1>
+                      <p className="text-white-600/25 text-start">
+                        {data.description}
+                      </p>
+                    </div>
+                    <div className=" transition duration-300 ease-in-out cursor-pointer absolute to-transparent  inset-x-0 text-white ">
+                      <button className="text-black rounded-lg my-4 flex justify-center bg-[#d946ef] absolute hidden group-hover:block z-50 -bottom-50 ">
+                        Learn more
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -45,7 +82,6 @@ export default function HomePageTop() {
           })}
         </div>
       </div>
-      
     </>
   );
 }

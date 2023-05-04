@@ -11,7 +11,8 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        header: "url('../image/kk.jpg')",
+        header:
+          "url('https://img.freepik.com/premium-vector/online-consultation-doctor-concept-medical-diagnostics-internet_162329-437.jpg?w=2000')",
         bottom: "url('../image/pexels-nataliya-vaitkevich-7615577.jpg')",
       },
       container: {

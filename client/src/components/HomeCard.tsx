@@ -42,6 +42,10 @@ const datas = [
 export default function HomeCard() {
   return (
     <div className="container  mx-auto py-10">
+      <h1 className="text-3xl font-semibold text-center my-4 ">
+        Hunii dotood gadaad erhten shuude
+      </h1>
+      <div className="border-b-4 border-[#d946ef] my-8"></div>
       <div className="grid grid-cols-9 gap-4  ">
         {datas.map((data, index) => {
           return (

@@ -34,8 +34,6 @@ export function Search() {
   );
 }
 
-
-
 export default function Example() {
   const [search, setSearch] = useState(false);
   const [navSize, setnavSize] = useState("10rem");
@@ -52,14 +50,17 @@ export default function Example() {
   }, []);
   return (
     <>
-      <Disclosure as="nav" style={{
+      <Disclosure
+        as="nav"
+        style={{
           backgroundColor: navColor,
           height: navSize,
           transition: "all 1s",
           position: "fixed",
-          width:'100%',
-          zIndex: 1
-        }}>
+          width: "100%",
+          zIndex: 1,
+        }}
+      >
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -102,18 +103,18 @@ export default function Example() {
                     </div>
                   </div>
                 </div>
-                <div className="absolute inset-y-0 right-0 flex items-center  sm:static sm:inset-auto sm:ml-6 sm:pr-0 ">
+                <div className="absolute inset-y-0 right-0 flex items-center  sm:static sm:inset-auto sm:ml-6 sm:pr-0  ">
                   <button
                     type="button"
                     className=" p-1 text-[#181D31]  focus:outline-none focus:ring-2   focus:ring-offset-2 "
                   >
-                    <span className="sr-only ">Search</span>
+                    <span className="sr-only">Search</span>
                     <div>{search && <Search />}</div>
                     <IoSearchSharp
                       onClick={() => {
                         setSearch(!search);
                       }}
-                      className="h-5 w-9 text-xs"
+                      className="h-5 w-9 text-xs ml-9 "
                       aria-hidden="true"
                     />
                   </button>
@@ -125,12 +126,12 @@ export default function Example() {
                       <span className="sr-only ">View notifications</span>
 
                       <IoNotificationsOutline
-                        className="h-5 w-5"
+                        className="h-5 w-5 mx-2"
                         aria-hidden="true"
                       />
                     </button>
                   </Link>
-                  <div className="px-6">
+                  <div className=" mb-6 ml-3">
                     <Sidebar />
                   </div>
                 </div>
