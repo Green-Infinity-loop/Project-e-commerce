@@ -1,7 +1,7 @@
-export default function Other(){
-    return (
-        <>
-        <div className="bg-[#FBEEC1]">
+export default function Other() {
+  return (
+    <>
+      <div className="bg-black">
         <h1 className=" text-center py-4 mt-9 text-black font-bold text-4xl">
           Бусад хэсэг
         </h1>
@@ -26,6 +26,6 @@ export default function Other(){
           </div>
         </div>
       </div>
-      </>
-    )
+    </>
+  );
 }

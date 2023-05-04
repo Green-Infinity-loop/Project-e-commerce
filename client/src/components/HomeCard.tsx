@@ -46,7 +46,7 @@ export default function HomeCard() {
         {datas.map((data, index) => {
           return (
             <>
-              <div className="xl:w-36 xl:h-36 lg:w-20 lg:h-20 md:w-16 md:h-16 sm:w-16 sm:h-16 cl:w-12 cl:h-12 bg-[#8D8741]  group relative overflow-hidden duration-500 flex flex-wrap border rounded-full p-3 m-auto">
+              <div className="xl:w-36 xl:h-36 lg:w-20 lg:h-20 md:w-16 md:h-16 sm:w-16 sm:h-16 cl:w-12 cl:h-12   group relative overflow-hidden duration-500 flex flex-wrap border rounded-full p-3 m-auto">
                 <img
                   src={data.imgUrl}
                   alt=""
