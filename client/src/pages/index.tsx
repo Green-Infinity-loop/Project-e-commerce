@@ -29,6 +29,7 @@ import useLoader from "@/Hooks/useLoader";
 import { Select } from "@/components/Select";
 import Other from "@/components/other";
 import TopBottom from "@/components/TopBottom";
+import Nothing from "@/components/Nothing";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;
@@ -66,6 +67,7 @@ export default function Home({ data }: { data: any }): JSX.Element {
 
       {/* <Button onClick={showModal}>modal</Button> */}
       <HomeCard />
+      <Nothing/>
       {/* <HomePageTop /> */}
       <HomePageTop />
 
