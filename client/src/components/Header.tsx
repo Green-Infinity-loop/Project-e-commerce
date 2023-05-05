@@ -4,7 +4,7 @@ import { FiArrowRight } from "react-icons/fi";
 
 export default function Header() {
   return (
-    <div className="h-[800px]  bg-white">
+    <div className="h-[80vh]  bg-white">
       <Navbar />
       <div className="grid grid-cols-2 ">
         <div className="p-64">
