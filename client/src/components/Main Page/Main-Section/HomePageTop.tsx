@@ -63,11 +63,7 @@ export default function HomePageTop() {
               <>
                 <div className="group relative p-10 ">
                   <div className=" h-[300px]  group flex flex-wrap bg-[white] bg-opacity-10 group-hover:h-[370px] transition-all group-hover:duration-1000 border-t-4 border-[#d946ef] hover:border-none rounded-lg group-hover:bg-white transition duration-1000 hover:duration-1000">
-                    <img
-                      src={data.imgUrl}
-                      alt=" darhlaa bolon em "
-                      className=" group-hover:scale-110 transition duration-300 ease-in-out  object-cover w-66 m-auto h-60 flex justify-center p-5"
-                    />
+                    
                    <div className="p-3 mx-10 ">
                       <Image src={data.imgUrl} width={70} height={70}></Image>
                    </div>
