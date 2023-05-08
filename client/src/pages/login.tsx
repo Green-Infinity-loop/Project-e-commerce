@@ -1,10 +1,12 @@
 import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
+import img from "../image/login/login.svg"
 
 import { useRouter } from "next/router";
 
 import { ToastContainer, toast } from "react-toastify";
+import Image from "next/image";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -31,10 +33,15 @@ export default function Login() {
       });
   };
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
-      <div className="w-full p-6 bg-white rounded-md shadow-md lg:max-w-xl">
-        <h1 className="text-3xl font-bold text-center text-gray-700">Logo</h1>
-        <form className="mt-6"
+    <div className="grid grid-cols-2">
+      <div className="flex h-screen w-full bg-white justify-center items-center">
+        <img className="mx-auto ml-[100px]" src='https://i.pinimg.com/originals/ee/84/e6/ee84e6c4f71311cac5b0624e31ea9b51.gif' />
+      </div>
+      <div className="bg-white">
+        <div className="relative  flex flex-col items-center justify-center min-h-screen overflow-hidden">
+      <div className="w-full p-6 bg-[white] rounded-md shadow-md lg:max-w-xl">
+        <h1 className="text-3xl font-bold text-center text-white">Logo</h1>
+        <form className="mt-6 text-white"
         onSubmit={(e) => {
                 e.preventDefault();
                 submitSingIn();
@@ -43,7 +50,7 @@ export default function Login() {
           <div className="mb-4">
             <label
               htmlFor="email"
-              className="block text-sm font-semibold text-gray-800"
+              className="block text-sm font-semibold text-white"
             >
               Email
             </label>
@@ -60,7 +67,7 @@ export default function Login() {
           <div className="mb-2">
             <label
               htmlFor="password"
-              className="block text-sm font-semibold text-gray-800"
+              className="block text-sm font-semibold text-white"
             >
               Password
             </label>
@@ -76,19 +83,19 @@ export default function Login() {
           </div>
           <Link
             href="/forget"
-            className="text-xs text-blue-600 hover:underline"
+            className="text-xs text-white hover:underline"
           >
             Forget Password?
           </Link>
           <div className="mt-2">
-            <button type="submit" className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+            <button type="submit" className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#ea4c89] rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
               Sign In
             </button>
           </div>
         </form>
 
         <div className="relative flex items-center justify-center w-full mt-6 border border-t">
-          <div className="absolute px-5 bg-white">Or</div>
+          <div className="absolute px-5 rounded-xl bg-white">Or</div>
         </div>
         <div className="flex mt-4 gap-x-2">
           <button
@@ -117,7 +124,7 @@ viewBox="0 0 48 48">
           </button>
         </div>
 
-        <p className="mt-4 text-sm text-center text-gray-700">
+        <p className="mt-4 text-sm text-center text-white">
           Don't have an account?{" "}
           <Link
             href="/signup"
@@ -126,6 +133,8 @@ viewBox="0 0 48 48">
             Sign up
           </Link>
         </p>
+      </div>
+    </div>
       </div>
     </div>
   );

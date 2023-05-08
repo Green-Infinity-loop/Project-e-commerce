@@ -41,9 +41,9 @@ const datas = [
 
 export default function HomeCard() {
   return (
-    <div className="container  mx-auto py-10">
+    <div className="container h-[50vh] mx-auto py-10">
       <h1 className="text-5xl font-semibold text-center my-4 text-white ">
-        Hunii dotood gadaad erhten shuude
+        Shop by Concern
       </h1>
       <div className="border-b-4 border-[#d946ef] my-8"></div>
       <div className="grid grid-cols-9 gap-4  ">

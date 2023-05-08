@@ -39,7 +39,7 @@ export default function Example() {
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("transparent");
   const listenScrollEvent = () => {
-    window.scrollY > 10 ? setnavColor("#BC986A") : setnavColor("transparent");
+    window.scrollY > 10 ? setnavColor("#615cbe") : setnavColor("transparent");
     window.scrollY > 10 ? setnavSize("5rem") : setnavSize("10rem");
   };
   useEffect(() => {
