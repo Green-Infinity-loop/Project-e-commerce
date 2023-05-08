@@ -1,8 +1,17 @@
+<<<<<<< HEAD
+import Range from "@/components/Range";
+import SearchPageCard from "@/components/SearchPageCard";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Search from "@/components/Search";
+import Sort from "@/components/Sort";
+=======
 import Range from "@/components/Search Page/Range";
 import SearchPageCard from "@/components/Search Page/SearchPageCard";
 import Navbar from "@/components/Main Page/Navbar/Navbar";
 import Footer from "@/components/Main Page/Footer/Footer";
 import Search from "@/components/Search Page/Search";
+>>>>>>> a286ab48cc6e67f86e5c14a0cabd42e24c3c3707
 
 export default function searchPage() {
   return (
@@ -18,7 +27,10 @@ export default function searchPage() {
               <Range />
             </div>
             <div className="col-span-2 text-black">
-              <SearchPageCard />
+              <div>
+                <Sort />
+                <SearchPageCard />
+              </div>
             </div>
           </div>
         </div>
