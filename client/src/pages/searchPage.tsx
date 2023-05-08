@@ -1,8 +1,8 @@
-import Range from "@/components/Range";
-import SearchPageCard from "@/components/SearchPageCard";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Search from "@/components/Search";
+import Range from "@/components/Search Page/Range";
+import SearchPageCard from "@/components/Search Page/SearchPageCard";
+import Navbar from "@/components/Main Page/Navbar/Navbar";
+import Footer from "@/components/Main Page/Footer/Footer";
+import Search from "@/components/Search Page/Search";
 
 export default function searchPage() {
   return (

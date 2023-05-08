@@ -1,9 +1,9 @@
 import { dividerClasses } from "@mui/material"
 import Image from "next/image"
-import agar from "../image/emiinsanlogo/agarfarm.png"
-import azi from "../image/emiinsanlogo/azifarmlogo.png"
-import hurmen from "../image/emiinsanlogo/hurmenlogo.webp"
-import monos from "../image/emiinsanlogo/monoslogo.png"
+import agar from "../../../image/emiinsanlogo/agarfarm.png"
+import azi from "../../../image/emiinsanlogo/azifarmlogo.png"
+import hurmen from "../../../image/emiinsanlogo/hurmenlogo.webp"
+import monos from "../../../image/emiinsanlogo/monoslogo.png"
 
 
 export default function TopBottom(){

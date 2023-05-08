@@ -1,10 +1,10 @@
-import Navbar from "@/components/Navbar";
-import { Card } from "@/components/Card";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/Main Page/Navbar/Navbar";
+import { Card } from "@/components/Main Page/Card/Card";
+import Footer from "@/components/Main Page/Footer/Footer";
 
-import Bottom from "@/components/Bottom";
+import Bottom from "@/components/Main Page/Main-Bottom/Bottom";
 import { useQuery } from "@/Hooks/useQuery";
-import HomePageTop from "@/components/HomePageTop";
+import HomePageTop from "@/components/Main Page/Main-Section/HomePageTop";
 import LogIn from "@/pages/login";
 
 import * as React from "react";
@@ -13,10 +13,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { useModal } from "@/Hooks/useModal";
-import HomeCard from "@/components/HomeCard";
-import Header from "@/components/Header";
+import HomeCard from "@/components/Main Page/Main-Header/HomeCard";
+import Header from "@/components/Main Page/Main-Header/Header";
 import SignUp from "@/pages/signup";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/Main Page/Navbar/Sidebar";
 import { useToast } from "@/Hooks/useToast";
 import { Alert, AlertTitle, IconButton, Snackbar, Stack } from "@mui/material";
 import { GetServerSidePropsContext } from "next";
@@ -24,12 +24,12 @@ import axios from "axios";
 import { IProduct } from "@/interfaces/product";
 import { useRouter } from "next/router";
 import { nanoid } from "nanoid";
-import { CardSkelton } from "@/components/CardSkelton";
+import { CardSkelton } from "@/components/Main Page/Card/CardSkelton";
 import useLoader from "@/Hooks/useLoader";
-import { Select } from "@/components/Select";
+import { Select } from "@/components/Main Page/Card/Select";
 import Other from "@/components/other";
-import TopBottom from "@/components/TopBottom";
-import Nothing from "@/components/Nothing";
+import TopBottom from "@/components/Main Page/Main-Bottom/TopBottom";
+import Nothing from "@/components/Main Page/Main-Section/Nothing";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;
