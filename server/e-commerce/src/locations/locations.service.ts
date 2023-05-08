@@ -29,7 +29,7 @@ export class LocationsService {
             type: 'Point',
             coordinates: [parseFloat(long), parseFloat(lat)],
           },
-          $minDistance: 1000,
+          $minDistance: 0,
           $maxDistance: 5000,
         },
       },
