@@ -3,6 +3,7 @@ import SearchPageCard from "@/components/SearchPageCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Search from "@/components/Search";
+import Sort from "@/components/Sort";
 
 export default function searchPage() {
   return (
@@ -18,7 +19,10 @@ export default function searchPage() {
               <Range />
             </div>
             <div className="col-span-2 text-black">
-              <SearchPageCard />
+              <div>
+                <Sort />
+                <SearchPageCard />
+              </div>
             </div>
           </div>
         </div>
