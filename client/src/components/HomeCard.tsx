@@ -49,6 +49,13 @@ export default function HomeCard() {
         <div className="border-b-4 border-[#d946ef] my-8"></div>
         <div className="grid grid-cols-9 gap-4  ">
           {/* {datas.map((data, index) => {
+    <div className="container h-[50vh] mx-auto py-10">
+      <h1 className="text-5xl font-semibold text-center my-4 text-white ">
+        Shop by Concern
+      </h1>
+      <div className="border-b-4 border-[#d946ef] my-8"></div>
+      <div className="grid grid-cols-9 gap-4  ">
+        {datas.map((data, index) => {
           return (
           <>
             <div className="xl:w-36 xl:h-36 lg:w-20 lg:h-20 md:w-16 md:h-16 sm:w-16 sm:h-16 cl:w-12 cl:h-12   group relative overflow-hidden duration-500 flex flex-wrap border rounded-full p-3 m-auto">

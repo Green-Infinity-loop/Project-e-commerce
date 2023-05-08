@@ -16,7 +16,6 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         header:
           "url('https://img.freepik.com/premium-vector/online-consultation-doctor-concept-medical-diagnostics-internet_162329-437.jpg?w=2000')",
-        bottom: "url('../image/pexels-nataliya-vaitkevich-7615577.jpg')",
         // header: "url('../image/kk.jpg')",
         bottom: "url('../image/undraw_doctor_kw-5-l.svg')",
       },
