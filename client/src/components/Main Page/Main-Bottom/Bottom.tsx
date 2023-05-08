@@ -1,5 +1,5 @@
 import Image from "next/image";
-import bottom from "../image/undraw_doctor_kw-5-l.svg"
+import bottom from "../../../image/undraw_doctor_kw-5-l.svg"
 
 
 export default function Bottom(){

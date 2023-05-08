@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Main Page/Navbar/Navbar";
 import { FiArrowRight } from "react-icons/fi";
 
 export default function Header() {
