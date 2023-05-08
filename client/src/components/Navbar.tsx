@@ -5,6 +5,7 @@ import {
   IoSearchSharp,
   IoMenu,
   IoLogoElectron,
+  IoCloseCircleOutline,
 } from "react-icons/io5";
 import Link from "next/link";
 import Sidebar from "./Sidebar";
@@ -18,20 +19,6 @@ const navigation = [
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
-}
-
-export function Search() {
-  return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-70 z-40 w-full">
-      <form>
-        <input
-          type="text"
-          placeholder="Search"
-          className=" px-4 py-2 rounded-lg bg-gray-600 h-12 w-60 "
-        />
-      </form>
-    </div>
-  );
 }
 
 export default function Example() {
@@ -48,6 +35,32 @@ export default function Example() {
       window.removeEventListener("scroll", listenScrollEvent);
     };
   }, []);
+
+  function Search() {
+    return (
+      <div className="relative">
+        <div className="  fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-70 z-40 w-full">
+          <form>
+            <input
+              type="text"
+              placeholder="Search"
+              className=" px-4 py-2 rounded-lg bg-gray-600 h-12 w-60 "
+            />
+          </form>
+
+          <button className="absolute top-0 right-0 ">
+            <IoCloseCircleOutline
+              className="w-10 h-10 text-white"
+              onClick={() => {
+                setSearch(!search);
+              }}
+            />
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <Disclosure
@@ -104,17 +117,14 @@ export default function Example() {
                   </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center  sm:static sm:inset-auto sm:ml-6 sm:pr-0  ">
-                  <button
-                    type="button"
-                    className=" p-1 text-[#181D31]  focus:outline-none focus:ring-2   focus:ring-offset-2 "
-                  >
+                  <button type="button" className=" p-1 text-[#181D31]  ">
                     <span className="sr-only">Search</span>
                     <div>{search && <Search />}</div>
                     <IoSearchSharp
                       onClick={() => {
                         setSearch(!search);
                       }}
-                      className="h-5 w-9 text-xs ml-9 "
+                      className="h-5 w-5 text-xs ml-9 "
                       aria-hidden="true"
                     />
                   </button>
