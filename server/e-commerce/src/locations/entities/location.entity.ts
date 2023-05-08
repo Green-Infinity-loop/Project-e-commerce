@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
-@Schema({ collection: 'locations' })
-export class Crawler {
+Schema({ collection: 'locations' });
+export class Locations {
   @Prop()
   name: string;
 
@@ -13,7 +13,7 @@ export class Crawler {
   working_hours_end: string;
   @Prop()
   address: string;
-  @Prop({ type: Object })
+  @Prop({ type: Object, index: '2dsphere' })
   location: {
     type: 'Point';
     coordinates: [number, number];
@@ -28,4 +28,4 @@ export class Crawler {
   phone: string;
 }
 
-export const crawlerSchema = SchemaFactory.createForClass(Crawler);
+export const LocationSchema = SchemaFactory.createForClass(Locations);
