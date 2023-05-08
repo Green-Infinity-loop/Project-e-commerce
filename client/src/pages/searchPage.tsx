@@ -4,7 +4,7 @@ import SearchPageCard from "@/components/SearchPageCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Search from "@/components/Search";
-import Sort from "@/components/Sort";
+import Sort from "@/components/Search Page/Sort";
 =======
 import Range from "@/components/Search Page/Range";
 import SearchPageCard from "@/components/Search Page/SearchPageCard";
