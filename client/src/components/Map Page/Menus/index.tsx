@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import MenuItem from "../MenuItem";
 
 function Menus({ menus, nearestLocation }: any) {
-  //   const [nearest, setNearest] = useState(false);
+    // const [nearest, setNearest] = useState(false);
   return (
-    <div className="h-[50vh] basis-[400px] overflow-y-scroll border my-[50px]">
+    <div className="h-[60vh] basis-[400px] overflow-y-scroll border rounded-[10px] bg-white">
       {menus.map((menu: any, idx: number) => {
         return (
           <MenuItem
