@@ -46,7 +46,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 }
 
 export default function Home({ data }: { data: any }): JSX.Element {
-  const showModal = useModal();
+  // const showModal = useModal();
   const showToast = useToast();
   const products = data;
   const router = useRouter();

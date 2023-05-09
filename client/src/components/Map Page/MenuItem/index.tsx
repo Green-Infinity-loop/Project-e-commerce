@@ -9,7 +9,7 @@ function MenuItem({ item }: any) {
     st = "";
   }
   return (
-    <div className={"p-2 border-b-[1px] border-lime-950 " + st}>
+    <div className={"p-2 border-b-[1px] border-lime-950 " + st + 'border'}>
       <h2 className={"text-lg " + styles.itemText}>{item.name}</h2>
       <p>Хаяг: {item.address}</p>
       <p>Онгойх цаг: {item.working_hours_start}</p>
