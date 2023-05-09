@@ -67,7 +67,7 @@ function Maps(){
     }
 
     return !isLoading && typeof window !== "undefined" ? (
-        <div className="flex relative">
+        <div className=" container">
             <Menus menus={locations} nearestLocation={nearestLocation}/>
                 <Map width="400" height="400" center={currentLoc} zoom={12}>
                     {({ TileLayer, Marker, Popup, Polyline}:any)=>(

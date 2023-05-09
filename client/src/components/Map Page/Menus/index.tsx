@@ -4,7 +4,7 @@ import MenuItem from "../MenuItem";
 function Menus({ menus, nearestLocation }: any) {
   //   const [nearest, setNearest] = useState(false);
   return (
-    <div className="h-[100vh] basis-[400px] overflow-y-scroll">
+    <div className="h-[50vh] basis-[400px] overflow-y-scroll border my-[50px]">
       {menus.map((menu: any, idx: number) => {
         return (
           <MenuItem
