@@ -88,38 +88,39 @@ export default function BasicSelect() {
   };
 
   return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={age}
-          label="Age"
-          onChange={handleChange}
-        >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
-    </Box>
+    <>
+      <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={age}
+            label="Age"
+            // onClick={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+
+      {/* <Box>
+        {datas.map((sort) => {
+          return (
+            <>
+              <div className="relative h-56 overflow-hidden rounded-lg md:h-12">
+                <div className=" duration-700 ease-in-out" data-carousel-item>
+                  <button className=" duration-700 ease-in-out border p-3 my-3 rounded-lg mx-1 ">
+                    {sort.name}
+                  </button>
+                </div>
+              </div>
+            </>
+          );
+        })}
+      </Box> */}
+    </>
   );
-}
-{
-  /* <Box>
-  {datas.map((sort) => {
-    return (
-      <>
-        <div className="relative h-56 overflow-hidden rounded-lg md:h-12">
-          <div className=" duration-700 ease-in-out" data-carousel-item>
-            <button className=" duration-700 ease-in-out border p-3 my-3 rounded-lg mx-1 ">
-              {sort.name}
-            </button>
-          </div>
-        </div>
-      </>
-    );
-  })}
-</Box> */
 }
