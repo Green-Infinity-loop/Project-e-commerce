@@ -67,6 +67,10 @@ export default function HomePageTop() {
                     <div className="p-3 mx-10 ">
                       <Image src={data.imgUrl} width={70} height={70} />
                     </div>
+                    
+                   <div className="p-3 mx-10 ">
+                      <Image src={data.imgUrl} width={70} height={70}></Image>
+                   </div>
                     <div className="text-white font-bold opacity-75 p-5  space-y-6 group-hover:text-slate-900 duration-1000">
                       <h1 className="text-xl px-4"> {data.title}</h1>
                       <p className="text-white-600/25 px-4 text-start">
