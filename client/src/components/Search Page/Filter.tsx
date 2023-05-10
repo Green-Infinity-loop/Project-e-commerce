@@ -33,15 +33,11 @@ export default function ControlledAccordions() {
   return (
     <>
       <Angilal />
-      <div className="my-6 shadow-sm shadow-[#17887A]">
+      <div className="my-6 shadow-sm shadow-[#615cbe]">
         <div>
           <h1 className="my-2 mx-4 py-2 ">Range </h1>
           <hr />
-          <input
-            type="range"
-            className="transparent h-1.5 w-full cursor-pointer appearance-none rounded-lg border-transparent bg-neutral-200"
-            id="customRange1"
-          />
+          <Tworange />
 
           <div className="grid grid-cols-2 gap-2 ">
             <button className="border rounded p-2 w-28 mt-3  hover:bg-cyan-500 m-auto">
@@ -56,11 +52,13 @@ export default function ControlledAccordions() {
         <Accordion
           expanded={expanded === "panel1"}
           onChange={handleChange("panel1")}
-          sx={{ mt: 4 }}>
+          sx={{ mt: 4 }}
+        >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1bh-content"
-            id="panel1bh-header">
+            id="panel1bh-header"
+          >
             <Typography sx={{ width: "33%", flexShrink: 0 }}>Хэлбэр</Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -89,11 +87,13 @@ export default function ControlledAccordions() {
         </Accordion>
         <Accordion
           expanded={expanded === "panel2"}
-          onChange={handleChange("panel2")}>
+          onChange={handleChange("panel2")}
+        >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2bh-content"
-            id="panel2bh-header">
+            id="panel2bh-header"
+          >
             <Typography sx={{ width: "77%", flexShrink: 0 }}>
               Xайрцаг дахь тоо ширхэг
             </Typography>
@@ -127,11 +127,13 @@ export default function ControlledAccordions() {
         </Accordion>
         <Accordion
           expanded={expanded === "panel3"}
-          onChange={handleChange("panel3")}>
+          onChange={handleChange("panel3")}
+        >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel3bh-content"
-            id="panel3bh-header">
+            id="panel3bh-header"
+          >
             <Typography sx={{ width: "33%", flexShrink: 0 }}>Шахмал</Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -160,11 +162,13 @@ export default function ControlledAccordions() {
         </Accordion>
         <Accordion
           expanded={expanded === "panel4"}
-          onChange={handleChange("panel4")}>
+          onChange={handleChange("panel4")}
+        >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel4bh-content"
-            id="panel4bh-header">
+            id="panel4bh-header"
+          >
             <Typography sx={{ width: "77%", flexShrink: 0 }}>
               Олон улсын нэршил
             </Typography>
@@ -193,7 +197,6 @@ export default function ControlledAccordions() {
             })}
           </AccordionDetails>
         </Accordion>
-        <Tworange />
       </div>
     </>
   );

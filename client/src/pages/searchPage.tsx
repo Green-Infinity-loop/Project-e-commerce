@@ -30,19 +30,21 @@ export default function searchPage() {
   return (
     <>
       <Navbar />
-      <div className="my-10 ">
-        <div className="container">
-          <div className="text-black">
-            <Search />
-          </div>
-          <div className="grid grid-cols-3 gap-4">
+      <div className="bg-gray-100 ">
+        <div className="my-0 ">
+          <div className="container">
             <div className="text-black">
-              <Filter />
+              <Search />
             </div>
-            <div className="col-span-2 text-black">
-              <div>
-                <Sort />
-                <SearchPageCard />
+            <div className="grid grid-cols-3 gap-4">
+              <div className="text-black">
+                <Filter />
+              </div>
+              <div className="col-span-2 text-black">
+                <div>
+                  <Sort />
+                  <SearchPageCard />
+                </div>
               </div>
             </div>
           </div>
