@@ -52,13 +52,11 @@ export default function ControlledAccordions() {
         <Accordion
           expanded={expanded === "panel1"}
           onChange={handleChange("panel1")}
-          sx={{ mt: 4 }}
-        >
+          sx={{ mt: 4 }}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1bh-content"
-            id="panel1bh-header"
-          >
+            id="panel1bh-header">
             <Typography sx={{ width: "33%", flexShrink: 0 }}>Хэлбэр</Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -66,16 +64,18 @@ export default function ControlledAccordions() {
               return (
                 <>
                   <div className="grid grid-cols-8 border p-3 my-4 rounded-xl">
-                    <input
-                      id="default-checkbox"
-                      type="checkbox"
-                      value=""
-                      className=" col-start-1 col-end-2 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
+                    <div className="col-start-1 col-end-6">
+                      <input
+                        id="default-checkbox"
+                        type="checkbox"
+                        value=""
+                        className=" col-start-1 col-end-2 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      />
 
-                    <label className="text-left col-start-3 col-end-6 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300  ">
-                      {helber.title}
-                    </label>
+                      <label className="text-left col-start-3 col-end-6 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300  ">
+                        {helber.title}
+                      </label>
+                    </div>
                     <p className="col-start-7 col-end-8 text-right">
                       {helber.count}
                     </p>
@@ -87,13 +87,11 @@ export default function ControlledAccordions() {
         </Accordion>
         <Accordion
           expanded={expanded === "panel2"}
-          onChange={handleChange("panel2")}
-        >
+          onChange={handleChange("panel2")}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2bh-content"
-            id="panel2bh-header"
-          >
+            id="panel2bh-header">
             <Typography sx={{ width: "77%", flexShrink: 0 }}>
               Xайрцаг дахь тоо ширхэг
             </Typography>
@@ -127,13 +125,11 @@ export default function ControlledAccordions() {
         </Accordion>
         <Accordion
           expanded={expanded === "panel3"}
-          onChange={handleChange("panel3")}
-        >
+          onChange={handleChange("panel3")}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel3bh-content"
-            id="panel3bh-header"
-          >
+            id="panel3bh-header">
             <Typography sx={{ width: "33%", flexShrink: 0 }}>Шахмал</Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -141,16 +137,18 @@ export default function ControlledAccordions() {
               return (
                 <>
                   <div className="grid grid-cols-8 border p-3 my-4 rounded-xl">
-                    <input
-                      id="default-checkbox"
-                      type="checkbox"
-                      value=""
-                      className=" col-start-1 col-end-2 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
+                    <div className="col-start-1 col-end-6">
+                      <input
+                        id="default-checkbox"
+                        type="checkbox"
+                        value=""
+                        className=" col-start-1 col-end-2 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      />
 
-                    <label className="text-left col-start-3 col-end-6 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300  ">
-                      {helber.title}
-                    </label>
+                      <label className="text-left col-start-3 col-end-6 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300  ">
+                        {helber.title}
+                      </label>
+                    </div>
                     <p className="col-start-7 col-end-8 text-right">
                       {helber.count}
                     </p>
@@ -162,13 +160,11 @@ export default function ControlledAccordions() {
         </Accordion>
         <Accordion
           expanded={expanded === "panel4"}
-          onChange={handleChange("panel4")}
-        >
+          onChange={handleChange("panel4")}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel4bh-content"
-            id="panel4bh-header"
-          >
+            id="panel4bh-header">
             <Typography sx={{ width: "77%", flexShrink: 0 }}>
               Олон улсын нэршил
             </Typography>
@@ -178,16 +174,18 @@ export default function ControlledAccordions() {
               return (
                 <>
                   <div className="grid grid-cols-8 border p-3 my-4 rounded-xl">
-                    <input
-                      id="default-checkbox"
-                      type="checkbox"
-                      value=""
-                      className=" col-start-1 col-end-2 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
+                    <div className="col-start-1 col-end-6">
+                      <input
+                        id="default-checkbox"
+                        type="checkbox"
+                        value=""
+                        className=" col-start-1 col-end-2 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      />
 
-                    <label className="text-left col-start-3 col-end-6 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300  ">
-                      {helber.title}
-                    </label>
+                      <label className="text-left col-start-3 col-end-6 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300  ">
+                        {helber.title}
+                      </label>
+                    </div>
                     <p className="col-start-7 col-end-8 text-right">
                       {helber.count}
                     </p>

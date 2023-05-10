@@ -77,10 +77,12 @@ const products = [
 
 export default function SearchPageCard() {
   return (
-    <div className="container">
+    <div className="container bg-white">
       {products.map((product) => {
         return (
-          <div key={product.name} className="text-black w-100% border-4 ">
+          <div
+            key={product.name}
+            className="text-black w-100% border-4 bg-white ">
             <div className="grid grid-cols-3">
               <div className="bg-[#c7d2fe] mx-auto w-80 center">
                 <Image
@@ -104,10 +106,10 @@ export default function SearchPageCard() {
                 <div className="m-7">
                   Бүтээгдэхүүний мэдээлэл : {product.info}
                 </div>
-                <button className="border-2 rounded-lg m-7 border-pink-200 hover:bg-[#fb7185]">
+                <button className="border-2 rounded-lg m-7 border-pink-200 hover:bg-[#ea4c89]">
                   <div className="m-4">Сагсанд нэмэх</div>
                 </button>
-                <button className="border-2 border-pink-200 rounded-lg hover:bg-[#fb7185]">
+                <button className="border-2 border-pink-200 rounded-lg hover:bg-[#ea4c89]">
                   <div className="m-4">Байршил</div>
                 </button>
               </div>

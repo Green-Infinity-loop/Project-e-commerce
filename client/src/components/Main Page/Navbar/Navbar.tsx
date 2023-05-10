@@ -72,8 +72,7 @@ export default function Example() {
           position: "fixed",
           width: "100%",
           zIndex: 1,
-        }}
-      >
+        }}>
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-2  sm:px-6 lg:px-8">
@@ -93,7 +92,7 @@ export default function Example() {
                     <IoLogoElectron className="block h-8 w-auto lg:hidden" />
                     <IoLogoElectron className="hidden h-8 w-auto lg:block" />
                     <h1 className="px-4 text-bold text-xl font-black">
-                      MedZone
+                      <a href="/">MedZone</a>
                     </h1>
                   </div>
                   <div className="hidden sm:ml-6 sm:block absolute right-24 font-light text-xs  place-content-center ">
@@ -108,8 +107,7 @@ export default function Example() {
                               : " text-[#181D31] hover:bg-[#ffff] hover:rounded-xl",
                             " px-3 py-2 text-sm font-medium"
                           )}
-                          aria-current={item.current ? "page" : undefined}
-                        >
+                          aria-current={item.current ? "page" : undefined}>
                           {item.name}
                         </a>
                       ))}
@@ -158,8 +156,7 @@ export default function Example() {
                         : "text-gray-300 hover:bg-gray-700 hover:text-white",
                       "block rounded-md px-3 py-2 text-base font-medium"
                     )}
-                    aria-current={item.current ? "page" : undefined}
-                  >
+                    aria-current={item.current ? "page" : undefined}>
                     {item.name}
                   </Disclosure.Button>
                 ))}
