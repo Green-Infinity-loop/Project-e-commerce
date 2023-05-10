@@ -1,12 +1,5 @@
 import Sort from "@/components/Search Page/Sort";
-
-import Range from "@/components/Range";
-import SearchPageCard from "@/components/SearchPageCard";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Search from "@/components/Search";
-import Sort from "@/components/Sort";
-import Range from "@/components/Search Page/Range";
+import Filter from "@/components/Search Page/Filter";
 import SearchPageCard from "@/components/Search Page/SearchPageCard";
 import Navbar from "@/components/Main Page/Navbar/Navbar";
 import Footer from "@/components/Main Page/Footer/Footer";
@@ -44,7 +37,7 @@ export default function searchPage() {
           </div>
           <div className="grid grid-cols-3 gap-4">
             <div className="text-black">
-              <Range />
+              <Filter />
             </div>
             <div className="col-span-2 text-black">
               <div>
