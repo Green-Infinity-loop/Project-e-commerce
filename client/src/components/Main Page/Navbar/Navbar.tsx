@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Disclosure } from "@headlessui/react";
 import {
   IoNotificationsOutline,
@@ -9,6 +9,14 @@ import {
 } from "react-icons/io5";
 import Link from "next/link";
 import Sidebar from "./Sidebar";
+
+interface NavbarItem {}
+
+interface NavbarProps {
+  items?: NavbarItem[];
+  cartCount?: number;
+  currentUser?: any;
+}
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -21,7 +29,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+
+
+export const Navbar:FC<NavbarProps> = ({
+  items,
+  currentUser,
+  cartCount = 0,
+}) => {
   const [search, setSearch] = useState(false);
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("transparent");
@@ -126,7 +140,7 @@ export default function Example() {
                       aria-hidden="true"
                     />
                   </button>
-                  <Link href="/k">
+                  <Link href="/basket">
                     <button type="button" className=" p-1 text-[#181D31]   ">
                       <span className="sr-only ">View notifications</span>
 
@@ -136,6 +150,11 @@ export default function Example() {
                       />
                     </button>
                   </Link>
+                  {cartCount > 0 && (
+                <span className="absolute -right-3 -top-3 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-500 rounded-full">
+                  {cartCount}
+                </span>
+              )}
                   <div className=" mb-6 ml-3">
                     <Sidebar />
                   </div>
