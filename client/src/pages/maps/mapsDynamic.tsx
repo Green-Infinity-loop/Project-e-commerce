@@ -4,6 +4,7 @@ import axios from "axios";
 import Menus from "@/components/Map Page/Menus";
 import Map from "@/components/Map Page/Map/DynamicMap";
 import Image from "next/image";
+import "./maps.module.css"
 
 import Spinner from "@/components/Spinner";
 
@@ -67,15 +68,10 @@ function Maps(){
     }
 
     return !isLoading && typeof window !== "undefined" ? (
-        <div className="bg-gray-800">
+        <div className="bg-gray-200 p-10">
             <div className="container">
-                <div className="w-full rounded-[10px] bg-white h-[30vh]">
-                    
-                    Hello
-                </div>
                 <div className="flex grid grid-cols-6 gap-4">
                     <div className="col-span-2">
-
                         <Menus menus={locations} nearestLocation={nearestLocation}/>
                     </div>
                     <div className="col-span-4">

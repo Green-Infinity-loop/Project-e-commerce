@@ -1,12 +1,7 @@
-
-
-
 import Sort from "@/components/Sort";
 import Range from "@/components/Search Page/Range";
-
 import Sort from "@/components/Search Page/Sort";
 import Filter from "@/components/Search Page/Filter";
-
 import SearchPageCard from "@/components/Search Page/SearchPageCard";
 import Navbar from "@/components/Main Page/Navbar/Navbar";
 import Footer from "@/components/Main Page/Footer/Footer";
