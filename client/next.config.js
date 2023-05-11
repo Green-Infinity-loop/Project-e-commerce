@@ -27,8 +27,13 @@ const nextConfig = {
         hostname: "back.emonos.mn",
         pathname: "/**",
       },
-    ]
-  }
-}
+      {
+        protocol: "https",
+        hostname: "cdn.dribbble.com",
+        pathname: "/**",
+      },
+    ],
+  },
+};
 
 module.exports = nextConfig;

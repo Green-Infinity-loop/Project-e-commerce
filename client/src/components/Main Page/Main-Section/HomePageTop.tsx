@@ -64,13 +64,13 @@ export default function HomePageTop() {
                       alt=" darhlaa bolon em "
                       className=" group-hover:scale-110 transition duration-300 ease-in-out  object-cover w-66 m-auto h-60 flex justify-center p-5"
                     /> */}
-                    <div className="p-3 mx-10 ">
+                    {/* <div className="p-3 mx-10 ">
                       <Image src={data.imgUrl} width={70} height={70} />
-                    </div>
-                    
-                   <div className="p-3 mx-10 ">
+                    </div> */}
+
+                    <div className="p-3 mx-10 ">
                       <Image src={data.imgUrl} width={70} height={70}></Image>
-                   </div>
+                    </div>
                     <div className="text-white font-bold opacity-75 p-5  space-y-6 group-hover:text-slate-900 duration-1000">
                       <h1 className="text-xl px-4"> {data.title}</h1>
                       <p className="text-white-600/25 px-4 text-start">
