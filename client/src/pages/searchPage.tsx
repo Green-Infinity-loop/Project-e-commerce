@@ -1,3 +1,5 @@
+import Sort from "@/components/Sort";
+import Range from "@/components/Search Page/Range";
 import Sort from "@/components/Search Page/Sort";
 import Filter from "@/components/Search Page/Filter";
 import SearchPageCard from "@/components/Search Page/SearchPageCard";
@@ -30,9 +32,18 @@ export default function searchPage() {
   return (
     <>
       <Navbar />
+
+      <div className="my-10">
+        <div className="container">
+          <div className="text-black">
+            <Search />
+          </div>
+          <div className="grid grid-cols-3 gap-4">
+
       <div className="bg-gray-100 ">
         <div className="my-0 ">
           <div className="container">
+
             <div className="text-black">
               <Search />
             </div>
