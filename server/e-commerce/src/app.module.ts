@@ -11,6 +11,7 @@ import { AuthModule } from './auth/auth.module';
 import { BrandsModule } from './brands/brands.module';
 import { CrawlersModule } from './crawlers/crawlers.module';
 import { LocationsModule } from './locations/locations.module';
+import { BasketsModule } from './baskets/baskets.module';
 
 const MONGO = process.env.MONGODB_URL;
 console.log(MONGO);
@@ -26,6 +27,7 @@ console.log(MONGO);
     BrandsModule,
     CrawlersModule,
     LocationsModule,
+    BasketsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
