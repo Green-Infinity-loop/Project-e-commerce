@@ -12,8 +12,8 @@ export default function App({ Component, pageProps }: AppProps) {
       // <ModalProvider>
         <RecoilRoot>
           <Layout>
-          <Component {...pageProps} />
-        </Layout>
+            <Component {...pageProps} />
+          </Layout>
         </RecoilRoot>
       // </ModalProvider>
     // </ToastProvider>
