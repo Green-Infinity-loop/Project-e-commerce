@@ -142,12 +142,16 @@ export const Navbar:FC<NavbarProps> = ({
                   </button>
                   <Link href="/basket">
                     <button type="button" className=" p-1 text-[#181D31]   ">
-                      <span className="sr-only ">View notifications</span>
-
                       <IoNotificationsOutline
                         className="h-5 w-5 mx-2"
                         aria-hidden="true"
                       />
+                      {cartCount > 0 && (
+                       <span className="sr-only ">
+                          {cartCount}
+                        </span>
+                      )}
+                      
                     </button>
                   </Link>
                   {cartCount > 0 && (
