@@ -1,7 +1,6 @@
 
 import Sort from "@/components/Search Page/Sort";
 import Filter from "@/components/Search Page/Filter";
-import {SearchPageCard} from "@/components/Search Page/SearchPageCard";
 import {Navbar} from "@/components/Main Page/Navbar/Navbar";
 import Footer from "@/components/Main Page/Footer/Footer";
 import Search from "@/components/Search Page/Search";
@@ -10,20 +9,22 @@ import { Select } from "@mui/material";
 import { useRouter } from "next/router";
 import { useQuery } from "@/Hooks/useQuery";
 import { GetServerSidePropsContext } from "next";
+import { SearchPageCard } from "@/components/Search Page/SearchPageCard";
 
-// export async function getServerSideProps(context: GetServerSidePropsContext) {
-//   const { query } = context;
-//   const { ordering = "", limit = 24 } = query;
-//   const response = await axios.get(
-//     `http://localhost:8080/api/movies?limit=${limit}&ordering=${ordering}`
-//   );
-//   const { data } = response;
-//   return {
-//     props: { data },
-//   };
-// }
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const { query } = context;
+  const { ordering = "", limit = 24 } = query;
+  const response = await axios.get(
+    `http://localhost:8080/products?limit=${limit}`
+  );
+  const { data } = response;
+  return {
+    props: { data },
+  };
+}
 
-export default function searchPage() {
+export default function searchPage({data}) {
+  const products = data
   // const router = useRouter();
   // const { query } = router;
   // const { addQuery } = useQuery();
@@ -44,11 +45,10 @@ export default function searchPage() {
                   <div className="col-span-2 text-black">
                     <div>
                       <Sort />
-                      <SearchPageCard />
+                      <SearchPageCard products={products}/>
                     </div>
                   </div>
                 {/* </div> */}
-            
         </div>
         </div>
         </div>
