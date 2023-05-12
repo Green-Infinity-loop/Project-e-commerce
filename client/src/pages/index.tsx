@@ -1,4 +1,4 @@
-import Navbar from "@/components/Main Page/Navbar/Navbar";
+import {Navbar} from "@/components/Main Page/Navbar/Navbar";
 import { Card } from "@/components/Main Page/Card/Card";
 import Footer from "@/components/Main Page/Footer/Footer";
 
