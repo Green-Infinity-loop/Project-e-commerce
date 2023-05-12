@@ -9,7 +9,16 @@ import { Select } from "@mui/material";
 import { useRouter } from "next/router";
 import { useQuery } from "@/Hooks/useQuery";
 import { GetServerSidePropsContext } from "next";
-import { SearchPageCard } from "@/components/Search Page/SearchPageCard";
+import ProductCard from "@/components/ProductCard/ProductCard";
+import { nanoid } from "nanoid";
+import { IProduct } from "@/interfaces/product";
+import Link from "next/link";
+import { Button } from "@/components/atoms/Button";
+import { useState } from "react";
+import { useBasket } from "@/Hooks/useBasket";
+import { toast } from "react-toastify";
+
+
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;
@@ -23,8 +32,21 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   };
 }
 
+
 export default function searchPage({data}) {
-  const products = data
+  const [quantity, setQuantity] = useState(1);
+    const { addToBasket } = useBasket();
+    const updateProductCount = (count: number) => {
+    if (count < 0 && quantity === 1) {
+      toast.warning("1 ээс бага бараа сагслах боломжгүй");
+      return;
+    }
+    if (count > 0 && quantity === 10) {
+      toast.warning("10 аас их бараа сагслах боломжгүй");
+      return;
+    }
+    setQuantity(quantity + count);
+  };
   // const router = useRouter();
   // const { query } = router;
   // const { addQuery } = useQuery();
@@ -45,10 +67,24 @@ export default function searchPage({data}) {
                   <div className="col-span-2 text-black">
                     <div>
                       <Sort />
-                      <SearchPageCard products={products}/>
+                      <div>
+                        <ul className="m-5 grid grid-cols-4 gap-2">
+                          {data.map((products)=>(
+                            <li key={nanoid()} >
+                              <ProductCard product={products}/>
+                              <div className="flex">
+                                <Button onClick={()=> addToBasket(products._id, quantity)} className="border-2 rounded-lg m-7 border-pink-200 hover:bg-[#ea4c89]">
+                                    <div className="m-4">Сагсанд нэмэх</div>
+                                </Button>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 {/* </div> */}
+            
         </div>
         </div>
         </div>
