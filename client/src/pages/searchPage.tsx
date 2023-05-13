@@ -1,8 +1,7 @@
 
 import Sort from "@/components/Search Page/Sort";
 import Filter from "@/components/Search Page/Filter";
-import {Navbar} from "@/components/Main Page/Navbar/Navbar";
-import Footer from "@/components/Main Page/Footer/Footer";
+import Footer from "@/components/atoms/Footer";
 import Search from "@/components/Search Page/Search";
 import axios from "axios";
 import { Select } from "@mui/material";
@@ -17,6 +16,8 @@ import { Button } from "@/components/atoms/Button";
 import { useState } from "react";
 import { useBasket } from "@/Hooks/useBasket";
 import { toast } from "react-toastify";
+import { Navbar } from "@/components/Main Page/Navbar/Navbar";
+import {Layout} from "./layout";
 
 
 
@@ -47,13 +48,17 @@ export default function searchPage({data}) {
     }
     setQuantity(quantity + count);
   };
+
+  function myFunction(){
+    updateProductCount(1);
+    addToBasket(data._id, quantity)
+  }
   // const router = useRouter();
   // const { query } = router;
   // const { addQuery } = useQuery();
   // const { ordering = "", limit = 24 } = query;
   return (
-    <>
-      <Navbar />
+    <Layout>
       <div className="my-10">
         <div className="container">
                 <div className="text-black">
@@ -73,8 +78,15 @@ export default function searchPage({data}) {
                             <li key={nanoid()} >
                               <ProductCard product={products}/>
                               <div className="flex">
-                                <Button onClick={()=> addToBasket(products._id, quantity)} className="border-2 rounded-lg m-7 border-pink-200 hover:bg-[#ea4c89]">
+                                <Button onClick={()=> myFunction()} className="border-2 rounded-lg m-7 border-pink-200 hover:bg-[#ea4c89]">
                                     <div className="m-4">Сагсанд нэмэх</div>
+                                    <input
+                    type="number"
+                    name="quantity"
+                    value={quantity}
+                    readOnly={true}
+                    className="text-center text-gray-700 w-16 rounded-md px-2 py-1 mx-2 border-gray-300 border focus:outline-none focus:ring-2  focus:ring-gray-500 focus:ring-offset-2"
+                  />
                                 </Button>
                               </div>
                             </li>
@@ -105,6 +117,7 @@ export default function searchPage({data}) {
         itemLabel={"label"}
       /> */}
       {/* <Footer/> */}
-    </>
+
+    </Layout>
   );
 }
