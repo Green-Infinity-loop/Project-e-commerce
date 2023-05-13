@@ -5,7 +5,6 @@ import { Navbar } from "../Navbar/Navbar";
 export default function Header() {
   return (
     <div className="h-[80vh]  bg-white">
-      <Navbar />
       <div className="grid grid-cols-2 ">
         <div className="p-64">
           <h1 className="  text-6xl font-bold m-auto ">

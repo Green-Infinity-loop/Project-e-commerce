@@ -1,5 +1,4 @@
 
-import { Navbar } from "@/components/Main Page/Navbar/Navbar";
 import { useBasket } from "@/Hooks/useBasket";
 import { IProduct } from "@/interfaces/product";
 import { Button } from "@mui/material";
@@ -9,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC, useState } from "react";
 import { toast } from "react-toastify";
-
+import { Layout } from "../layout";
 interface ProductViewProps{
     product:IProduct;
 }
@@ -18,9 +17,8 @@ const ProductView: FC<ProductViewProps> = ({product}) =>{
     
 
     return (
-        <>
-            <Navbar/>
-                <div className="container">
+        <Layout title={product.title}>
+            <div className="container">
                     <Image
                     src={`https://back.emonos.mn/${product.image}`}
                     alt={product.title}
@@ -34,8 +32,8 @@ const ProductView: FC<ProductViewProps> = ({product}) =>{
                         MAP
                     </Button>
                     </Link>
-                </div>    
-        </>
+                </div>  
+        </Layout>
     )
 }
 
