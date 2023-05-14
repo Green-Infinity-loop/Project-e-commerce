@@ -23,7 +23,7 @@ import {Layout} from "./layout";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;
-  const { ordering = "", limit = 24 } = query;
+  const { ordering = "", limit = 36 } = query;
   const response = await axios.get(
     `http://localhost:8080/products?limit=${limit}`
   );
@@ -35,24 +35,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
 
 export default function searchPage({data}) {
-  const [quantity, setQuantity] = useState(1);
-    const { addToBasket } = useBasket();
-    const updateProductCount = (count: number) => {
-    if (count < 0 && quantity === 1) {
-      toast.warning("1 ээс бага бараа сагслах боломжгүй");
-      return;
-    }
-    if (count > 0 && quantity === 10) {
-      toast.warning("10 аас их бараа сагслах боломжгүй");
-      return;
-    }
-    setQuantity(quantity + count);
-  };
-
-  function myFunction(){
-    updateProductCount(1);
-    addToBasket(data._id, quantity)
-  }
+  
   // const router = useRouter();
   // const { query } = router;
   // const { addQuery } = useQuery();
@@ -78,16 +61,7 @@ export default function searchPage({data}) {
                             <li key={nanoid()} >
                               <ProductCard product={products}/>
                               <div className="flex">
-                                <Button onClick={()=> myFunction()} className="border-2 rounded-lg m-7 border-pink-200 hover:bg-[#ea4c89]">
-                                    <div className="m-4">Сагсанд нэмэх</div>
-                                    <input
-                    type="number"
-                    name="quantity"
-                    value={quantity}
-                    readOnly={true}
-                    className="text-center text-gray-700 w-16 rounded-md px-2 py-1 mx-2 border-gray-300 border focus:outline-none focus:ring-2  focus:ring-gray-500 focus:ring-offset-2"
-                  />
-                                </Button>
+                                
                               </div>
                             </li>
                           ))}

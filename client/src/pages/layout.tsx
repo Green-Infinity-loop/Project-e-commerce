@@ -25,7 +25,7 @@ export const Layout:FC<LayoutProps> = ({
     useEffect(()=>{
         if(!currentUser){
             axios.get('http://localhost:8080/currentUser',{
-                headers: { Authorization: "Bearer" + localStorage.getItem("token")},
+                headers: { Authorization: "Bearer " + localStorage.getItem("token")},
             })
             .then((res)=>{
                 setCurrentUser(res.data)
@@ -39,7 +39,7 @@ export const Layout:FC<LayoutProps> = ({
     useEffect(()=>{
         if(currentUser){
             axios.get("http://localhost:8080/basket/main",{
-                headers:{Authorization: "Bearer" + localStorage.getItem("token")},
+                headers:{Authorization: "Bearer " + localStorage.getItem("token")},
             })
             .then((res)=>{
                 setBasket(res.data);
@@ -54,10 +54,12 @@ export const Layout:FC<LayoutProps> = ({
             </Head>
             <div>
             <Navbar
-          currentUser={currentUser}
-          cartCount={basket?.items?.length || 0}
-        />
-                {children}
+                currentUser={currentUser}
+                cartCount={basket?.items?.length || 0}
+            />
+                <div>
+                    {children}
+                </div>
                 {loading}
                 <Footer/>
             </div>
