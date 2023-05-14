@@ -87,7 +87,7 @@ export const Navbar:FC<NavbarProps> = ({
           transition: "all 1s",
           position: "fixed",
           width: "100%",
-          // zIndex: 0,
+          zIndex: 1,
         }}>
         {({ open }) => (
           <>
