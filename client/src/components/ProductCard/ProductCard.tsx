@@ -12,12 +12,14 @@ const ProductCard:FC<CardProps> = ({product}) => {
     const { image, title, price } = product
     const placeholder = 'https://via.placeholder.com/160x230'
 return (
-   <div>
+   <div className={styles.main}>
        
             <div className={styles.card}>
-                <Link href={`/products/${product._id}`}>
-                    <Image src={`https://back.emonos.mn/${image}` || placeholder} alt={title} style={{width: '100%'}} width={200} height={200} />
-                </Link>
+                <div >
+                    <Link href={`/products/${product._id}`}>
+                        <Image className={styles.cardImage} src={`https://back.emonos.mn/${image}` || placeholder} alt={title} style={{width: '100%'}} width={500} height={500} />
+                    </Link>
+                </div>
                 
                 <div className={styles.container}>
                     <Link href={`/products/${product._id}`}>
