@@ -62,9 +62,12 @@ export default function Home({ data }: { data: any }): JSX.Element {
       {/* <div className="bg-gradient-to-r from-cyan-100 to-blue-500 "> */}
 
       {/* <Button onClick={showToast}>Open simple snackbar</Button> */}
-      {/* <Header /> */}
+      <Header />
 
       {/* <Button onClick={showModal}>modal</Button> */}
+      <HomeCard />
+      <HomePageTop />
+      <Nothing />
       {/* <HomeCard /> */}
       {/* <Nothing/> */}
       {/* <HomePageTop /> */}
