@@ -10,8 +10,6 @@ import {
 import { CurrentUser } from 'src/auth/current-user.decorator';
 import { User } from 'src/users/entities/user.entity';
 import { BasketsService } from './baskets.service';
-import { CreateBasketDto } from './dto/create-basket.dto';
-import { UpdateBasketDto } from './dto/update-basket.dto';
 
 @Controller('baskets')
 export class BasketsController {
