@@ -33,7 +33,8 @@ export class ProductsService {
       .find(condition)
       .skip(Number(skip))
       .limit(Number(limit))
-      .populate('brand');
+      .populate('brand')
+      .exec();
   }
 
   async findOne(_id: string) {
