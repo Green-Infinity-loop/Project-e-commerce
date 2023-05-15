@@ -29,7 +29,7 @@ export class BasketsService {
 
   async addProduct(userId: string, productId: string, quantity: number) {
     const mainBasket = await this.findMain(userId);
-    const product = this.productService;
+    const product = this.productService.findOne(productId)
     if (!product) {
       throw new BadRequestException('Product not found');
     }

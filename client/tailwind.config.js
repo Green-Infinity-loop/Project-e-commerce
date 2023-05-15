@@ -7,8 +7,8 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily:{
-        "font": 'Open Sans',
+      fontFamily: {
+        font: "Open Sans",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -18,6 +18,7 @@ module.exports = {
           "url('https://img.freepik.com/premium-vector/online-consultation-doctor-concept-medical-diagnostics-internet_162329-437.jpg?w=2000')",
         // header: "url('../image/kk.jpg')",
         bottom: "url('../image/undraw_doctor_kw-5-l.svg')",
+        zurag: "url('../image/vacc.png')",
       },
       container: {
         center: true,
@@ -33,7 +34,6 @@ module.exports = {
       colors: {
         main: "#00887A",
       },
-
     },
   },
   plugins: [],

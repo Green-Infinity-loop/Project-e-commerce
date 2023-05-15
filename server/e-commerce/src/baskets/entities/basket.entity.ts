@@ -6,7 +6,6 @@ export class BaskteItem {
   productId: string;
   quantity: number;
 }
-
 Schema({ timestamps: true });
 export class Basket {
   @Prop({ default: () => nanoid() })
@@ -35,3 +34,10 @@ BaskterSchema.virtual('user', {
   foreignField: '_id',
   justOne: true,
 });
+
+// BaskterSchema.virtual('product', {
+//   ref: 'Product',
+//   localField: 'items',
+//   foreignField: '_id',
+//   justOne: true,
+// });

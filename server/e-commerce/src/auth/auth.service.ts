@@ -44,7 +44,7 @@ export class AuthService {
     const matchingPassword = await bcrypt.compare(password, user.password);
     if (!matchingPassword)
       throw new HttpException('Password not matching', HttpStatus.BAD_REQUEST);
-    // const payload = { sub: user };
+    const payload = { sub: user };
 
     const token = this.jwtService.sign({ sub: user });
     console.log('token', token);
