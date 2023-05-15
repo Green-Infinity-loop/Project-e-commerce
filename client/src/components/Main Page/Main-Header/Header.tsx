@@ -1,5 +1,7 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
+import Image from "next/image";
+import zurag from "../../../image/vacc.png";
 import { Navbar } from "../Navbar/Navbar";
 
 export default function Header() {
@@ -24,11 +26,7 @@ export default function Header() {
           </div>
         </div>
 
-        <img
-          src="https://cdn.dribbble.com/users/1355613/screenshots/6637974/doctor_4x.jpg?compress=1&resize=1600x1200&vertical=top"
-          alt="header img"
-          className="p-5 h-[800px] "
-        />
+        <Image src={zurag} alt="header img" className="p-5 h-[800px] " />
       </div>
     </div>
   );
