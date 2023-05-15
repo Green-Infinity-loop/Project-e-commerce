@@ -30,6 +30,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "cdn.dribbble.com",
+        hostname: "www.pexels.com",
         pathname: "/**",
       },
     ],

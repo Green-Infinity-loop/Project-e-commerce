@@ -7,6 +7,7 @@ import Image from "next/image";
 import "./maps.module.css"
 
 import Spinner from "@/components/Spinner";
+import { Navbar } from "@/components/Main Page/Navbar/Navbar";
 
 function Maps(){
     const [currentLoc, setCurrentLoc] =useState([45.2332, 107.4345]);
@@ -68,6 +69,7 @@ function Maps(){
     }
 
     return !isLoading && typeof window !== "undefined" ? (
+        
         <div className="bg-gray-200 p-10">
             <div className="container">
                 <div className="flex grid grid-cols-6 gap-4">

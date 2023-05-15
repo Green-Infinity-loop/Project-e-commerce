@@ -40,11 +40,11 @@ export default function HomePageTop() {
       title: "Send In a Prescription",
       description: "Create an account to transfer your existing prescription",
     },
-    {
-      imgUrl: bottle,
-      title: "Receive Your Delivery",
-      description: "Create an account to transfer your existing prescription",
-    },
+    // {
+    //   imgUrl: bottle,
+    //   title: "Receive Your Delivery",
+    //   description: "Create an account to transfer your existing prescription",
+    // },
   ];
 
   return (
@@ -88,6 +88,11 @@ export default function HomePageTop() {
             );
           })}
         </div>
+        <Image
+          src={"https://www.pexels.com/photo/pills-on-blue-background-7956965/"}
+          width={100}
+          height={100}
+        ></Image>
       </div>
     </>
   );
