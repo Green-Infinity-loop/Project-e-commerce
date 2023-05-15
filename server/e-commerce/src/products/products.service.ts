@@ -36,8 +36,12 @@ export class ProductsService {
       .populate('brand');
   }
 
+  async findAllProduct(ids:[string]) {
+    console.log("ids",ids)
+    return this.productModel.find({_id:{$in:ids}})
+  }
+
   async findOne(_id: string) {
-    console.log('find id', _id)
     console.log(this.productModel.find({_id:_id}));
     const product =  await this.productModel.findOne({_id: new mongoose.Types.ObjectId(_id)});
     return product

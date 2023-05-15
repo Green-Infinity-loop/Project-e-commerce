@@ -14,8 +14,7 @@ export const useBasket = () =>{
     }, [basket]);
 
     const {currentUser} = useCurrentUser();
-
-    const addToBasket = async (productId:string, quantity:number) =>{
+    const addToBasket = async (productId:string, quantity:number,title:string, price:number,image:string ) =>{
         if(quantity > 10){
             toast.warn("Та 10 аас дээш бараа сагслаж болохгүй");
             return;
@@ -24,12 +23,12 @@ export const useBasket = () =>{
             toast.warn("Та дор хаяж 1 бараа сагслах ёстой");
             return;
         }
-        const basket = await updateBasket(productId, quantity);
+        const basket = await updateBasket(productId, quantity,title, price,image);
         setBasket(basket);
         toast.success("Барааг амжилттай сагсаллаа")
     }
 
-    const updateBasket = async (productId:string, quantity:number) =>{
+    const updateBasket = async (productId:string, quantity:number, title:string, price:number,image:string) =>{
         if(!currentUser){
             if(!basket){
                 console.log("basket is empty so craeted");

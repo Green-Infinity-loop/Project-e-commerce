@@ -1,20 +1,21 @@
 // import axios from "axios";
 // import Link from "next/link";
+// import { useRouter } from "next/router";
 // import { useState } from "react";
 // import img from "../image/login/login.png"
+// import { ToastContainer, toast } from "react-toastify";
+// import Image from "next/image";
+// import { useCurrentUser } from "@/Hooks/useCurrentUser";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { toast } from "react-toastify";
-
-// import { useRouter } from "next/router";
-
-// import { ToastContainer, toast } from "react-toastify";
-// import Image from "next/image";
+import Link from "next/link";
 
 // export default function Login() {
 //   const [email, setEmail] = useState("");
 //   const [password, setPassword] = useState("");
+//   const { currentUser, setCurrentUser} =useCurrentUser()
 
 //   const router = useRouter();
 
@@ -25,8 +26,7 @@ import { toast } from "react-toastify";
 //       .then((data) => {
 //         if (status !== 201) {
 //         } else {
-//           console.log(data);
-          
+//            toast.success("Амжилттай нэвтэрлээ!");
 //           localStorage.setItem("token", data.data.token);
 //           router.push("/");
 //         }
@@ -146,6 +146,7 @@ import { toast } from "react-toastify";
 //       </div>
 //     </div>
 //       </div>
+//       <ToastContainer/>
 //     </div>
 //   );
 // }
@@ -155,6 +156,7 @@ import { toast } from "react-toastify";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const router = useRouter();
+  let status = 201
   const loginOnSubmit = async (e: any) => {
     e.preventDefault();
     axios
@@ -166,9 +168,15 @@ const LoginPage = () => {
         axios
           .post("http://localhost:8080/otp/signin/verify", { email, otp })
           .then((res) => {
-            localStorage.setItem("token", res.data);
-            toast.success("Амжилттай нэвтэрлээ!");
-            router.replace("/");
+        if(res.status===status){
+          
+                      localStorage.setItem("token", res.data);
+                      console.log("resDta",res);
+
+                      toast.success("Амжилттай нэвтэрлээ!");
+
+                      router.replace("/");
+        }
           });
       });
   };

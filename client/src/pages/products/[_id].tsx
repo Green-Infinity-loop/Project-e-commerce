@@ -29,10 +29,10 @@ const ProductView: FC<ProductViewProps> = ({product}) =>{
     setQuantity(quantity + count);
   };
 
-  function myFunction(){
-    updateProductCount(1);
-    addToBasket(data._id, quantity)
-  }
+  // function myFunction(){
+  //   updateProductCount(1);
+  //   addToBasket(data._id, quantity)
+  // }
 
     return (
         <Layout title={product.title}>
@@ -93,7 +93,7 @@ const ProductView: FC<ProductViewProps> = ({product}) =>{
                   </button>
                 </div>
               </div>
-              <Button onClick={() => addToBasket(product._id, quantity)}>
+              <Button onClick={() => addToBasket(product._id, quantity, product.title, product.price, product.image  )}>
                 Add to Cart
               </Button>
             </div>

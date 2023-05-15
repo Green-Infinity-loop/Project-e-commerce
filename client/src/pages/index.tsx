@@ -68,6 +68,10 @@ export default function Home({ data }: { data: any }): JSX.Element {
       <HomeCard />
       <HomePageTop />
       <Nothing />
+      {/* <HomeCard /> */}
+      {/* <Nothing/> */}
+      {/* <HomePageTop /> */}
+      {/* <HomePageTop /> */}
 
       {/* <Select
         items={[

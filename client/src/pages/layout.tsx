@@ -28,6 +28,7 @@ export const Layout:FC<LayoutProps> = ({
                 headers: { Authorization: "Bearer " + localStorage.getItem("token")},
             })
             .then((res)=>{
+                console.log("dtaa",res.data);
                 setCurrentUser(res.data)
             })
             .catch((error)=>{
@@ -61,7 +62,7 @@ export const Layout:FC<LayoutProps> = ({
                     {children}
                 </div>
                 {loading}
-                <Footer/>
+            <Footer/>
             </div>
         </>
     )

@@ -93,6 +93,16 @@ export default function HomePageTop() {
             Shop now
           </button>
         </div>
+        <Image
+          src={
+            "https://www.pexels.com/photo/pills-on-blue-background-7956965/"
+          }
+          width={100}
+          height={100}></Image>
+          src={"https://www.pexels.com/photo/pills-on-blue-background-7956965/"}
+          width={100}
+          height={100}
+        ></Image>
       </div>
     </>
   );

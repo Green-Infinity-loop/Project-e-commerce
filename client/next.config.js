@@ -29,6 +29,14 @@ const nextConfig = {
       },
       {
         protocol: "https",
+<<<<<<< HEAD
+        hostname: "www.pexels.com",
+        pathname: "/**",
+      },
+    ]
+  }
+}
+=======
         hostname: "cdn.dribbble.com",
         hostname: "www.pexels.com",
         pathname: "/**",
@@ -41,5 +49,6 @@ const nextConfig = {
     ],
   },
 };
+>>>>>>> 07dc1e744b006eb28d712c2bf546173cc779ece8
 
 module.exports = nextConfig;
