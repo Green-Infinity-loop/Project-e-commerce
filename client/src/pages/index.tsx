@@ -67,7 +67,7 @@ export default function Home({ data }: { data: any }): JSX.Element {
       {/* <Button onClick={showModal}>modal</Button> */}
       {/* <HomeCard /> */}
       {/* <Nothing/> */}
-      <HomePageTop />
+      {/* <HomePageTop /> */}
       {/* <HomePageTop /> */}
 
       {/* <Select
