@@ -1,4 +1,3 @@
-
 import { Card } from "@/components/Card/Card";
 import Footer from "@/components/atoms/Footer";
 
@@ -68,9 +67,9 @@ export default function Home({ data }: { data: any }): JSX.Element {
       {/* <Button onClick={showModal}>modal</Button> */}
       {/* <HomeCard /> */}
       {/* <Nothing/> */}
+      <HomePageTop />
       {/* <HomePageTop /> */}
-      {/* <HomePageTop /> */}
-      
+
       {/* <Select
         items={[
           { value: "6", label: "6" },
