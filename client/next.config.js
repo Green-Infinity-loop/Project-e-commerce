@@ -27,8 +27,13 @@ const nextConfig = {
         hostname: "back.emonos.mn",
         pathname: "/**",
       },
-    ]
-  }
-}
+      {
+        protocol: "https",
+        hostname: "www.pexels.com",
+        pathname: "/**",
+      },
+    ],
+  },
+};
 
 module.exports = nextConfig;
