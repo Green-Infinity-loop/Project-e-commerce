@@ -44,9 +44,10 @@ export class AuthService {
     const matchingPassword = await bcrypt.compare(password, user.password);
     if (!matchingPassword)
       throw new HttpException('Password not matching', HttpStatus.BAD_REQUEST);
-    // const payload = { sub: user };
+    const payload = { sub: user };
+    console.log(payload);
 
-    const token = this.jwtService.sign({ sub: user });
+    const token = this.jwtService.sign(payload);
     console.log('token', token);
     return token;
   }
@@ -88,6 +89,8 @@ export class AuthService {
     if (!user) user = await this.usersService.create({ email });
     this.removeOTP(token);
     const payload = { sub: user };
+    console.log('payload', payload);
+
     return this.jwtService.sign(payload);
   }
   isOTPExpired(otp: Otp): boolean {

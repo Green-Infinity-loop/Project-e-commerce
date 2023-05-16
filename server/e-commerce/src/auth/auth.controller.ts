@@ -40,7 +40,7 @@ export class AuthController {
     return this.authService.verifyOTP(checkOTPDto);
   }
   @Post('/me')
-  currentUser(@Headers('authorization') authorization: string) {
+  currentUser(@Headers('Authorization') authorization: string) {
     return this.authService.getCurrentUserFromToken(authorization);
   }
 }
