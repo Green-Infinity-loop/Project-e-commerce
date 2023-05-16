@@ -56,4 +56,12 @@ const nextConfig = {
   },
 };
 
+        hostname: "www.pexels.com",
+        pathname: "/**",
+      },
+    ]
+  }
+}
+
+
 module.exports = nextConfig;
