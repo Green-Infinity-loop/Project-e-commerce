@@ -1,6 +1,5 @@
-import Navbar from "@/components/Main Page/Navbar/Navbar";
-import { Card } from "@/components/Main Page/Card/Card";
-import Footer from "@/components/Main Page/Footer/Footer";
+import { Card } from "@/components/Card/Card";
+import Footer from "@/components/atoms/Footer";
 
 import Bottom from "@/components/Main Page/Main-Bottom/Bottom";
 import { useQuery } from "@/Hooks/useQuery";
@@ -24,12 +23,14 @@ import axios from "axios";
 import { IProduct } from "@/interfaces/product";
 import { useRouter } from "next/router";
 import { nanoid } from "nanoid";
-import { CardSkelton } from "@/components/Main Page/Card/CardSkelton";
+import { CardSkelton } from "@/components/ProductCard/CardSkelton";
 import useLoader from "@/Hooks/useLoader";
-import { Select } from "@/components/Main Page/Card/Select";
+import { Select } from "@/components/ProductCard/Select";
 import Other from "@/components/other";
 import TopBottom from "@/components/Main Page/Main-Bottom/TopBottom";
 import Nothing from "@/components/Main Page/Main-Section/Nothing";
+import ProductCard from "@/components/ProductCard/ProductCard";
+import { Layout } from "./layout";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;
@@ -57,19 +58,17 @@ export default function Home({ data }: { data: any }): JSX.Element {
 
   console.log("products:", products);
   return (
-    <>
+    <Layout>
       {/* <div className="bg-gradient-to-r from-cyan-100 to-blue-500 "> */}
 
       {/* <Button onClick={showToast}>Open simple snackbar</Button> */}
-      
-
-      <Header />
+      {/* <Header /> */}
 
       {/* <Button onClick={showModal}>modal</Button> */}
-      <HomeCard />
-      <Nothing/>
-      {/* <HomePageTop /> */}
+      {/* <HomeCard /> */}
+      {/* <Nothing/> */}
       <HomePageTop />
+      {/* <HomePageTop /> */}
 
       {/* <Select
         items={[
@@ -95,11 +94,10 @@ export default function Home({ data }: { data: any }): JSX.Element {
             : Array.from(Array(limit), () => <CardSkelton key={nanoid()} />)}
         </div>
       </div> */}
-      <TopBottom/>
-      <Bottom />
+      {/* <TopBottom/> */}
+      {/* <Bottom /> */}
       {/* <Other/> */}
-      <Footer />
       {/* </div> */}
-    </>
+    </Layout>
   );
 }

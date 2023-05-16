@@ -33,7 +33,7 @@ export default function SignUp() {
   return (
     <div className="grid relative grid-cols-4 bg-gray-900">
       <div className=" flex flex-col items-center justify-center min-h-screen overflow-hidden">
-      <div className="w-[450px] absolute left-[450px] p-6 bg-gray-700 bg-opacity-70 rounded-2xl  shadow-md lg:max-w-xl">
+      <div className="w-[450px] absolute left-[450px] p-4 bg-gray-700 bg-opacity-70 rounded-2xl  shadow-md lg:max-w-xl">
         <h1 className="text-3xl font-bold text-[#ea4c89]">Registration Form</h1>
         <form
           className="mt-6"

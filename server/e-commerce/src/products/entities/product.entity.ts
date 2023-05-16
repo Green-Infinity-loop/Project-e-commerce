@@ -5,8 +5,8 @@ import { Brand } from 'src/brands/entities/brand.entity';
 
 @Schema()
 export class Product {
-  @Prop({ default: () => nanoid(), type: String })
-  _id: string;
+  // @Prop({ default: () => nanoid(), type: String })
+  // _id: string;
 
   @Prop({ required: true })
   title: string;

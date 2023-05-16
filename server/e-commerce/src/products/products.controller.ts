@@ -40,10 +40,18 @@ export class ProductsController {
     return await this.productsService.findAllCOunt();
   }
 
-  @Get()
-  @Put(':_id')
-  findOne(@Param('_id') _id: string) {
-    return this.productsService.findOne(_id);
+  // @Get(':_id')
+  // async findOneById(
+  //   @Param('_id') _id:string
+  // ) {
+  //   return await this.productsService.findOne(_id);
+  // }
+
+
+  @Get(':_id')
+  async findOne(@Param('_id') _id: string) {
+    console.log('id maani', _id)
+    return await this.productsService.findOne(_id);
   }
 
   @Patch(':_id')
