@@ -88,8 +88,8 @@ const datas = [
 export default function App() {
   return (
     <>
-      <div className="h-[50vh] p-9 bg-[#615cbe]">
-        <h1 className="text-5xl font-semibold text-center my-4 text-white  my-12 mb-16 border-b-4 border-[#ea4c89] pb-9">
+      <div className="h-[50vh] p-9 ">
+        <h1 className="text-5xl font-semibold text-center my-4   my-12 mb-16 border-b-4 border-[#ea4c89] pb-9">
           Hunii dotood gadaad erhten shuude
         </h1>
         <Swiper
@@ -104,7 +104,7 @@ export default function App() {
             },
           }}
           autoplay={{
-            delay: 2500,
+            delay: 4000,
             disableOnInteraction: false,
           }}
           pagination={{
@@ -115,11 +115,11 @@ export default function App() {
         >
           {datas.map((data, index) => (
             <SwiperSlide key={index}>
-              <div className="mb-24  xl:w-36 xl:h-36 lg:w-20 lg:h-20 md:w-16 md:h-16 sm:w-16 sm:h-16 cl:w-12 cl:h-12   group relative overflow-hidden duration-500 flex flex-wrap border rounded-full p-3 m-auto">
+              <div className="bg-[#e0f2fe] mb-24   xl:w-44 xl:h-44 lg:w-24 lg:h-24 md:w-20 md:h-20 sm:w-16 sm:h-16 cl:w-12 cl:h-12   group relative overflow-hidden duration-500 flex flex-wrap border rounded-full p-3 m-auto">
                 <img
                   src={data.imgUrl}
                   alt=""
-                  className="m-auto group-hover:scale-110 transition duration-300 ease-in-out  w-12 "
+                  className="m-auto group-hover:scale-110 transition duration-300 ease-in-out  w-20 "
                 />
               </div>
             </SwiperSlide>

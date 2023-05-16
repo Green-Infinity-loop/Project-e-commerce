@@ -6,6 +6,29 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Mousewheel, Pagination } from "swiper";
+import Image from "next/image";
+import Link from "next/link";
+
+const data = [
+  {
+    title: "Panadol",
+    description: "Үе мөч, булчин, өвдөлт намдаах",
+    imgUrl:
+      "https://i.pinimg.com/474x/6a/81/a6/6a81a651fcd502f56e67669245b6d426.jpg",
+  },
+  {
+    title: "Panadol",
+    description: "Үе мөч, булчин, өвдөлт намдаах",
+    imgUrl:
+      "https://i.pinimg.com/474x/04/18/48/041848a8ac3d8d7d6c88657abb36b148.jpg",
+  },
+  {
+    title: "Panadol",
+    description: "Үе мөч, булчин, өвдөлт намдаах",
+    imgUrl:
+      "https://i.pinimg.com/474x/86/7f/9f/867f9f37a9fe9c838d8844cc338135f3.jpg",
+  },
+];
 
 export default function App() {
   return (
@@ -19,38 +42,34 @@ export default function App() {
           clickable: true,
         }}
         modules={[Mousewheel, Pagination]}
-        className="mySwiper bg-[#17887a] h-[60vh] container object-cover"
+        className="mySwiper  h-[60vh] container bg-[#17887a] my-6 rounded-xl border  border-bg-[#17887a] "
       >
-        <SwiperSlide>
-          <img
-            src="https://images.pexels.com/photos/405031/pexels-photo-405031.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.pexels.com/photos/5995029/pexels-photo-5995029.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.pexels.com/photos/6156975/pexels-photo-6156975.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.pexels.com/photos/6156998/pexels-photo-6156998.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.pexels.com/photos/6070373/pexels-photo-6070373.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt=""
-          />
-        </SwiperSlide>
+        {data.map((datas) => {
+          return (
+            <>
+              <SwiperSlide>
+                <div className="grid grid-cols-2 ">
+                  <div className=" text-white m-auto ">
+                    <h1 className=" text-6xl font-bold mb-6">{datas.title}</h1>
+                    <p className="text-2xl font-semibold mb-6">
+                      {datas.description}
+                    </p>
+                    <Link href={"./"} className="border p-4 rounded-lg w-48">
+                      Shop now
+                    </Link>
+                  </div>
+                  <Image
+                    src={datas.imgUrl}
+                    alt=""
+                    width={500}
+                    height={300}
+                    className="w-full h-[38rem]"
+                  />
+                </div>
+              </SwiperSlide>
+            </>
+          );
+        })}
       </Swiper>
     </>
   );

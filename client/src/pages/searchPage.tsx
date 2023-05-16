@@ -19,6 +19,7 @@ import { useBasket } from "@/Hooks/useBasket";
 import { toast } from "react-toastify";
 import { Navbar } from "@/components/Main Page/Navbar/Navbar";
 import {Layout} from "./layout";
+import styles from "../styles/style.module.css";
 import style from "../styles/ShopGrid.module.css"
 
 

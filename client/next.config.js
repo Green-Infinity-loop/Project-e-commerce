@@ -29,6 +29,32 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "www.pexels.com",
+        pathname: "/**",
+      },
+      {
+        hostname: "cdn.dribbble.com",
+        hostname: "www.pexels.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn0.gstatic.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "i.pinimg.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "i.pinimg.com",
+        pathname: "/**",
+      },
+    ],
+  },
+};
 
         hostname: "www.pexels.com",
         pathname: "/**",
