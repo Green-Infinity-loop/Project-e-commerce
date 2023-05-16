@@ -1,4 +1,4 @@
-import Range from "@/components/Search Page/Range";
+
 
 import Sort from "@/components/Search Page/Sort";
 import Filter from "@/components/Search Page/Filter";
@@ -19,6 +19,7 @@ import { useBasket } from "@/Hooks/useBasket";
 import { toast } from "react-toastify";
 import { Navbar } from "@/components/Main Page/Navbar/Navbar";
 import {Layout} from "./layout";
+import style from "../styles/ShopGrid.module.css"
 
 
 
@@ -42,56 +43,34 @@ export default function searchPage({data}) {
   // const { addQuery } = useQuery();
   // const { ordering = "", limit = 24 } = query;
   return (
-    <Layout>
+   <div className="container">
+     <h1 className="text-[44px] font-[500] mb-[6px]">Shop Grid</h1>
       <div className="my-10">
-        <div className="container">
-          <div className="text-black">
-            <Search />
-          </div>
+        
           
-          <div className="grid grid-cols-3 gap-4">
-                {/* <div className="grid grid-cols-3 gap-4"> */}
-                  <div className="text-black">
+          <div className="grid grid-cols-12 gap-4">
+            <div className="col-span-3">
+                <div className="text-black">
                     <Filter />
-                  </div>
-                  <div className="col-span-2 text-black">
+                </div>
+            </div>
+            <div className="col-span-9 text-black">
                     <div>
                       <Sort />
                       <div>
-                        <ul className="m-5 grid grid-cols-4 gap-2">
-                          {data.map((products)=>(
-                            <li key={nanoid()} >
-                              <ProductCard product={products}/>
-                              <div className="flex">
-                                
-                              </div>
+                        <ul className="m-5 grid grid-cols-3 flex w-[100/3] p-[12px] gap-2">
+                          {data?.map((products)=>(
+                            <li className="h-[490px]" key={nanoid()} >
+                              <ProductCard product={products} styles={style}/>
                             </li>
                           ))}
                         </ul>
                       </div>
                     </div>
                   </div>
-                </div>
-                </div>
-                </div>
-      {/* <Select
-        items={[
-          { value: "", label: "Sort..." },
-          { value: "releasedAsc", label: "Oldest" },
-          { value: "releasedDesc", label: "Newest" },
-          { value: "imdbRatingDesc", label: "Most popular" },
-          { value: "titleAsc", label: "A-Z" },
-          { value: "titleDesc", label: "Z-A" },
-        ]}
-        onChange={(e) => {
-          addQuery({ ordering: e.target.value });
-        }}
-        value={ordering + ""}
-        itemValue={"value"}
-        itemLabel={"label"}
-      /> */}
-      {/* <Footer/> */}
-
-    </Layout>
+          </div>
+        
+      </div>
+   </div>
   );
 }
