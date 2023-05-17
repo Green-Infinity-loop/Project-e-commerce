@@ -9,13 +9,13 @@ import { RecoilRoot } from "recoil";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     // <ToastProvider>
-      // <ModalProvider>
-        <RecoilRoot>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </RecoilRoot>
-      // </ModalProvider>
+    // <ModalProvider>
+    <RecoilRoot>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </RecoilRoot>
+    // </ModalProvider>
     // </ToastProvider>
   );
 }

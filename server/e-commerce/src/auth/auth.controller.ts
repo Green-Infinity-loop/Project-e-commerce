@@ -9,10 +9,12 @@ import {
   Headers,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { CurrentUser } from './current-user.decorator';
 import { CheckOTPDto } from './dto/checkOTP.dto';
 import { CreateOTPDto } from './dto/createOTP.dto';
 import { SigninDto } from './dto/signin.dto';
 import { SignupDto } from './dto/signup.dto';
+import { Secured } from './secured.decorator';
 
 @Controller()
 export class AuthController {
@@ -39,8 +41,12 @@ export class AuthController {
   signinOTPConfirm(@Body() checkOTPDto: CheckOTPDto) {
     return this.authService.verifyOTP(checkOTPDto);
   }
-  @Post('/me')
-  currentUser(@Headers('authorization') authorization: string) {
-    return this.authService.getCurrentUserFromToken(authorization);
+
+  @Secured()
+  @Get('/me')
+  // currentUser(@Headers('Authorization') authorization: string) {
+  currentUser(@CurrentUser() user) {
+    // console.log('authorization', authorization);
+    return user;
   }
 }
