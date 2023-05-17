@@ -19,7 +19,7 @@ export const Select: FC<SelectProps> = ({
   itemValue,
   itemLabel,
 }) => {
-  const baseClass = `bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`;
+  const baseClass = `bg-[#F9F9F9] rounded-none px-8 py-2 text-sm focus:ring-white-500 focus:border-white-500 `;
   return (
     <select
       value={value}

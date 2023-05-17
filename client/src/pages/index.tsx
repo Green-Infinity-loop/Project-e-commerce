@@ -79,6 +79,7 @@ const products = [
     title: "hi",
     price: "1234",
   },
+
   {
     image:
       "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
@@ -118,6 +119,7 @@ export default function Home() {
 
       {/* <Button onClick={showModal}>modal</Button> */}
       <HomeCard />
+      <ProductCard styles={style} product={products} />
       <h1 className="container text-3xl font-bold ">Trending Products</h1>
       {products?.map((data) => (
         <ProductCard product={data} styles={style} />
