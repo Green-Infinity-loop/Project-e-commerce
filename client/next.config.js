@@ -27,15 +27,34 @@ const nextConfig = {
         hostname: "back.emonos.mn",
         pathname: "/**",
       },
-      {
-        protocol: "https",
 
+      {
+        hostname: "cdn.dribbble.com",
         hostname: "www.pexels.com",
         pathname: "/**",
       },
-    ]
-  }
-}
-
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn0.gstatic.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "i.pinimg.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: " images.pexels.com ",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com",
+        pathname: "/**",
+      },
+    ],
+  },
+};
 
 module.exports = nextConfig;

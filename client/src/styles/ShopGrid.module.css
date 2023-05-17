@@ -1,0 +1,14 @@
+.card {
+  height: 500px;
+  background: #f6f7f9;
+}
+
+.container {
+  padding-top: 15px;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 2px;
+}
