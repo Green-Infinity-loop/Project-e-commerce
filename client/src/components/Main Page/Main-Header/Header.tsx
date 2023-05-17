@@ -103,7 +103,7 @@ export function Header1() {
             ipsa consequatur quas, alias officia harum!
           </p>
           <div className="grid grid-cols-2 gap-8">
-            <button className="bg-[#ea4c89] p-6 rounded-lg text-white ">
+            <button className="bg-[#115061] p-6 rounded-lg text-white ">
               Set Appointment
             </button>
             <button className=" p-6 rounded-lg flex  ">

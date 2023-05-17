@@ -13,7 +13,7 @@ export class Locations {
   working_hours_end: string;
   @Prop()
   address: string;
-  @Prop({ type: Object})
+  @Prop({ type: Object })
   location: {
     type: 'Point';
     coordinates: [number, number];
@@ -29,4 +29,4 @@ export class Locations {
 }
 
 export const LocationSchema = SchemaFactory.createForClass(Locations);
-LocationSchema.index({location:'2dsphere'})
+LocationSchema.index({ location: '2dsphere' });

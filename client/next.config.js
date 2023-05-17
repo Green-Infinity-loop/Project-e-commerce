@@ -27,11 +27,7 @@ const nextConfig = {
         hostname: "back.emonos.mn",
         pathname: "/**",
       },
-      {
-        protocol: "https",
-        hostname: "www.pexels.com",
-        pathname: "/**",
-      },
+
       {
         hostname: "cdn.dribbble.com",
         hostname: "www.pexels.com",
@@ -49,7 +45,12 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "i.pinimg.com",
+        hostname: " images.pexels.com ",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com",
         pathname: "/**",
       },
       {

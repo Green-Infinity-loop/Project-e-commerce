@@ -10,60 +10,63 @@ import Head from "next/head";
 import { FC, ReactNode, useEffect, useState } from "react";
 
 interface LayoutProps {
-    title?:string;
-    children:ReactNode;
+  title?: string;
+  children: ReactNode;
 }
 
-export const Layout:FC<LayoutProps> = ({
-    children,
-    title = "MedZone",
-}) => {
-    const { currentUser, setCurrentUser} = useCurrentUser();
-    const { basket, setBasket } = useBasket();
-    const loading = useLoader();
+export const Layout: FC<LayoutProps> = ({ children, title = "MedZone" }) => {
+  const { currentUser, setCurrentUser } = useCurrentUser();
+  const { basket, setBasket } = useBasket();
+  const loading = useLoader();
+  console.log("currentUser", currentUser);
 
-    useEffect(()=>{
-        if(!currentUser){
-            axios.get('http://localhost:8080/currentUser',{
-                headers: { Authorization: "Bearer " + localStorage.getItem("token")},
-            })
-            .then((res)=>{
-                console.log("dtaa",res.data);
-                setCurrentUser(res.data)
-            })
-            .catch((error)=>{
-                console.log("User is not signed in")
-            });
-        }
-    },[]);
+  useEffect(() => {
+    if (!currentUser) {
+      axios
+        .get("http://localhost:8080/me", {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        })
+        .then((res) => {
+          console.log("dtaa", res);
+          setCurrentUser(res.data);
+        })
+        .catch((error) => {
+          console.log("User is not signed in");
+        });
+    }
+  }, []);
 
-    useEffect(()=>{
-        if(currentUser){
-            axios.get("http://localhost:8080/basket/main",{
-                headers:{Authorization: "Bearer " + localStorage.getItem("token")},
-            })
-            .then((res)=>{
-                setBasket(res.data);
-            })
-        }
-    },[currentUser])
+  useEffect(() => {
+    if (currentUser) {
+      axios
+        .get("http://localhost:8080/baskets/main", {
+          headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+        })
+        .then((res) => {
+          console.log("CurrentUser", currentUser);
+          console.log("basket", res.data);
 
-    return (
-        <>
-            <Head>
-                <title>{title}</title>
-            </Head>
-            <div>
-            <Navbar
-                currentUser={currentUser}
-                cartCount={basket?.items?.length || 0}
-            />
-                <div>
-                    {children}
-                </div>
-                {loading}
-            <Footer/>
-            </div>
-        </>
-    )
-}
+          setBasket(res.data);
+        });
+    }
+  }, [currentUser]);
+
+  return (
+    <>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <div>
+        <Navbar
+          currentUser={currentUser}
+          cartCount={basket?.items?.length || 0}
+        />
+        <div>{children}</div>
+        {loading}
+        <Footer />
+      </div>
+    </>
+  );
+};

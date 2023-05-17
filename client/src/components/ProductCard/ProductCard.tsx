@@ -8,7 +8,6 @@ import React from 'react'
 interface CardProps {
   product: IProduct;
 }
-
 const ProductCard:FC<CardProps> = ({product, styles}) => {
     const { image, category, title, price, star } = product
     const placeholder = 'https://via.placeholder.com/160x230'
@@ -47,4 +46,5 @@ return (
    </div>
 );
 }
+
 export default ProductCard;
