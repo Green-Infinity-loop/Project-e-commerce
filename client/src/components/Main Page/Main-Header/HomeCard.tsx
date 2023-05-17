@@ -89,7 +89,7 @@ export default function App() {
   return (
     <>
       <div className="h-[50vh] p-9 ">
-        <h1 className="text-5xl font-semibold text-center my-4   my-12 mb-16 border-b-4 border-[#ea4c89] pb-9">
+        <h1 className="text-5xl font-semibold text-center my-4   my-12 mb-16 border-b-4 border-[#115061] pb-9">
           Hunii dotood gadaad erhten shuude
         </h1>
         <Swiper
