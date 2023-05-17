@@ -47,7 +47,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   };
 }
 
-const product = [
+const products = [
   {
     image:
       "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
@@ -88,7 +88,7 @@ export default function Home({ data }: { data: any }): JSX.Element {
 
       {/* <Button onClick={showModal}>modal</Button> */}
       <HomeCard />
-      <ProductCard styles={style} products={product} />
+      <ProductCard styles={style} product={products} />
       <HomePageTop />
       <Nothing />
       <Latest />

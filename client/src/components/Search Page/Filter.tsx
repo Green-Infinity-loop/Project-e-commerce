@@ -33,19 +33,22 @@ export default function ControlledAccordions() {
   return (
     <>
       <Angilal />
-      <div className="my-6 shadow-sm shadow-[#615cbe]">
+      <div className="my-6 shadow-sm ">
         <div>
-          <h1 className="my-2 mx-4 py-2 ">Range </h1>
+          <h1 className="my-2 mx-4 py-2 ">Price Filter </h1>
           <hr />
-          <Tworange />
+          <div className="">
+            <Tworange />
+          </div>
 
           <div className="grid grid-cols-2 gap-2 ">
-            <button className="border rounded p-2 w-28 mt-3  hover:bg-cyan-500 m-auto">
+            <span>
+              <input type="text" />
+            </span>
+            <button className="bg-[#F5F5F5] hover:bg-[#010F1C] px-[21px] py-[2px] font-[400] text-[14px] hover:text-white m-auto">
               Filter
             </button>
-            <button className="border rounded p-2 w-28 mt-3  m-auto">
-              $123-1234
-            </button>
+            
           </div>
         </div>
 

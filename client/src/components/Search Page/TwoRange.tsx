@@ -33,7 +33,7 @@ const PrettoSlider = styled(Slider)({
     padding: 0,
     width: 54,
     height: 54,
-    borderRadius: "50% 50% 50% 0",
+    borderRadius: "0 0 0 0",
     backgroundColor: "#615cbe",
     transformOrigin: "bottom left",
     transform: "translate(50%, -100%) rotate(-45deg) scale(0)",
@@ -59,7 +59,7 @@ export default function RangeSlider() {
   };
 
   return (
-    <Box sx={{ width: 450, height: "50%" }}>
+    <Box sx={{ width: "80%", height: "50%" }}>
       <PrettoSlider
         getAriaLabel={() => "Temperature range"}
         value={value}

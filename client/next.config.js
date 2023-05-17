@@ -52,16 +52,14 @@ const nextConfig = {
         hostname: "i.pinimg.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com",
+        pathname: "/**",
+      },
     ],
   },
 };
-
-        hostname: "www.pexels.com",
-        pathname: "/**",
-      },
-    ]
-  }
-}
 
 
 module.exports = nextConfig;
