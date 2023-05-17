@@ -47,17 +47,14 @@ export class ProductsController {
   //   return await this.productsService.findOne(_id);
   // }
 
-
-  @Post("/ids")
-  async findAllProduct(@Body("ids" )ids:[string]){
-    console.log('controlleriin ids', ids)
-    return this.productsService.findAllProduct(ids)
-
-
+  @Post('/ids')
+  async findAllProduct(@Body('ids') ids: [string]) {
+    console.log('controlleriin ids', ids);
+    return this.productsService.findAllProduct(ids);
   }
   @Get(':_id')
   async findOne(@Param('_id') _id: string) {
-    console.log('id maani', _id)
+    console.log('id maani', _id);
     return await this.productsService.findOne(_id);
   }
 
@@ -68,7 +65,6 @@ export class ProductsController {
   ) {
     return this.productsService.update(_id, updateProductDto);
   }
-
 
   @Delete(':_id')
   remove(@Param('_id') _id: string) {

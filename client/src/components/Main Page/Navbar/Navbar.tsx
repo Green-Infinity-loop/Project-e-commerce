@@ -30,8 +30,6 @@
 //   return classes.filter(Boolean).join(" ");
 // }
 
-
-
 // export const Navbar:FC<NavbarProps> = ({
 //   items,
 //   currentUser,
@@ -153,7 +151,7 @@
 //                           {cartCount}
 //                         </span>
 //                       )}
-                      
+
 //                     </button>
 //                   </Link>
 //                   {cartCount > 0 && (
@@ -167,7 +165,7 @@
 //                 </div>
 //               </div>
 //             </div>
-            
+
 //             <Disclosure.Panel className="sm:hidden">
 //               <div className="space-y-1 px-2 pb-3 pt-2">
 //                 {navigation.map((item) => (
@@ -277,7 +275,8 @@ export const Navbar: FC<NavbarProps> = ({
                 </Button>
               </>
             )}
-            {currentUser && currentUser.data.email}
+
+            {currentUser && currentUser.email}
           </div>
           <div className="-mr-2 flex md:hidden">
             <button

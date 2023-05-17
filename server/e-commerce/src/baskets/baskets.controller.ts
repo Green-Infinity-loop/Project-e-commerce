@@ -8,6 +8,7 @@ import {
   Delete,
 } from '@nestjs/common';
 import { CurrentUser } from 'src/auth/current-user.decorator';
+import { Secured } from 'src/auth/secured.decorator';
 import { User } from 'src/users/entities/user.entity';
 import { BasketsService } from './baskets.service';
 import { CreateBasketDto } from './dto/create-basket.dto';
@@ -22,6 +23,7 @@ export class BasketsController {
   //   return this.basketsService.create(createBasketDto);
   // }
 
+  @Secured()
   @Get('/main')
   findone(@CurrentUser() user: User) {
     return this.basketsService.findMain(user._id);

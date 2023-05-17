@@ -1,7 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import Mongoose, { Types } from 'mongoose';
+import Mongoose, { ObjectId, Types } from 'mongoose';
 import { nanoid } from 'nanoid';
 import { Brand } from 'src/brands/entities/brand.entity';
+import { Locations } from 'src/locations/entities/location.entity';
 
 @Schema()
 export class Product {
@@ -9,7 +10,7 @@ export class Product {
   // _id: string;
 
   @Prop({ required: true })
-  title: string;
+  name: string;
 
   @Prop({ required: true })
   image: string;
@@ -17,8 +18,10 @@ export class Product {
   @Prop({ required: true })
   price: number;
 
-  @Prop({ type: String, ref: 'Brand' })
-  brand: string;
+  @Prop({ type: Types.ObjectId, ref: 'Locations' })
+  location: {
+    name: string;
+  };
   createdAt: Date;
   UpdatedAt: Date;
 }

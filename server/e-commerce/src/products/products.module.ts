@@ -5,13 +5,17 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Product, ProductSchema } from './entities/product.entity';
 import { Brand, BrandSchema } from 'src/brands/entities/brand.entity';
 import { BrandsService } from 'src/brands/brands.service';
-import { BrandsController } from 'src/brands/brands.controller';
+import {
+  Locations,
+  LocationSchema,
+} from 'src/locations/entities/location.entity';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: Product.name, schema: ProductSchema },
       { name: Brand.name, schema: BrandSchema },
+      { name: Locations.name, schema: LocationSchema },
     ]),
   ],
   controllers: [ProductsController],

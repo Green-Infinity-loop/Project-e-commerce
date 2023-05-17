@@ -1,11 +1,11 @@
-import { atom } from "recoil"
+import { atom } from "recoil";
 
 export const currentUserState = atom({
-    key:'UserAtom',
-    default:undefined,
+  key: "User",
+  default: undefined,
 });
 
 export const BasketState = atom({
-    key:"Basket",
-    default: undefined,
-})
+  key: "Basket",
+  default: undefined,
+});
