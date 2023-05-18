@@ -19,12 +19,12 @@ interface NavbarProps {
   currentUser?: any;
 }
 
-const navigation = [
-  { name: "Home", href: "/", current: true },
-  { name: "Shop", href: "#", current: false },
-  { name: "News", href: "#", current: false },
-  { name: "Pages", href: "#", current: false },
-];
+// const navigation = [
+//   { name: "Home", href: "/", current: true },
+//   { name: "Shop", href: "#", current: false },
+//   { name: "News", href: "#", current: false },
+//   { name: "Pages", href: "#", current: false },
+// ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -115,7 +115,7 @@ export const Navbar: FC<NavbarProps> = ({
                     </div>
                     <div className="hidden sm:ml-6 sm:block absolute right-24 font-light text-xs  place-content-center ">
                       <div className="flex space-x-4">
-                        {navigation.map((item) => (
+                        {/* {navigation.map((item) => (
                           <Link
                             key={item.name}
                             href={item.href}
@@ -129,7 +129,7 @@ export const Navbar: FC<NavbarProps> = ({
                           >
                             {item.name}
                           </Link>
-                        ))}
+                        ))} */}
                       </div>
                     </div>
                   </div>
@@ -167,7 +167,7 @@ export const Navbar: FC<NavbarProps> = ({
 
               <Disclosure.Panel className="sm:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2">
-                  {navigation.map((item) => (
+                  {/* {navigation.map((item) => (
                     <Disclosure.Button
                       key={item.name}
                       as="a"
@@ -182,7 +182,7 @@ export const Navbar: FC<NavbarProps> = ({
                     >
                       {item.name}
                     </Disclosure.Button>
-                  ))}
+                  ))} */}
                 </div>
               </Disclosure.Panel>
             </>

@@ -50,7 +50,22 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "via.placeholder.com",
+        hostname: "w7.pngwing.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "png.pngtree.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "beautysecrets.mn",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "o.remove.bg",
         pathname: "/**",
       },
     ],

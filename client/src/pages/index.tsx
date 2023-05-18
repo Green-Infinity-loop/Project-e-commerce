@@ -32,6 +32,7 @@ import ProductCard from "@/components/ProductCard/ProductCard";
 import { Layout } from "./layout";
 import style from "../styles/indexstyle.module.css";
 import Latest from "@/components/Main Page/Main-Bottom/Latest";
+import { Link } from "react-router-dom";
 
 // export async function getServerSideProps(context: GetServerSidePropsContext) {
 //   let mapStyle = style.indexStyle;
@@ -49,6 +50,18 @@ import Latest from "@/components/Main Page/Main-Bottom/Latest";
 // }
 
 const products = [
+  {
+    image:
+      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    title: "hi",
+    price: "1234",
+  },
+  {
+    image:
+      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    title: "hi",
+    price: "1234",
+  },
   {
     image:
       "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
@@ -119,9 +132,13 @@ export default function Home() {
       {/* <Button onClick={showModal}>modal</Button> */}
       <HomeCard />
       <h1 className="container text-3xl font-bold ">Trending Products</h1>
-      {products?.map((data) => (
-        <ProductCard product={data} styles={style} />
-      ))}
+      <div className="container grid grid-cols-5  my-5">
+        {products?.map((data) => (
+          <>
+            <ProductCard product={data} styles={style} />
+          </>
+        ))}
+      </div>
 
       <HomePageTop />
       <Nothing />
