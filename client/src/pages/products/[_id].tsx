@@ -14,6 +14,7 @@ interface ProductViewProps{
     product:IProduct;
 }
 
+
 const ProductView: FC<ProductViewProps> = ({product}) =>{
     const [quantity, setQuantity] = useState(1);
     const { addToBasket } = useBasket();

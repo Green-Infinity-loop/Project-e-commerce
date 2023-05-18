@@ -9,42 +9,24 @@ import Tooltip from "@mui/material/Tooltip";
 import Box from "@mui/material/Box";
 
 const PrettoSlider = styled(Slider)({
-  color: "#615cbe",
+  color: "#0989FF",
   height: 12,
-  "& .MuiSlider-track": {
-    border: "none",
-  },
   "& .MuiSlider-thumb": {
-    height: 30,
-    width: 30,
-    backgroundColor: "#fff",
-    border: "2px solid currentColor",
+    height: 20,
+    width: 4,
+    borderRadius:0,
+    boxShadow: "none",
     "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible": {
-      boxShadow: "inherit",
+      boxShadow: "none",
     },
-    "&:before": {
-      display: "none",
-    },
+    "&.MuiSlider-rail":{
+      width:0,
+    }
   },
-  "& .MuiSlider-valueLabel": {
-    lineHeight: 1.2,
-    fontSize: 12,
-    background: "unset",
-    padding: 0,
-    width: 54,
-    height: 54,
-    borderRadius: "0 0 0 0",
-    backgroundColor: "#615cbe",
-    transformOrigin: "bottom left",
-    transform: "translate(50%, -100%) rotate(-45deg) scale(0)",
-    "&:before": { display: "none" },
-    "&.MuiSlider-valueLabelOpen": {
-      transform: "translate(50%, -100%) rotate(-45deg) scale(1)",
-    },
-    "& > *": {
-      transform: "rotate(45deg)",
-    },
+  "& .MuiInputBase-root": {
+    boxShadow: "none", // Remove box shadow from the input
   },
+
 });
 
 function valuetext(value: number) {
@@ -52,7 +34,7 @@ function valuetext(value: number) {
 }
 
 export default function RangeSlider() {
-  const [value, setValue] = React.useState<number[]>([20, 37]);
+  const [value, setValue] = React.useState<number[]>([100]);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
@@ -64,14 +46,18 @@ export default function RangeSlider() {
         getAriaLabel={() => "Temperature range"}
         value={value}
         onChange={handleChange}
-        valueLabelDisplay="auto"
-        getAriaValueText={valuetext}
-        step={5000}
+        step={10}
         marks
-        min={1000}
-        max={110000}
+        min={0}
+        max={5000}
         className="mx-6"
       />
+      <div className="grid grid-cols-2 w-[360px]">
+        <span className="text-[14px]">${" "}{value}</span>
+        <button className="bg-[#F5F5F5] hover:bg-[#010F1C] px-[21px] py-[2px] font-[400] text-[14px] hover:text-white m-auto">
+                Filter
+        </button>
+      </div>
     </Box>
   );
 }
