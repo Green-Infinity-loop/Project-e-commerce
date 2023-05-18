@@ -40,7 +40,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "i.pinimg.com",
+        hostname: "pics.walgreens.com",
         pathname: "/**",
       },
       {
@@ -73,6 +73,21 @@ const nextConfig = {
         hostname: "via.placeholder.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "pics.walgreens.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "i.pinimg.com",
+        pathname: "/**",
+      },{
+        protocol: "https",
+        hostname: "cdn.shopify.com",
+        pathname: "/**",
+      },
+    
     ],
   },
 };
