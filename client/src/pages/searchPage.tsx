@@ -22,21 +22,18 @@ import style2 from '../styles/ShopGrid2.module.css'
 import image from '../image/product/product.png'
 import ShopGrid from "./ShopGrid";
 
-import { Layout } from "./layout";
-import styles from "../styles/style.module.css";
-import style from "../styles/ShopGrid.module.css";
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const { query } = context;
-  const { ordering = "", limit = 36 } = query;
-  const response = await axios.get(
-    `http://localhost:8080/products?limit=${limit}`
-  );
-  const { data } = response;
-  return {
-    props: { data },
-  };
-}
+// export async function getServerSideProps(context: GetServerSidePropsContext) {
+//   const { query } = context;
+//   const { ordering = "", limit = 36 } = query;
+//   const response = await axios.get(
+//     `http://localhost:8080/products?limit=${limit}`
+//   );
+//   const { data } = response;
+//   return {
+//     props: { data },
+//   };
+// }
 const json = [
   {
     image:
@@ -78,18 +75,15 @@ const json = [
 ]
 
 
-export default function searchPage({data}) {
+
+  
+export default function searchPage({ data }) {
   const [show, setShow] = useState('button1')
   const toggle =(buttonId) =>{
     if (buttonId !== show) {
       setShow(buttonId);
     }
   }
-export default function searchPage({ data }) {
-  // const router = useRouter();
-  // const { query } = router;
-  // const { addQuery } = useQuery();
-  // const { ordering = "", limit = 24 } = query;
   return (
     <div className="container">
       <h1 className="text-[44px] font-[500] mb-[6px]">Shop Grid</h1>
@@ -101,23 +95,11 @@ export default function searchPage({ data }) {
             </div>
           </div>
           <div className="col-span-9 text-black">
-            <div>
-              <Sort />
-              <div>
-                <ul className="m-5 grid grid-cols-3 flex w-[100/3] p-[12px] gap-2">
-                  {data?.map((products) => (
-                    <li className="h-[490px]" key={nanoid()}>
-                      <ProductCard product={products} styles={style} />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
             <div className="col-span-9 text-black">
                     <div className="container">
                       <div className="flex">
                         <div className="nav-item">
-                          <button className={`nav-link w-[40px] h-[40px] border grid justify-items-center content-center mr-2 ${show === 'button1' ? 'active' : ''}`} id="button1" onClick={() => toggle('button1')} data-bs-toggle="tab" data-bs-target="#grid-tab-pane" type="button" role="tab" aria-controls="grid-tab-pane" aria-selected="true">
+                          <button className={`nav-link w-[40px] h-[40px] border grid justify-items-center content-center mr-2 focus:border-2 focus:border-gray-950 ${show === 'button1' ? 'active' : ''}`} id="button1" onClick={() => toggle('button1')} data-bs-toggle="tab" data-bs-target="#grid-tab-pane" type="button" role="tab" aria-controls="grid-tab-pane" aria-selected="true">
                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M16.3327 6.01341V2.98675C16.3327 2.04675 15.906 1.66675 14.846 1.66675H12.1527C11.0927 1.66675 10.666 2.04675 10.666 2.98675V6.00675C10.666 6.95341 11.0927 7.32675 12.1527 7.32675H14.846C15.906 7.33341 16.3327 6.95341 16.3327 6.01341Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                               <path d="M16.3327 15.18V12.4867C16.3327 11.4267 15.906 11 14.846 11H12.1527C11.0927 11 10.666 11.4267 10.666 12.4867V15.18C10.666 16.24 11.0927 16.6667 12.1527 16.6667H14.846C15.906 16.6667 16.3327 16.24 16.3327 15.18Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -127,7 +109,7 @@ export default function searchPage({ data }) {
                         </button>
                         </div>
                         <div className="nav-item">
-                          <button className={`nav-link active w-[40px] h-[40px] border grid justify-items-center content-center ${show === 'button2' ? 'active' : ''}`}  onClick={() => toggle('button2')} id="button2" data-bs-toggle="tab" data-bs-target="#list-tab-pane" type="button" role="tab" aria-controls="list-tab-pane" aria-selected="true">
+                          <button className={`nav-link active w-[40px] h-[40px] border grid justify-items-center content-center focus:border-2 focus:border-gray-950 ${show === 'button2' ? 'active' : ''}`}  onClick={() => toggle('button2')} id="button2" data-bs-toggle="tab" data-bs-target="#list-tab-pane" type="button" role="tab" aria-controls="list-tab-pane" aria-selected="true">
                             <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M15 7.11108H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                               <path d="M15 1H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -136,6 +118,7 @@ export default function searchPage({ data }) {
                           </button>
                         </div>
                       <ShopGrid/>
+                      <Sort />
                       </div>
                       {
                         show === 'button1' && (
@@ -155,7 +138,7 @@ export default function searchPage({ data }) {
                           <div className="add">
                         <ul className=" w-[100%] gap-[20px]">
                           {json?.map((products)=>(
-                            <li className="mb-10" key={nanoid()} >
+                            <li className="mb-10 border" key={nanoid()} >
                               <ProductCard product={products} styles={style2}/>
                             </li>
                           ))}

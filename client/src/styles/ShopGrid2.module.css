@@ -1,31 +1,29 @@
 .main {
-  border: 1px solid #f6f7f9;
   padding: 0;
   margin: 0;
+  position: relative;
 }
 
 .card {
-  width: 100vw;
   display: flex;
   background: #f6f7f9;
 }
 .content {
-  width: 30vw;
+  width: 20vw;
 }
 
 .cardImage {
-  width: 10vw;
+  width: 1vw;
   height: 320px;
   padding: 60px;
 }
 
 .container {
+  border: 1px solid #f6f7f9;
   line-height: 35px;
   padding-left: 40px;
   display: block;
-
   padding-top: 80px;
-
   background-color: white;
   float: left;
   width: 100%;

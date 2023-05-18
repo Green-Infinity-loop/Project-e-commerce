@@ -5,6 +5,40 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
+
+
+export default function BasicSelect() {
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setAge(event.target.value as string);
+  };
+
+  return (
+    <>
+      <Box sx={{ backgroundColor: "white", color:'white' }}>
+        <FormControl className=" text-white">
+          <InputLabel className="text-white text-[12px]" id="demo-simple-select-label">Sort</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={age}
+            label="Age"
+            className={'p-0 h-[36px] w-[123px] bg-black ml-2 rounded-none'}
+          >
+            <MenuItem value={6}>6</MenuItem>
+            <MenuItem value={12}>12</MenuItem>
+            <MenuItem value={24}>24</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+      
+    </>
+  );
+}
+
+
+
 const datas = [
   {
     name: "Ханиад, томуу, харшил",
@@ -79,34 +113,7 @@ const datas = [
     name: "Тодосгогч бодис",
   },
 ];
-
-export default function BasicSelect() {
-  const [age, setAge] = React.useState("");
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
-  };
-
-  return (
-    <>
-      <Box sx={{ minWidth: 120, backgroundColor: "white" }}>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Age</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={age}
-            label="Age"
-            // onClick={handleChange}
-          >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
-
-      {/* <Box>
+{/* <Box>
         {datas.map((sort) => {
           return (
             <>
@@ -121,6 +128,3 @@ export default function BasicSelect() {
           );
         })}
       </Box> */}
-    </>
-  );
-}

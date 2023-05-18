@@ -25,7 +25,6 @@ const ProductCard:FC<CardProps> = ({product, styles}) => {
     
 return (
    <div className={styles.main}>
-       
             <div className={styles.card}>
                 <div className={styles.content}>
                     <Link href={`/products/${product._id}`}>
