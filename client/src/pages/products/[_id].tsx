@@ -36,14 +36,14 @@ const ProductView: FC<ProductViewProps> = ({product}) =>{
   // }
 
     return (
-        <Layout title={product.title}>
+        // <Layout title={product.title}>
         <div className="max-w-4xl mx-auto my-8 h-[100vh]">
           <div className="md:flex md:items-center">
             <div className="md:w-1/2">
               <div className="aspect-square relative overflow-hidden border rounded">
                 <Image
-                  src={`https://back.emonos.mn/${product.image}`}
-                  alt={product.title}
+                  src={product.image}
+                  alt={product.name}
                   width={500}
                   height={500}
                   className="absolute inset-0 w-full h-full object-contain"
@@ -51,7 +51,7 @@ const ProductView: FC<ProductViewProps> = ({product}) =>{
               </div>
             </div>
             <div className="md:w-1/2 px-8">
-              <h1 className="text-2xl font-bold mb-2">{product.title}</h1>
+              <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
               <p className="text-gray-700 mb-4"></p>
               <div className="flex mb-4">
                 <div className="text-gray-700 mr-2">Category:</div>
@@ -94,13 +94,13 @@ const ProductView: FC<ProductViewProps> = ({product}) =>{
                   </button>
                 </div>
               </div>
-              <Button onClick={() => addToBasket(product._id, quantity, product.title, product.price, product.image  )}>
+              <Button onClick={() => addToBasket(product._id, quantity, product.name, product.price, product.image  )}>
                 Add to Cart
               </Button>
             </div>
           </div>
         </div>
-      </Layout>
+      // </Layout>
     )
 }
 

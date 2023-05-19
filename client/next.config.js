@@ -73,6 +73,16 @@ const nextConfig = {
         hostname: "via.placeholder.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.greensoft.mn",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com",
+        pathname: "/**",
+      },
     ],
   },
 };
