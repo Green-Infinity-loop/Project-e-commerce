@@ -1,4 +1,4 @@
-import { Card } from "@/components/Card/Card";
+import { Card } from "@/components/Main-Section/Card";
 import Footer from "@/components/atoms/Footer";
 
 import Bottom from "@/components/Main Page/Main-Bottom/Bottom";
@@ -26,53 +26,110 @@ import { nanoid } from "nanoid";
 import { CardSkelton } from "@/components/ProductCard/CardSkelton";
 import useLoader from "@/Hooks/useLoader";
 import { Select } from "@/components/ProductCard/Select";
-import Other from "@/components/other";
 import TopBottom from "@/components/Main Page/Main-Bottom/TopBottom";
 import Nothing from "@/components/Main Page/Main-Section/Nothing";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import { Layout } from "./layout";
+import style from "../styles/indexstyle.module.css";
+import Latest from "@/components/Main Page/Main-Bottom/Latest";
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const { query } = context;
-  const { limit = 24 } = query;
-  const response = await axios.get(
-    `http://localhost:8080/products/?limit=${limit}`
-  );
-  const { data } = await response;
-  console.log(data);
+// export async function getServerSideProps(context: GetServerSidePropsContext) {
+//   let mapStyle = style.indexStyle;
+//   const { query } = context;
+//   const { limit = 24 } = query;
+//   const response = await axios.get(
+//     `http://localhost:8080/products/?limit=${limit}`
+//   );
+//   const { data } = await response;
+//   console.log(data);
 
-  return {
-    props: { data },
-  };
-}
+//   return {
+//     props: { data },
+//   };
+// }
 
-export default function Home({ data }: { data: any }): JSX.Element {
+const products = [
+  {
+    image:
+      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    title: "hi",
+    price: "1234",
+  },
+  {
+    image:
+      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    title: "hi",
+    price: "1234",
+  },
+  {
+    image:
+      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    title: "hi",
+    price: "1234",
+  },
+  {
+    image:
+      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    title: "hi",
+    price: "1234",
+  },
+  {
+    image:
+      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    title: "hi",
+    price: "1234",
+  },
+  {
+    image:
+      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    title: "hi",
+    price: "1234",
+  },
+  {
+    image:
+      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    title: "hi",
+    price: "1234",
+  },
+  {
+    image:
+      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    title: "hi",
+    price: "1234",
+  },
+];
+
+export default function Home() {
   // const showModal = useModal();
   const showToast = useToast();
-  const products = data;
+  // const products = data;
   const router = useRouter();
   const { query } = router;
   const loading = useLoader();
   const { limit = 24 } = query;
   const { addQuery } = useQuery();
 
-  console.log("products:", products);
   return (
     <Layout>
       {/* <div className="bg-gradient-to-r from-cyan-100 to-blue-500 "> */}
-
       {/* <Button onClick={showToast}>Open simple snackbar</Button> */}
       <Header />
+      {/* <Header /> */}
 
       {/* <Button onClick={showModal}>modal</Button> */}
       <HomeCard />
+      <h1 className="container text-3xl font-bold ">Trending Products</h1>
+      {products?.map((data) => (
+        <ProductCard product={data} styles={style} />
+      ))}
+
       <HomePageTop />
       <Nothing />
+      <Latest />
       {/* <HomeCard /> */}
       {/* <Nothing/> */}
       {/* <HomePageTop /> */}
       {/* <HomePageTop /> */}
-
       {/* <Select
         items={[
           { value: "6", label: "6" },
