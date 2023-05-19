@@ -13,20 +13,17 @@ const data = [
   {
     title: "Panadol",
     description: "Үе мөч, булчин, өвдөлт намдаах",
-    imgUrl:
-      "https://i.pinimg.com/474x/6a/81/a6/6a81a651fcd502f56e67669245b6d426.jpg",
+    imgUrl: "https://pics.walgreens.com/prodimg/628003/450.jpg",
   },
   {
     title: "Panadol",
     description: "Үе мөч, булчин, өвдөлт намдаах",
-    imgUrl:
-      "https://i.pinimg.com/474x/04/18/48/041848a8ac3d8d7d6c88657abb36b148.jpg",
+    imgUrl: "https://pics.walgreens.com/prodimg/658353/450.jpg",
   },
   {
     title: "Panadol",
     description: "Үе мөч, булчин, өвдөлт намдаах",
-    imgUrl:
-      "https://i.pinimg.com/474x/86/7f/9f/867f9f37a9fe9c838d8844cc338135f3.jpg",
+    imgUrl: "https://pics.walgreens.com/prodimg/647556/450.jpg",
   },
 ];
 
@@ -42,8 +39,7 @@ export default function App() {
           clickable: true,
         }}
         modules={[Mousewheel, Pagination]}
-        className="mySwiper  h-[60vh] container bg-[#115061] my-6 rounded-xl border  border-bg-[#115061] "
-      >
+        className="mySwiper  h-[60vh] container bg-[#115061] my-6 rounded-xl border  border-bg-[#115061] ">
         {data.map((datas) => {
           return (
             <>
@@ -62,8 +58,8 @@ export default function App() {
                     src={datas.imgUrl}
                     alt=""
                     width={500}
-                    height={300}
-                    className="w-full h-[40rem]"
+                    height={600}
+                    className="w-full h-[30rem]"
                   />
                 </div>
               </SwiperSlide>

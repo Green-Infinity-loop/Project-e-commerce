@@ -51,63 +51,54 @@ import { Link } from "react-router-dom";
 
 const products = [
   {
-    image:
-      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    image: "https://pics.walgreens.com/prodimg/655559/450.jpg",
     title: "hi",
     price: "1234",
   },
   {
-    image:
-      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    image: "https://pics.walgreens.com/prodimg/656568/450.jpg",
     title: "hi",
     price: "1234",
   },
   {
-    image:
-      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    image: "https://pics.walgreens.com/prodimg/656593/450.jpg",
     title: "hi",
     price: "1234",
   },
   {
-    image:
-      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    image: "https://pics.walgreens.com/prodimg/615529/450.jpg",
     title: "hi",
     price: "1234",
   },
   {
-    image:
-      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    image: "https://pics.walgreens.com/prodimg/651529/450.jpg",
     title: "hi",
     price: "1234",
   },
 
   {
-    image:
-      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
     title: "hi",
     price: "1234",
   },
   {
     image:
-      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+      "https://cdn.shopify.com/s/files/1/0257/1046/0991/products/Voltarol-Osteoarthritis-Joint-Pain-1.16_-Gel-30gpack_430x.progressive.jpg?v=1628678783",
     title: "hi",
     price: "1234",
   },
   {
-    image:
-      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
     title: "hi",
     price: "1234",
   },
   {
-    image:
-      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
     title: "hi",
     price: "1234",
   },
   {
-    image:
-      "https://i.pinimg.com/564x/b0/22/0a/b0220acdcabfba9e999f22db349c95c6.jpg",
+    image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
     title: "hi",
     price: "1234",
   },
@@ -132,7 +123,7 @@ export default function Home() {
 
       {/* <Button onClick={showModal}>modal</Button> */}
       <HomeCard />
-      <ProductCard styles={style} product={products} />
+      {/* <ProductCard styles={style} product={products} /> */}
       <h1 className="container text-3xl font-bold ">Trending Products</h1>
       <div className="container grid grid-cols-5  my-5">
         {products?.map((data) => (

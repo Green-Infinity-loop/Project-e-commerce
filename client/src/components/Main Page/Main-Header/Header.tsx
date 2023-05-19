@@ -27,14 +27,14 @@ const header = [
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiisipsa consequatur quas, alias officia harum!",
     image:
-      "https://o.remove.bg/downloads/fbc8fd5f-2a8e-491b-a25d-497962a4dcd4/beautybox-removebg-preview.png",
+      "https://beautysecrets.mn/wp-content/uploads/2023/05/23-5-1-800x600.png",
   },
   {
     title: "    Believe in Obatin for Medicine",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiisipsa consequatur quas, alias officia harum!",
     image:
-      "https://i.pinimg.com/564x/85/9c/9b/859c9bd1bd0925f2ee0df12352332848.jpg",
+      "https://beautysecrets.mn/wp-content/uploads/2023/05/23-5-1-800x600.png",
   },
 ];
 
@@ -49,13 +49,12 @@ export default function App() {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper"
-      >
+        className="mySwiper">
         {header.map((head) => {
           return (
             <>
               <SwiperSlide>
-                <div className="h-[70vh]  bg-[#115061] ">
+                <div className="h-[80vh]  bg-[#115061] ">
                   <div className="grid grid-cols-2 ">
                     <div className="p-64">
                       <h1 className="text-white  text-6xl font-bold m-auto ">
@@ -73,7 +72,7 @@ export default function App() {
                       </div>
                     </div>
 
-                    <Image
+                    <img
                       src={head.image}
                       alt="header img"
                       className="p-5  "
