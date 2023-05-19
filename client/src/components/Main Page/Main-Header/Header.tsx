@@ -49,12 +49,13 @@ export default function App() {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper">
+        className="mySwiper"
+      >
         {header.map((head) => {
           return (
             <>
               <SwiperSlide>
-                <div className="h-[80vh]  bg-[#115061] ">
+                <div className="h-[75vh]  bg-[#115061] ">
                   <div className="grid grid-cols-2 ">
                     <div className="p-64">
                       <h1 className="text-white  text-6xl font-bold m-auto ">
@@ -72,12 +73,12 @@ export default function App() {
                       </div>
                     </div>
 
-                    <img
+                    <Image
                       src={head.image}
                       alt="header img"
-                      className="p-5  "
+                      className=" m-auto "
                       width={1000}
-                      height={500}
+                      height={600}
                     />
                   </div>
                 </div>

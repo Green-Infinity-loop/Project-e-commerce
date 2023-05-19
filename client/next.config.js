@@ -88,17 +88,28 @@ const nextConfig = {
         hostname: "m.media-amazon.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
         hostname: "i.pinimg.com",
         pathname: "/**",
-      },{
+      },
+      {
         protocol: "https",
         hostname: "cdn.shopify.com",
         pathname: "/**",
       },
-    
+      {
+        protocol: "https",
+        hostname: "cdn.greensoft.mn",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "img.icons8.com",
+        pathname: "/**",
+      },
     ],
   },
 };
-
 
 module.exports = nextConfig;

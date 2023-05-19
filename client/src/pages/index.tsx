@@ -33,78 +33,75 @@ import { Layout } from "./layout";
 import style from "../styles/indexstyle.module.css";
 import Latest from "@/components/Main Page/Main-Bottom/Latest";
 import { Link } from "react-router-dom";
+import { data } from "autoprefixer";
 
-// export async function getServerSideProps(context: GetServerSidePropsContext) {
-//   let mapStyle = style.indexStyle;
-//   const { query } = context;
-//   const { limit = 24 } = query;
-//   const response = await axios.get(
-//     `http://localhost:8080/products/?limit=${limit}`
-//   );
-//   const { data } = await response;
-//   console.log(data);
+// const products = [
+//   {
+//     image: "https://pics.walgreens.com/prodimg/655559/450.jpg",
+//     title: "hi",
+//     price: "1234",
+//   },
+//   {
+//     image: "https://pics.walgreens.com/prodimg/656568/450.jpg",
+//     title: "hi",
+//     price: "1234",
+//   },
+//   {
+//     image: "https://pics.walgreens.com/prodimg/656593/450.jpg",
+//     title: "hi",
+//     price: "1234",
+//   },
+//   {
+//     image: "https://pics.walgreens.com/prodimg/615529/450.jpg",
+//     title: "hi",
+//     price: "1234",
+//   },
+//   {
+//     image: "https://pics.walgreens.com/prodimg/651529/450.jpg",
+//     title: "hi",
+//     price: "1234",
+//   },
 
-//   return {
-//     props: { data },
-//   };
-// }
+//   {
+//     image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
+//     title: "hi",
+//     price: "1234",
+//   },
+//   {
+//     image:
+//       "https://cdn.shopify.com/s/files/1/0257/1046/0991/products/Voltarol-Osteoarthritis-Joint-Pain-1.16_-Gel-30gpack_430x.progressive.jpg?v=1628678783",
+//     title: "hi",
+//     price: "1234",
+//   },
+//   {
+//     image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
+//     title: "hi",
+//     price: "1234",
+//   },
+//   {
+//     image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
+//     title: "hi",
+//     price: "1234",
+//   },
+//   {
+//     image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
+//     title: "hi",
+//     price: "1234",
+//   },
+// ];
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const { query } = context;
+  const { ordering = "", limit = 10 } = query;
+  const response = await axios.get(
+    `http://localhost:8080/products?limit=${limit}`
+  );
+  const { data } = response;
+  return {
+    props: { data },
+  };
+}
 
-const products = [
-  {
-    image: "https://pics.walgreens.com/prodimg/655559/450.jpg",
-    title: "hi",
-    price: "1234",
-  },
-  {
-    image: "https://pics.walgreens.com/prodimg/656568/450.jpg",
-    title: "hi",
-    price: "1234",
-  },
-  {
-    image: "https://pics.walgreens.com/prodimg/656593/450.jpg",
-    title: "hi",
-    price: "1234",
-  },
-  {
-    image: "https://pics.walgreens.com/prodimg/615529/450.jpg",
-    title: "hi",
-    price: "1234",
-  },
-  {
-    image: "https://pics.walgreens.com/prodimg/651529/450.jpg",
-    title: "hi",
-    price: "1234",
-  },
-
-  {
-    image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
-    title: "hi",
-    price: "1234",
-  },
-  {
-    image:
-      "https://cdn.shopify.com/s/files/1/0257/1046/0991/products/Voltarol-Osteoarthritis-Joint-Pain-1.16_-Gel-30gpack_430x.progressive.jpg?v=1628678783",
-    title: "hi",
-    price: "1234",
-  },
-  {
-    image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
-    title: "hi",
-    price: "1234",
-  },
-  {
-    image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
-    title: "hi",
-    price: "1234",
-  },
-  {
-    image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
-    title: "hi",
-    price: "1234",
-  },
-];
-
-export default function Home() {
+export default function Home({ data }) {
   // const showModal = useModal();
   const showToast = useToast();
   // const products = data;
@@ -125,10 +122,10 @@ export default function Home() {
       <HomeCard />
       {/* <ProductCard styles={style} product={products} /> */}
       <h1 className="container text-3xl font-bold ">Trending Products</h1>
-      <div className="container grid grid-cols-5  my-5">
-        {products?.map((data) => (
+      <div className="container grid grid-cols-5  my-5 text-center">
+        {data.map((datas) => (
           <>
-            <ProductCard product={data} styles={style} />
+            <ProductCard product={datas} styles={style} />
           </>
         ))}
       </div>
