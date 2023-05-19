@@ -37,10 +37,10 @@ export const Navbar: FC<NavbarProps> = ({
 }) => {
   const [search, setSearch] = useState(false);
   const [navSize, setnavSize] = useState("10rem");
-  const [navColor, setnavColor] = useState("transparent");
+  const [navColor, setnavColor] = useState("white");
   const [navText, setnavText] = useState("black");
   const listenScrollEvent = () => {
-    window.scrollY > 10 ? setnavColor("#115061") : setnavColor("transparent");
+    window.scrollY > 10 ? setnavColor("#115061") : setnavColor("white");
     window.scrollY > 10 ? setnavSize("5rem") : setnavSize("10rem");
     window.scrollY > 10 ? setnavText("white") : setnavText("black");
   };
@@ -53,7 +53,7 @@ export const Navbar: FC<NavbarProps> = ({
 
   function Search() {
     return (
-      <div className="relative">
+      <div className="relative ">
         <div className="  fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-70 z-40 w-full">
           <form>
             <input
@@ -88,7 +88,8 @@ export const Navbar: FC<NavbarProps> = ({
             position: "fixed",
             width: "100%",
             zIndex: 50,
-          }}>
+          }}
+        >
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-2  sm:px-6 lg:px-8">

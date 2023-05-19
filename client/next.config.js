@@ -86,8 +86,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "m.media-amazon.com",
         pathname: "/**",
+<<<<<<< HEAD
       },{
 
+=======
+      },
+      {
+        protocol: "https",
+>>>>>>> a90c84db530b7e283d2356f1d0e5b53ac9bf5d98
         hostname: "i.pinimg.com",
         pathname: "/**",
       },
@@ -101,10 +107,17 @@ const nextConfig = {
         hostname: "cdn.greensoft.mn",
         pathname: "/**",
       },
+<<<<<<< HEAD
     
+=======
+      {
+        protocol: "https",
+        hostname: "img.icons8.com",
+        pathname: "/**",
+      },
+>>>>>>> a90c84db530b7e283d2356f1d0e5b53ac9bf5d98
     ],
   },
 };
-
 
 module.exports = nextConfig;

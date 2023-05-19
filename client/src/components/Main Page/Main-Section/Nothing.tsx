@@ -39,7 +39,8 @@ export default function App() {
           clickable: true,
         }}
         modules={[Mousewheel, Pagination]}
-        className="mySwiper  h-[60vh] container bg-[#115061] my-6 rounded-xl border  border-bg-[#115061] ">
+        className="mySwiper  h-[60vh] container bg-[#115061] my-6 rounded-xl border  border-bg-[#115061] "
+      >
         {data.map((datas) => {
           return (
             <>
@@ -59,7 +60,7 @@ export default function App() {
                     alt=""
                     width={500}
                     height={600}
-                    className="w-full h-[30rem]"
+                    className="w-full h-[37.5rem]"
                   />
                 </div>
               </SwiperSlide>
