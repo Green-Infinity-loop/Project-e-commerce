@@ -8,14 +8,46 @@ import {
   Delete,
   Put,
   Query,
+  UseInterceptors,
+  UploadedFile,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { nanoid } from 'nanoid';
+import { FileInterceptor } from '@nestjs/platform-express';
+import * as multer from 'multer';
+import * as cloudinary from 'cloudinary';
+cloudinary.v2.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 @Controller('products')
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
+
+  @Post('upload')
+  @UseInterceptors(
+    FileInterceptor('file', {
+      storage: multer.diskStorage({
+        // destination: (req, file, cb) => {
+        //   cb(null, '/AppData/Local/Temp/');
+        // },
+        filename: (req, file, cb) => {
+          const fileName = nanoid();
+          const splittedPath = file.originalname.split('.');
+          const fileExtention = splittedPath[splittedPath.length - 1];
+          cb(null, `${fileName}.${fileExtention}`);
+        },
+      }),
+    }),
+  )
+  async uploadFile(@UploadedFile() file: Express.Multer.File) {
+    const result = await cloudinary.v2.uploader.upload(file.path);
+    return result;
+  }
 
   @Post()
   create(@Body() createProductDto: CreateProductDto) {

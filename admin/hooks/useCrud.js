@@ -21,11 +21,11 @@ export const useCrud = (path) => {
       });
   };
 
-  const updateItem = (id) => {
+  const updateItem = (item) => {
     axios
-      .put("http://localhost:8080/" + path + "/" + id)
+      .patch("http://localhost:8080/" + path, item)
       .then((res) => {
-        setItems(items.map((item) => (item.id === id ? res.data : item)));
+        setItems(items.map((item) => (item._id === id ? res.data : item)));
       })
       .catch((err) => {
         console.log(err);

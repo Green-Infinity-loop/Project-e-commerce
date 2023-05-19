@@ -1,43 +1,49 @@
 import Layout from "@/components/Layout";
 import { useCrud } from "@/hooks/useCrud";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
-export default function NewProduct() {
+export default function EditProductPage() {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [price, setPrice] = useState("");
   const [location, setLocation] = useState("");
+  const router = useRouter();
+  const { _id } = router.query;
+
   const { items: locations } = useCrud("locations");
-  const { createItem } = useCrud("products");
-  console.log("location is", location);
+  const { items: products } = useCrud("products/" + _id);
+  const { updateItem } = useCrud("products/" + _id);
   return (
     <Layout>
-      <h1> New product</h1>
+      edit product from here
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          createItem({ image, name, price, location });
+          updateItem({ image, name, price, location });
         }}
       >
         <label> Product name</label>
         <input
           value={name}
           type="text"
-          placeholder="product name"
+          placeholder={products.name}
           onChange={(e) => setName(e.target.value)}
         />
-        <label> Image</label>
+
+        <label> Product Name</label>
         <input
           value={image}
           type="text"
-          placeholder="image"
+          placeholder={products.image}
           onChange={(e) => setImage(e.target.value)}
         />
+
         <label> Price</label>
         <input
           value={price}
           type="text"
-          placeholder="price"
+          placeholder={products.price}
           onChange={(e) => setPrice(e.target.value)}
         />
         <select
