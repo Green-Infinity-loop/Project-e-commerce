@@ -75,11 +75,19 @@ const nextConfig = {
       },
       {
         protocol: "https",
+
+        hostname: "cdn.greensoft.mn",
+
         hostname: "pics.walgreens.com",
+
         pathname: "/**",
       },
       {
         protocol: "https",
+
+        hostname: "m.media-amazon.com",
+        pathname: "/**",
+      },
         hostname: "i.pinimg.com",
         pathname: "/**",
       },{

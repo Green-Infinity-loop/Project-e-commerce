@@ -23,56 +23,56 @@ import image from '../image/product/product.png'
 import ShopGrid from "./ShopGrid";
 
 
-// export async function getServerSideProps(context: GetServerSidePropsContext) {
-//   const { query } = context;
-//   const { ordering = "", limit = 36 } = query;
-//   const response = await axios.get(
-//     `http://localhost:8080/products?limit=${limit}`
-//   );
-//   const { data } = response;
-//   return {
-//     props: { data },
-//   };
-// }
-const json = [
-  {
-    image:
-      image,
-    category:"Whitetails Store",
-    title: "Whitetails Women's Open Sky",
-    price: "$340.00",
-    star:2
-  },
-  {
-    image:
-      image,
-    category:"Whitetails Store",
-    title: "Whitetails Women's Open Sky",
-    price: "$340.00",
-  },
-  {
-    image:
-      image,
-    category:"Whitetails Store",
-    title: "Whitetails Women's Open Sky",
-    price: "$340.00",
-    star:5
-  },
-  {
-    image:
-      image,
-    category:"Whitetails Store",
-    title: "Whitetails Women's Open Sky",
-    price: "$340.00",
-  },
-  {
-    image:
-      image,
-    category:"Whitetails Store",
-    title: "Whitetails Women's Open Sky",
-    price: "$340.00",
-  }
-]
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const { query } = context;
+  const { ordering = "", limit = 36 } = query;
+  const response = await axios.get(
+    `http://localhost:8080/products?limit=${limit}`
+  );
+  const { data } = response;
+  return {
+    props: { data },
+  };
+}
+// const json = [
+//   {
+//     image:
+//       image,
+//     category:"Whitetails Store",
+//     title: "Whitetails Women's Open Sky",
+//     price: "$340.00",
+//     star:2
+//   },
+//   {
+//     image:
+//       image,
+//     category:"Whitetails Store",
+//     title: "Whitetails Women's Open Sky",
+//     price: "$340.00",
+//   },
+//   {
+//     image:
+//       image,
+//     category:"Whitetails Store",
+//     title: "Whitetails Women's Open Sky",
+//     price: "$340.00",
+//     star:5
+//   },
+//   {
+//     image:
+//       image,
+//     category:"Whitetails Store",
+//     title: "Whitetails Women's Open Sky",
+//     price: "$340.00",
+//   },
+//   {
+//     image:
+//       image,
+//     category:"Whitetails Store",
+//     title: "Whitetails Women's Open Sky",
+//     price: "$340.00",
+//   }
+// ]
 
 
 
@@ -124,7 +124,7 @@ export default function searchPage({ data }) {
                         show === 'button1' && (
                           <div className="add">
                         <ul className=" grid grid-cols-3 flex w-[100%] gap-[20px]">
-                          {json?.map((products)=>(
+                          {data?.map((products)=>(
                             <li className="h-[490px] " key={nanoid()} >
                               <ProductCard product={products} styles={style}/>
                             </li>
@@ -137,7 +137,7 @@ export default function searchPage({ data }) {
                         show === 'button2'&& (
                           <div className="add">
                         <ul className=" w-[100%] gap-[20px]">
-                          {json?.map((products)=>(
+                          {data?.map((products)=>(
                             <li className="mb-10 border" key={nanoid()} >
                               <ProductCard product={products} styles={style2}/>
                             </li>
