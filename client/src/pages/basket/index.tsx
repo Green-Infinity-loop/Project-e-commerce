@@ -53,8 +53,8 @@ const Basket = ()=> {
                                     <div className="border-b-[3px]">
                                         <div className="grid grid-cols-2 p-4">
                                             <div className="flex w-[600px] mt-5">
-                                                <Image className="mr-6 rounded-xl" src={`https://back.emonos.mn/${item.image}`} width={150} height={200}/>
-                                                <div className="text-xl font-bold">{item.title}</div>
+                                                <Image className="mr-6 rounded-xl" src={item.image} width={150} height={200}/>
+                                                <div className="text-xl font-bold">{item.name}</div>
                                             </div>
                                             <div className="grid justify-items-end">
                                                 <button className="">

@@ -12,7 +12,7 @@ import { nanoid } from "nanoid";
 import { IProduct } from "@/interfaces/product";
 import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
-import { useState } from "react";
+import { FC, useState } from "react";
 import { useBasket } from "@/Hooks/useBasket";
 import { toast } from "react-toastify";
 import { Navbar } from "@/components/Main Page/Navbar/Navbar";
@@ -21,6 +21,7 @@ import style from "../styles/ShopGrid.module.css"
 import style2 from '../styles/ShopGrid2.module.css'
 import image from '../image/product/product.png'
 import ShopGrid from "./ShopGrid";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
@@ -34,58 +35,35 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     props: { data },
   };
 }
-// const json = [
-//   {
-//     image:
-//       image,
-//     category:"Whitetails Store",
-//     title: "Whitetails Women's Open Sky",
-//     price: "$340.00",
-//     star:2
-//   },
-//   {
-//     image:
-//       image,
-//     category:"Whitetails Store",
-//     title: "Whitetails Women's Open Sky",
-//     price: "$340.00",
-//   },
-//   {
-//     image:
-//       image,
-//     category:"Whitetails Store",
-//     title: "Whitetails Women's Open Sky",
-//     price: "$340.00",
-//     star:5
-//   },
-//   {
-//     image:
-//       image,
-//     category:"Whitetails Store",
-//     title: "Whitetails Women's Open Sky",
-//     price: "$340.00",
-//   },
-//   {
-//     image:
-//       image,
-//     category:"Whitetails Store",
-//     title: "Whitetails Women's Open Sky",
-//     price: "$340.00",
-//   }
-// ]
 
+interface ProductViewProps{
+    product:IProduct;
+}
 
-
-  
-export default function searchPage({ data }) {
+const searchPage:FC<ProductViewProps> =({ data }) => {
   const [show, setShow] = useState('button1')
+  const [quantity, setQuantity] = useState(1);
+    const { addToBasket } = useBasket();
+    const updateProductCount = (count: number) => {
+    if (count < 0 && quantity === 1) {
+      toast.warning("1 ээс бага бараа сагслах боломжгүй");
+      return;
+    }
+    if (count > 0 && quantity === 10) {
+      toast.warning("10 аас их бараа сагслах боломжгүй");
+      return;
+    }
+    setQuantity(quantity + count);
+  };
+  
   const toggle =(buttonId) =>{
     if (buttonId !== show) {
       setShow(buttonId);
     }
   }
   return (
-    <div className="container">
+    <Layout>
+      <div className="container">
       <h1 className="text-[44px] font-[500] mb-[6px]">Shop Grid</h1>
       <div className="my-10">
         <div className="grid grid-cols-12 gap-4">
@@ -127,6 +105,37 @@ export default function searchPage({ data }) {
                           {data?.map((products)=>(
                             <li className="h-[490px] " key={nanoid()} >
                               <ProductCard product={products} styles={style}/>
+                              <div className="flex">
+                                <div className="mb-8">
+                                  <label className="text-gray-700">Quantity:</label>
+                                  <div className="flex items-center mt-2">
+                                    <button
+                                      type="button"
+                                      className="text-gray-700 rounded-full py-1 px-3 border-gray-300 border hover:bg-gray-300 transition duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                                      onClick={() => updateProductCount(-1)}
+                                    >
+                                      <FaMinus />
+                                    </button>
+                                    <input
+                                      type="number"
+                                      name="quantity"
+                                      value={quantity}
+                                      readOnly={true}
+                                      className="text-center text-gray-700 w-16 rounded-md px-2 py-1 mx-2 border-gray-300 border focus:outline-none focus:ring-2  focus:ring-gray-500 focus:ring-offset-2"
+                                    />
+                                    <button
+                                      type="button"
+                                      className="text-gray-700 rounded-full py-1 px-3 border-gray-300 border hover:bg-gray-300 transition duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                                      onClick={() => updateProductCount(1)}
+                                    >
+                                      <FaPlus />
+                                    </button>
+                                  </div>
+                                </div>
+                                <Button onClick={() => addToBasket(products._id, quantity, products.name, products.price, products.image  )}>
+                                  Add to Cart
+                                </Button>
+                              </div>
                             </li>
                           ))}
                         </ul>
@@ -235,5 +244,8 @@ export default function searchPage({ data }) {
         </div>
       </div>
     </div>
+  </Layout>
   );
 }
+
+export default searchPage

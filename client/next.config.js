@@ -84,15 +84,21 @@ const nextConfig = {
       },
       {
         protocol: "https",
-
         hostname: "m.media-amazon.com",
         pathname: "/**",
-      },
+      },{
+
         hostname: "i.pinimg.com",
         pathname: "/**",
-      },{
+      },
+      {
         protocol: "https",
         hostname: "cdn.shopify.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.greensoft.mn",
         pathname: "/**",
       },
     

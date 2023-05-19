@@ -14,7 +14,7 @@ export const Button: FC<ButtonProps> = ({
   as: Tag = "button",
   ...otherProps
 }) => {
-  const baseStyles = `bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded active:scale-90 transition`;
+  const baseStyles = `  font-bold  rounded active:scale-90 transition`;
 
   return (
     <Tag {...otherProps} className={twMerge(baseStyles, className)}>
