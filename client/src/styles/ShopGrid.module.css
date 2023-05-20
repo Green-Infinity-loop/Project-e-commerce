@@ -6,10 +6,12 @@
   background: #f6f7f9;
 }
 
+
+
 .cardImage {
   width: 200px;
   height: 320px;
-  padding: 60px;
+  padding: 90px;
 }
 
 .container {
@@ -37,6 +39,12 @@
 }
 
 .cardImage:hover {
-  padding: 50px;
+  padding: 80px;
   transition: 0.3s;
 }
+
+.group:hover .cardImage{
+  padding: 80px;
+  transition: 0.3s;
+}
+
