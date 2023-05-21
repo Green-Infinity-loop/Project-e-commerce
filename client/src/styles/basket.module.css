@@ -1,0 +1,49 @@
+.main {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+  
+.card {
+    display: flex;
+    gap: 40px;
+}
+.content {
+    width: 10vw;
+}
+  
+.cardImage {
+    width: 1vw;
+    height: 120px;
+    padding: 0px;
+    border-radius: 30px;
+}
+  
+.container {
+    display: flex;
+    height: 120px;
+    line-height: 25px;
+    padding-left: 20px;
+    background-color: white;
+    width: 500px;
+
+}
+  
+.title {
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+.category {
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    color: #55585b;
+}
+  
+.price {
+    font-size: 16px;
+    font-weight: 500;
+}
+  
