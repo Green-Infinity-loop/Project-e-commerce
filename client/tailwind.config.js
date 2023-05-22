@@ -1,3 +1,5 @@
+const { transform } = require("typescript");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,8 +9,23 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        "slide-left": {
+          "100%": { transform: "translateX(0)", opacity: "1" },
+          "0%": { transform: "translateX(100%)", opacity: "0" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
+      animation: {
+        bounce: "bounce 2s linear infinite",
+        "slide-left": "slide-left 3s ",
+        "fade-in": "fade-in 3s ease-out ",
+      },
       fontFamily: {
-        font: 'Jost',
+        font: "Jost",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

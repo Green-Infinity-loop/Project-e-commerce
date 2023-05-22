@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import Sidebar from "./Sidebar";
 import { Button } from "@/components/atoms/Button";
+import ButtonLink from "./ButtonLink";
 
 interface NavbarItem {}
 
@@ -88,9 +89,11 @@ export const Navbar: FC<NavbarProps> = ({
             position: "fixed",
             width: "100%",
             zIndex: 50,
-          }}>
+          }}
+        >
           {({ open }) => (
             <>
+              <ButtonLink />
               <div className="mx-auto max-w-7xl px-2  sm:px-6 lg:px-8">
                 <div className="relative flex h-16 items-center justify-between">
                   <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -123,7 +126,8 @@ export const Navbar: FC<NavbarProps> = ({
                                 : " text-black hover:bg-black hover:rounded-xl",
                               " px-3 py-2 text-sm font-medium text-white "
                             )}
-                            aria-current={item.current ? "page" : undefined}>
+                            aria-current={item.current ? "page" : undefined}
+                          >
                             {item.name}
                           </Link>
                         ))}
@@ -175,7 +179,8 @@ export const Navbar: FC<NavbarProps> = ({
                           : "text-gray-300 hover:bg-gray-700 hover:text-white",
                         "block rounded-md px-3 py-2 text-base font-medium"
                       )}
-                      aria-current={item.current ? "page" : undefined}>
+                      aria-current={item.current ? "page" : undefined}
+                    >
                       {item.name}
                     </Disclosure.Button>
                   ))}
