@@ -1,30 +1,30 @@
 import Image from "next/image";
+import agar from "../../../image/emiinsanlogo/agarfarm.png";
+import azi from "../../../image/emiinsanlogo/azifarmlogo.png";
+import hurmen from "../../../image/emiinsanlogo/hurmenlogo.webp";
+import monos from "../../../image/emiinsanlogo/monoslogo.png";
 
 const data = [
   {
-    imgUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTBJ07VwRAHtnpt0NRlAtPllsKV-WHe9ADENHQUznqcZEVGRmstcoLpGWTkrTXct07o40&usqp=CAU",
+    imgUrl: monos,
     title: "Монос групп",
     description:
       "Монос Групп компани Монгол Улсад анхны 10 хувийн хэвшлийн нэг болж 1990 онд үүсгэн байгуулагдаж 33 дах жилдээ үйл ажиллагаа явуулж байна.",
   },
   {
-    imgUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmJqZRYZ5967aUi_YVzRT1BD-EZKHNA5tOrjTjntGaGg&s",
+    imgUrl: hurmen,
     title: "Хүрмэн",
     description:
       "1995 онд үүсгэн байгуулагдсан манай компани үйлчлүүлэгч та бүхэнтэйгээ өдгөө хорин зургаан жилийг ардаа үджээ. ",
   },
   {
-    imgUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ39IapNqFtWBk7nd22uIn8n3PPEdcj2epjpdnRjicp&s",
+    imgUrl: azi,
     title: "АЗИ-ФАРМА",
     description:
       "“АЗИ-ФАРМА” ХХК нь Монгол улсын эмийн зах зээлд дээд зэрэглэлийн эм, эрүүл мэндийн бүтээгдэхүүний онцгой чанараар танигдсан салбартаа тэргүүлэгч компаниудын нэг билээ. ",
   },
   {
-    imgUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ39IapNqFtWBk7nd22uIn8n3PPEdcj2epjpdnRjicp&s",
+    imgUrl: agar,
     title: "АЗИ-ФАРМА",
     description:
       "“АЗИ-ФАРМА” ХХК нь Монгол улсын эмийн зах зээлд дээд зэрэглэлийн эм, эрүүл мэндийн бүтээгдэхүүний онцгой чанараар танигдсан салбартаа тэргүүлэгч компаниудын нэг билээ. ",
@@ -50,9 +50,9 @@ export default function Latest() {
               <div className="  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
                 <a href="#">
                   <Image
-                    width={300}
-                    height={300}
-                    className="rounded-t-lg h-60 flex justify-center"
+                    width={250}
+                    height={200}
+                    className="rounded-t-lg h-60 m-auto"
                     src={datas.imgUrl}
                     alt="emiin sangiin logo"
                   />

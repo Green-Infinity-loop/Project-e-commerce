@@ -46,7 +46,7 @@ export default function App() {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper "
       >
         {header.map((head) => {
           return (
@@ -54,7 +54,7 @@ export default function App() {
               <SwiperSlide>
                 <div className="h-[75vh]  bg-[#115061] ">
                   <div className="grid grid-cols-2 ">
-                    <div className="p-64">
+                    <div className="p-64 animate-fade-in">
                       <h1 className="text-white  text-6xl font-bold m-auto ">
                         {head.title}
                       </h1>
@@ -73,7 +73,7 @@ export default function App() {
                     <Image
                       src={head.image}
                       alt="header img"
-                      className=" m-auto pt-[120px]"
+                      className=" m-auto pt-[120px] transition duration-150 ease-in-out animate-slide-left  "
                       width={650}
                       height={300}
                     />

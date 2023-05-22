@@ -5,11 +5,6 @@ import { useState } from "react";
 import img from "../image/login/login.png";
 import { ToastContainer, toast } from "react-toastify";
 import Image from "next/image";
-// import axios from "axios";
-// import { useRouter } from "next/router";
-// import { useState } from "react";
-// import { toast } from "react-toastify";
-// import Link from "next/link";
 
 export default function Login() {
   const [email, setEmail] = useState("");

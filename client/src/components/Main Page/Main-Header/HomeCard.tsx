@@ -90,7 +90,7 @@ export default function App() {
     <>
       <div className="h-[50vh] p-9 ">
         <h1 className="text-5xl font-semibold my-4   my-12 mb-16 border-b-4 border-[#115061] pb-9">
-          l
+          Category
         </h1>
         <Swiper
           breakpoints={{
