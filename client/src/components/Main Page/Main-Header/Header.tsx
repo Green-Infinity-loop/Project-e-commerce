@@ -20,21 +20,21 @@ const header = [
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiisipsa consequatur quas, alias officia harum!",
     image:
-      "https://beautysecrets.mn/wp-content/uploads/2023/05/23-5-1-800x600.png",
+      "https://o.remove.bg/downloads/43cccd2c-d9eb-4536-8c09-4a19c993348a/Medicine-photo-min-min-removebg-preview.png",
   },
   {
     title: "    Believe in Obatin for Medicine",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiisipsa consequatur quas, alias officia harum!",
     image:
-      "https://beautysecrets.mn/wp-content/uploads/2023/05/23-5-1-800x600.png",
+      "https://o.remove.bg/downloads/a627438d-131a-4490-919c-45acb643148f/vitaminpackage-removebg-preview.png",
   },
   {
     title: "    Believe in Obatin for Medicine",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiisipsa consequatur quas, alias officia harum!",
     image:
-      "https://beautysecrets.mn/wp-content/uploads/2023/05/23-5-1-800x600.png",
+      "https://o.remove.bg/downloads/4438e791-083d-4d46-a4ea-d9e9d0ac1ef6/omron-removebg-preview.png",
   },
 ];
 
@@ -49,8 +49,7 @@ export default function App() {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper"
-      >
+        className="mySwiper">
         {header.map((head) => {
           return (
             <>

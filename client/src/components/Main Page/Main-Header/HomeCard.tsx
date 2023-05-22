@@ -104,15 +104,14 @@ export default function App() {
             },
           }}
           autoplay={{
-            delay: 4000,
+            delay: 6000,
             disableOnInteraction: false,
           }}
           pagination={{
             clickable: true,
           }}
           modules={[Autoplay, Pagination]}
-          className="mySwiper"
-        >
+          className="mySwiper">
           {datas.map((data, index) => (
             <SwiperSlide key={index}>
               <div className="bg-[#e0f2fe] mb-24   xl:w-44 xl:h-44 lg:w-24 lg:h-24 md:w-20 md:h-20 sm:w-16 sm:h-16 cl:w-12 cl:h-12   group relative overflow-hidden duration-500 flex flex-wrap border rounded-full p-3 m-auto">

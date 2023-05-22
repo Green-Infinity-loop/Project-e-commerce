@@ -19,12 +19,12 @@ interface NavbarProps {
   currentUser?: any;
 }
 
-// const navigation = [
-//   { name: "Home", href: "/", current: true },
-//   { name: "Shop", href: "#", current: false },
-//   { name: "News", href: "#", current: false },
-//   { name: "Pages", href: "#", current: false },
-// ];
+const navigation = [
+  { name: "Home", href: "/", current: true },
+  { name: "Shop", href: "#", current: false },
+  { name: "News", href: "#", current: false },
+  { name: "Pages", href: "#", current: false },
+];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -42,7 +42,7 @@ export const Navbar: FC<NavbarProps> = ({
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setnavColor("#115061") : setnavColor("white");
     window.scrollY > 10 ? setnavSize("5rem") : setnavSize("10rem");
-    window.scrollY > 10 ? setnavText("white") : setnavText("black");
+    window.scrollY > 10 ? setnavText("black") : setnavText("black");
   };
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
@@ -88,8 +88,7 @@ export const Navbar: FC<NavbarProps> = ({
             position: "fixed",
             width: "100%",
             zIndex: 50,
-          }}
-        >
+          }}>
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-2  sm:px-6 lg:px-8">
@@ -114,7 +113,7 @@ export const Navbar: FC<NavbarProps> = ({
                     </div>
                     <div className="hidden sm:ml-6 sm:block absolute right-24 font-light text-xs  place-content-center ">
                       <div className="flex space-x-4">
-                        {/* {navigation.map((item) => (
+                        {navigation.map((item) => (
                           <Link
                             key={item.name}
                             href={item.href}
@@ -122,13 +121,12 @@ export const Navbar: FC<NavbarProps> = ({
                               item.current
                                 ? "  text-black hover:bg-black hover:rounded-xl "
                                 : " text-black hover:bg-black hover:rounded-xl",
-                              " px-3 py-2 text-sm font-medium text-black "
+                              " px-3 py-2 text-sm font-medium text-white "
                             )}
-                            aria-current={item.current ? "page" : undefined}
-                          >
+                            aria-current={item.current ? "page" : undefined}>
                             {item.name}
                           </Link>
-                        ))} */}
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -166,7 +164,7 @@ export const Navbar: FC<NavbarProps> = ({
 
               <Disclosure.Panel className="sm:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2">
-                  {/* {navigation.map((item) => (
+                  {navigation.map((item) => (
                     <Disclosure.Button
                       key={item.name}
                       as="a"
@@ -177,11 +175,10 @@ export const Navbar: FC<NavbarProps> = ({
                           : "text-gray-300 hover:bg-gray-700 hover:text-white",
                         "block rounded-md px-3 py-2 text-base font-medium"
                       )}
-                      aria-current={item.current ? "page" : undefined}
-                    >
+                      aria-current={item.current ? "page" : undefined}>
                       {item.name}
                     </Disclosure.Button>
-                  ))} */}
+                  ))}
                 </div>
               </Disclosure.Panel>
             </>
