@@ -76,10 +76,10 @@ export class ProductsService {
         $near: {
           $geometry: {
             type: 'Point',
-            coordinates: [parseFloat(long), parseFloat(lat)],
+            coordinates: [parseFloat(lat), parseFloat(long)],
           },
           $minDistance: 0,
-          $maxDistance: 5000,
+          $maxDistance: 10000,
         },
       },
     });
