@@ -108,6 +108,11 @@ const nextConfig = {
         protocol: "https",
         hostname: "img.icons8.com",
         pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "icons8.com",
+        pathname: "/**",
       }
     ],
   },

@@ -35,60 +35,8 @@ import Latest from "@/components/Main Page/Main-Bottom/Latest";
 import { Link } from "react-router-dom";
 import { data } from "autoprefixer";
 
-// const products = [
-//   {
-//     image: "https://pics.walgreens.com/prodimg/655559/450.jpg",
-//     title: "hi",
-//     price: "1234",
-//   },
-//   {
-//     image: "https://pics.walgreens.com/prodimg/656568/450.jpg",
-//     title: "hi",
-//     price: "1234",
-//   },
-//   {
-//     image: "https://pics.walgreens.com/prodimg/656593/450.jpg",
-//     title: "hi",
-//     price: "1234",
-//   },
-//   {
-//     image: "https://pics.walgreens.com/prodimg/615529/450.jpg",
-//     title: "hi",
-//     price: "1234",
-//   },
-//   {
-//     image: "https://pics.walgreens.com/prodimg/651529/450.jpg",
-//     title: "hi",
-//     price: "1234",
-//   },
 
-//   {
-//     image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
-//     title: "hi",
-//     price: "1234",
-//   },
-//   {
-//     image:
-//       "https://cdn.shopify.com/s/files/1/0257/1046/0991/products/Voltarol-Osteoarthritis-Joint-Pain-1.16_-Gel-30gpack_430x.progressive.jpg?v=1628678783",
-//     title: "hi",
-//     price: "1234",
-//   },
-//   {
-//     image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
-//     title: "hi",
-//     price: "1234",
-//   },
-//   {
-//     image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
-//     title: "hi",
-//     price: "1234",
-//   },
-//   {
-//     image: "https://pics.walgreens.com/prodimg/655553/450.jpg",
-//     title: "hi",
-//     price: "1234",
-//   },
-// ];
+
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;
   const { ordering = "", limit = 10 } = query;
