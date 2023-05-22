@@ -90,6 +90,11 @@ export class ProductsController {
     return await this.productsService.findOne(_id);
   }
 
+  @Get(':id/findnearest')
+  findNearest(@Param('_id') id:string ,@Query('lat') lat: number, @Query('long') long: number) {
+    return this.productsService.findNearest(id,lat, long);
+  }
+
   @Patch(':_id')
   update(
     @Param('_id') _id: string,

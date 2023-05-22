@@ -50,7 +50,7 @@ export class ProductsService {
     const product = await this.productModel.findOne({
       _id: new mongoose.Types.ObjectId(_id),
     });
-    return product;
+    return product.populate("location");
   }
 
   async update(_id: string, updateProductDto: UpdateProductDto) {
@@ -67,4 +67,24 @@ export class ProductsService {
   async findAllCOunt() {
     return await this.productModel.find().count({});
   }
+
+  async findNearest(id,lat,long){
+    const product = await this.productModel.findOne({id})
+     console.log('lat long hevlegdlee', [parseFloat(long), parseFloat(lat)]);
+    return this.locationModel.findOne({
+      location: {
+        $near: {
+          $geometry: {
+            type: 'Point',
+            coordinates: [parseFloat(long), parseFloat(lat)],
+          },
+          $minDistance: 0,
+          $maxDistance: 5000,
+        },
+      },
+    });
+
+  }
+
+
 }
