@@ -20,6 +20,7 @@ import { Layout } from "../layout";
 const Basket = ()=> {
     const [quantity, setQuantity] = useState(1);
     const {basket} = useBasket();
+    console.log("bakset:",basket)
     const [data, setData] = useState([])
     // const data = basket.items[0].productId
         useEffect(()=>{
