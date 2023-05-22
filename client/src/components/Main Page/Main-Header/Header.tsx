@@ -7,9 +7,9 @@ import "swiper/css/navigation";
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 import Image from "next/image";
-import zurag from "../../../image/vacc.png";
-import zurag1 from "../../../image/hedaer1.jpeg";
-import zurag2 from "../../../image/header2.webp";
+import zurag1 from "./header1.png";
+import zurag from "./header2.png";
+import zurag2 from "./header3.png";
 import { Navbar } from "../Navbar/Navbar";
 
 import { Pagination, Navigation } from "swiper";
@@ -19,22 +19,19 @@ const header = [
     title: "    Believe in Obatin for Medicine",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiisipsa consequatur quas, alias officia harum!",
-    image:
-      "https://o.remove.bg/downloads/43cccd2c-d9eb-4536-8c09-4a19c993348a/Medicine-photo-min-min-removebg-preview.png",
+    image: zurag,
   },
   {
     title: "    Believe in Obatin for Medicine",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiisipsa consequatur quas, alias officia harum!",
-    image:
-      "https://o.remove.bg/downloads/a627438d-131a-4490-919c-45acb643148f/vitaminpackage-removebg-preview.png",
+    image: zurag,
   },
   {
     title: "    Believe in Obatin for Medicine",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiisipsa consequatur quas, alias officia harum!",
-    image:
-      "https://o.remove.bg/downloads/4438e791-083d-4d46-a4ea-d9e9d0ac1ef6/omron-removebg-preview.png",
+    image: zurag,
   },
 ];
 
@@ -49,7 +46,8 @@ export default function App() {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper">
+        className="mySwiper"
+      >
         {header.map((head) => {
           return (
             <>
@@ -75,9 +73,9 @@ export default function App() {
                     <Image
                       src={head.image}
                       alt="header img"
-                      className=" m-auto "
-                      width={1000}
-                      height={600}
+                      className=" m-auto pt-[120px]"
+                      width={650}
+                      height={300}
                     />
                   </div>
                 </div>

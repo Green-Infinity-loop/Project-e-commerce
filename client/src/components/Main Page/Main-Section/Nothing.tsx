@@ -11,18 +11,22 @@ import Link from "next/link";
 
 const data = [
   {
-    title: "Panadol",
-    description: "Үе мөч, булчин, өвдөлт намдаах",
+    title:
+      "Vitamin C Immune Support Gummies, 1000 mg, Assorted Fruit (Packaging May Vary)",
+    description:
+      "May help support immune system. Compare to Airborne Original Immune Support.  ",
     imgUrl: "https://pics.walgreens.com/prodimg/628003/450.jpg",
   },
   {
-    title: "Panadol",
-    description: "Үе мөч, булчин, өвдөлт намдаах",
+    title: "Fiber Gummies",
+    description:
+      "Natural orange flavor with other natural flavors.5 g of fiber per serving.No sugar added.Promotes digestive health.",
     imgUrl: "https://pics.walgreens.com/prodimg/658353/450.jpg",
   },
   {
-    title: "Panadol",
-    description: "Үе мөч, булчин, өвдөлт намдаах",
+    title: "Immune Support Elderberry Gummies",
+    description:
+      "Compare vs. Airborne Elderberry Immune Support Supplement Gummies.May support your immune system.Antioxidant Support.High in Vitamins C & EExcellent source of Vitamin D .Natural Blackberry Flavor",
     imgUrl: "https://pics.walgreens.com/prodimg/647556/450.jpg",
   },
 ];
@@ -46,9 +50,9 @@ export default function App() {
             <>
               <SwiperSlide>
                 <div className="grid grid-cols-2 ">
-                  <div className=" text-white m-auto ">
-                    <h1 className=" text-6xl font-bold mb-6">{datas.title}</h1>
-                    <p className="text-2xl font-semibold mb-6">
+                  <div className=" text-white m-auto p-24 ">
+                    <h1 className=" text-4xl font-bold mb-6">{datas.title}</h1>
+                    <p className="text-lg font-semibold mb-6">
                       {datas.description}
                     </p>
                     <Link href={"./"} className="border p-4 rounded-lg w-48">
@@ -60,7 +64,7 @@ export default function App() {
                     alt=""
                     width={500}
                     height={600}
-                    className="w-full h-[37.5rem]"
+                    className="w-full h-[39.5rem]"
                   />
                 </div>
               </SwiperSlide>
