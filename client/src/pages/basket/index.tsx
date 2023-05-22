@@ -22,6 +22,7 @@ const Basket = ()=> {
     const {basket} = useBasket();
     console.log("bakset:",basket)
     const [data, setData] = useState([])
+    
     // const data = basket.items[0].productId
         useEffect(()=>{
             fetchBasketItems()
@@ -146,7 +147,7 @@ const Basket = ()=> {
         </div>
         <div className="container border-xl">
         <div className="my-20">
-        <MapboxMap/>
+        <MapboxMap />
         </div>
         </div>
             </Layout>

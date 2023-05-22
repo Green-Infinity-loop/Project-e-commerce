@@ -1,4 +1,4 @@
-import * as React from "react";
+import {useEffect, useState, useRef} from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import axios from "axios";
@@ -7,43 +7,35 @@ import { useBasket } from "@/Hooks/useBasket";
 // import the mapbox-gl styles so that the map is displayed correctly
 
 function MapboxMap() {
-  const [map, setMap] = React.useState<mapboxgl.Map>();
-  const basket = useBasket()
-  const ids = {ids:basket.basket.items.map((item:any)=>item.productId)}
-  console.log("item:",ids);
+  const [map, setMap] = useState<mapboxgl.Map>();
+  const {basket} = useBasket()
+ 
   
-  const [currentLoc, setCurrentLoc] = React.useState([106.918162,47.915596]);
-  const [locations, setLocations] = React.useState([]);
-  const [nearestLocation, setNearestLocation] = React.useState({});
-  const mapNode = React.useRef(null);
+  const [currentLoc, setCurrentLoc] = useState([106.918162,47.915596]);
+  const [nearestLocation, setNearestLocation] = useState({});
+  const [node, setNode] = useState("");
+  const mapNode = useRef('');
   const token = "pk.eyJ1IjoibXVuZ3Vuc2hhZ2FpIiwiYSI6ImNsaHUwMjhtNDBnZ3gzdGw5MXhxcGhoOXUifQ.7rdAZiweqotAkzdUXLAl5w"
 
 
+useEffect(() => {
+    getMyLocation();
+    setNode(mapNode.current);
+  }, []);
+
+useEffect(() => {
+    if (typeof window !== "undefined") {
+
+       findNearestLocation();
+
+      
+    }
+  }, [node, currentLoc]);
   
 
-
-// async function findNearestLocation() {
-//     const res = await axios.get(
-//       `http://localhost:8080/locations/findnearest?lat=${currentLoc[0]}&long=${currentLoc[1]}`
-//     );
-//     const data = await res.data;
-//     setNearestLocation(data);
-//   }
-  // async function findNearestLocation(long, lat) {
-  //   const res = await axios.get(
-  //     `http://localhost:8080/products/:id=${ids}/findnearest?lat=${lat}&long=${long}`
-  //   );
-  //   const data = await res.data;
-  //   console.log(data)
-  //   setNearestLocation(data);
-  // }
-  // console.log('nearest loc:', nearestLocation)
-
-
-  async function getRoute(coords) {
-    const start = [currentLoc[0], currentLoc[1]];
-    const end = coords;
-    console.log('end:',end)
+  async function getRoute(end:any) {
+    // const end = coords.location.coordinates;
+    console.log('end:',end);
      console.log('current loc:',currentLoc)
 
     try {
@@ -68,145 +60,49 @@ function MapboxMap() {
     } catch (e) {
       console.log("data unshij bna");
     }
-    // axios
-    //   .get(
-    //     `https://api.mapbox.com/directions/v5/mapbox/cycling/${start[0]},${start[1]};${end[0]},${end[1]}?access_token=${token}`,
-    //   )
-    //   .then((response) => {
-    //       console.log("res:",response)
-    //     const matchings = response.data.routes[0];
-    //     console.log("mat:",matchings)
-    //     console.log("len:", matchings.length)
-    //     if (matchings.length > 0) {
-    //       const { geometry } = matchings[0];
-    //       console.log("geo:",geometry)
-    //       // Process the matched route geometry
-    //       // ...
-    //       if (map.getLayer("routes")) {
-    //       map.removeLayer("routes");
-    //     }
-
-    //     // Remove the existing route source if it already exists
-    //     if (map.getSource("routes")) {
-    //       map.removeSource("routes");
-    //     }
-
-    //     // Add a new layer for the route
-    //     map.addLayer({
-    //       id: "routes",
-    //       type: "line",
-    //       source: {
-    //         type: "geojson",
-    //         data: {
-    //           type: "Feature",
-    //           geometry: {
-    //             type: "LineString",
-    //             coordinates: geometry.coordinates,
-    //           },
-    //         },
-    //       },
-    //       paint: {
-    //         "line-color": "#0074D9", // Change the color of the route line
-    //         "line-width": 3, // Change the width of the route line
-    //       },
-    //     });
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error getting route:", error);
-    //   });
   }
 
- 
-  
-  React.useEffect(() => {
-    const node = mapNode.current;
+  function getMyLocation() {
     if (typeof window != "undefined" && navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          setCurrentLoc([position.coords.latitude, position.coords.longitude]);
-          // findNearestLocation(
-          //   position.coords.longitude,
-          //   position.coords.latitude
-            
-          // );
-          console.log(
-            "my current loc:",
-            position.coords.latitude,
-            position.coords.longitude
-          );
+          setCurrentLoc([position.coords.longitude, position.coords.latitude]);
+         
         },
         (error) => {
-          console.log("aldaa", error);
+          console.error("aldaaa", error);
         }
       );
     } else {
       console.error("Geolocation is not supported by this browser.");
     }
+  }
 
-    
-    console.log('lat long:', currentLoc[1], currentLoc[0])
-    const mapboxMap = new mapboxgl.Map({
-      container: node,
-      accessToken:
-        "pk.eyJ1IjoibXVuZ3Vuc2hhZ2FpIiwiYSI6ImNsaHUwMjhtNDBnZ3gzdGw5MXhxcGhoOXUifQ.7rdAZiweqotAkzdUXLAl5w",
-      style: "mapbox://styles/mapbox/streets-v12",
-      center:[currentLoc[0], currentLoc[1]],
-      zoom: 9,
-    });
+    async function findNearestLocation() {
+          const ids = {ids:basket.items.map((item:any)=>item.productId)}
+          console.log('current location:', currentLoc)
+    const res = await axios.post(`http://localhost:8080/products/${ids.ids[0]}/findnearest?lat=${currentLoc[0]}&long=${currentLoc[1]}`
+    );
+    const data = await res.data;
+    console.log('find nearest:' , data)
+    setNearestLocation(data);
+  }
 
-    
-
-    console.log(currentLoc)
-    const marker = new mapboxgl.Marker()
-      .setLngLat(currentLoc)
-      .addTo(mapboxMap);
-    setMap(mapboxMap);
-    return () => {
-      mapboxMap.remove();
-    };
-  }, []);
-
-  // React.useEffect(() => {
-  //   if (map && Object.keys(nearestLocation).length > 0) {
-  //     const { long, lat } = nearestLocation;
-  //     console.log("Nearest location:", nearestLocation);
-  //     console.log("LngLat:", long, lat);
-  //     const nearestMarker = new mapboxgl.Marker()
-  //       .setLngLat(nearestLocation.location.coordinates)
-  //       .addTo(map);
-  //   // getRoute(nearestMarker)
-  //   }
-  // }, [map, nearestLocation]);
-  React.useEffect(()=>{
-    if(currentLoc){
-      setTimeout(async ()=>{
-         const coords = axios.get(`http://localhost:8080/products/:id=${ids}/findnearest?lat=${currentLoc[0]}&long=${currentLoc[1]}`)
-         console.log("coords:",coords);
-         
-
-         const end = {
-          
-          
-          type: "FeatureCollection",
-          features: [
-            {
-              type: "Feature",
-              properties: {},
-              geometry: {
-                type: "Point",
-                coordinates: coords,
-              },
-            },
-            
-          ],
-          
-          };
-        const geojson = await getRoute(coords);
-        if (map.getLayer("end")) {
-          map.getSource("end").setData(geojson);
-        } else {
-          map.addLayer({
+  setTimeout(async () => {
+        if (mapNode.current != "") {
+          const mapboxMap = new mapboxgl.Map({
+            container: mapNode.current,
+            accessToken:
+              "pk.eyJ1IjoibXVuZ3Vuc2hhZ2FpIiwiYSI6ImNsaHUwMjhtNDBnZ3gzdGw5MXhxcGhoOXUifQ.7rdAZiweqotAkzdUXLAl5w",
+            style: "mapbox://styles/mapbox/navigation-night-v1",
+            center: [currentLoc[0], currentLoc[1]],
+            zoom: 15,
+          });
+          console.log('nearest',nearestLocation)
+          const geojson = await getRoute(nearestLocation?.location.coordinates);
+            console.log('geojson', geojson)
+          mapboxMap?.on("load", async () => {
+            mapboxMap.addLayer({
               id: "point",
               type: "circle",
               source: {
@@ -219,7 +115,7 @@ function MapboxMap() {
                       properties: {},
                       geometry: {
                         type: "Point",
-                        coordinates: coords,
+                        coordinates: geojson
                       },
                     },
                   ],
@@ -231,11 +127,18 @@ function MapboxMap() {
               },
             });
 
-            map?.addLayer({
+             if (mapboxMap?.getSource("route")) {
+            console.log("map iishe orson");
+            mapboxMap.getSource("route").setData(geojson);
+          }
+          // otherwise, we'll make a new request
+          else {
+            console.log("else uyd");
+            mapboxMap?.addLayer({
               id: "route",
               type: "line",
               source: {
-                type: "geojson", 
+                type: "geojson",
                 data: geojson,
               },
               layout: {
@@ -248,24 +151,32 @@ function MapboxMap() {
                 "line-opacity": 0.75,
               },
             });
-    }
-      })
-    }
-  },[currentLoc])
+          }
+            // this is where the code from the next step will go
+          });
 
+         
+          const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+            "<h1>Таны одоогийн байршил</h1>"
+          );
 
+          
+          const marker = new mapboxgl.Marker({ color: "red" })
+            .setLngLat([currentLoc[0], currentLoc[1]])
+            .setPopup(popup)
+            .addTo(mapboxMap);
 
+             const marker2 = new mapboxgl.Marker({ color: "green" })
+            .setLngLat([nearestLocation?.location.coordinates[0], nearestLocation?.location.coordinates[1]])
+            .setPopup(popup)
+            .addTo(mapboxMap);
 
+            
 
+          
+        }
+      }, 5);
 
-
-
-
-
-
-  
-  
-//   
   return (
       <>
       <div className="container">
