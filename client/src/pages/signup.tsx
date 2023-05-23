@@ -16,7 +16,7 @@ export default function SignUp() {
   const submitSignup = () => {
     let status = 200;
     axios
-      .post("http://localhost:8080/signup", { email, password, repassword })
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/signup`, { email, password, repassword })
       .then(({ data }) => {
         if (status !== 200) {
         } else {

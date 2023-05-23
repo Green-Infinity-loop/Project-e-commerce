@@ -1,5 +1,6 @@
 import { Modal } from "@mui/material";
 import { Box } from "@mui/system";
+import Image from "next/image";
 import { createContext, useState } from "react";
 
 const style = {
@@ -15,9 +16,13 @@ const style = {
   p: 4,
 };
 
-export const ModalContext = createContext(null);
+interface ModalContextType {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export const ModalProvider = ({ children }) => {
+export const ModalContext = createContext<ModalContextType | null>(null);
+
+export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
   const [open, setOpen] = useState<boolean>(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -34,9 +39,11 @@ export const ModalProvider = ({ children }) => {
           <div className="flex justify-between justify-center text-center">
             <div>
               <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
-                <img
+                <Image
+                  alt="Hello"
                   src="https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg"
-                  alt=""
+                  width={100}
+                  height={100}
                 />
               </div>
               <div className="h-12 text-center">Tolgoinii em</div>

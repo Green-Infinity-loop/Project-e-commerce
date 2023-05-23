@@ -6,7 +6,7 @@ export default function Bottom(){
     return (
         <div className="m-auto h-[70vh] grid grid-cols-5 gap-4 bg-white ">
            <div className="col-span-3 bg-[#F7F7F9]">
-               <Image className="mt-10" src={bottom} width={"900px"} height={"900px"}></Image>
+               <Image alt='image' className="mt-10" src={bottom} width={900} height={900}></Image>
            </div>
            <div className="grid place-content-center px-80 bg-white col-span-2 relative"> 
                <div className="w-[25vw] absolute top-40 right-[440px]">

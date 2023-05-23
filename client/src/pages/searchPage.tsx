@@ -1,33 +1,23 @@
 import Sort from "@/components/Search Page/Sort";
 import Filter from "@/components/Search Page/Filter";
-import Footer from "@/components/atoms/Footer";
-import Search from "@/components/Search Page/Search";
 import axios from "axios";
-import { Select } from "@mui/material";
-import { useRouter } from "next/router";
-import { useQuery } from "@/Hooks/useQuery";
 import { GetServerSidePropsContext } from "next";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import { nanoid } from "nanoid";
 import { IProduct } from "@/interfaces/product";
-import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
 import { FC, useState } from "react";
 import { useBasket } from "@/Hooks/useBasket";
-import { toast } from "react-toastify";
-import { Navbar } from "@/components/Main Page/Navbar/Navbar";
 import {Layout} from "./layout";
 import style from "../styles/ShopGrid.module.css"
 import style2 from '../styles/ShopGrid2.module.css'
-import image from '../image/product/product.png'
 import ShopGrid from "./ShopGrid";
-import { FaMinus, FaPlus } from "react-icons/fa";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;
   const { ordering = "", limit = 36 } = query;
   const response = await axios.get(
-    `http://localhost:8080/products?limit=${limit}`
+    `process.env.NEXT_PUBLIC_API_URL/products?limit=${limit}`
   );
   const { data } = response;
   return {
@@ -37,27 +27,28 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
 interface ProductViewProps{
     product:IProduct;
+    data: Array<IProduct>;
 }
 
-const searchPage:FC<ProductViewProps> =({ data }) => {
-  const [show, setShow] = useState('button1')
-  const [quantity, setQuantity] = useState(1);
+const SearchPage:FC<ProductViewProps> =({ data }) => {
+  const [show, setShow] = useState<string>('button1')
+  const [quantity, setQuantity] = useState<number>(1);
     const { addToBasket } = useBasket();
     const updateProductCount = (count: number) => {
     
     setQuantity(quantity + count);
   };
   
-  const toggle =(buttonId) =>{
+  const toggle =(buttonId:string) =>{
     if (buttonId !== show) {
       setShow(buttonId);
     }
   }
 
-  const myFunction = (_id, quantity,name, price,image) =>{
-    updateProductCount(1)
-    addToBasket(_id, quantity,name, price,image  )
-  }
+  // const myFunction = (_id, quantity,name, price,image) =>{
+  //   updateProductCount(1)
+  //   addToBasket(_id, quantity,name, price,image  )
+  // }
   return (
     <Layout>
       <div className="container">
@@ -103,7 +94,19 @@ const searchPage:FC<ProductViewProps> =({ data }) => {
                             <li className="h-[490px] relative group" key={nanoid()} >
                               <ProductCard product={products} styles={style}/>
                               <div className="absolute top-10 left-0 group-hover:left-5 invisible  hover:visible  transition-all	ease-in-out duration-10000 delay-400">
-                                <Button id="addToCard" className="" onClick={() => addToBasket(products._id, quantity, products.name, products.price, products.image  )}>
+                                <Button
+                                  id="addToCard"
+                                  className=""
+                                  onClick={() =>
+                                    addToBasket(
+                                      products?._id,
+                                      quantity,
+                                      products?.name || "",
+                                      products?.price || 0,
+                                      products?.image || ""
+                                    )
+                                  }
+                                >
                                 <div className="flex group relative">
                                 <div className="border p-2 rounded-full invisible group-hover:visible hover:bg-black hover:text-white">
                                 <svg className="" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -233,4 +236,4 @@ const searchPage:FC<ProductViewProps> =({ data }) => {
   );
 }
 
-export default searchPage
+export default SearchPage

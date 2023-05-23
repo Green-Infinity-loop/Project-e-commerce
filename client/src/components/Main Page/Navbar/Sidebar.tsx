@@ -5,6 +5,7 @@ import { Grid } from "@mui/material";
 import Image from "next/image";
 import ButtonLink from "./ButtonLink";
 import { IoPersonSharp, IoCloseCircleOutline } from "react-icons/io5";
+import Link from "next/link";
 
 export default function Sidebar() {
   const [sideBar, setSidebar] = React.useState(false);
@@ -76,7 +77,7 @@ export default function Sidebar() {
 
               <li>
                 <button className="border bg-[#115061] rounded-xl w-80">
-                  <a
+                  <Link
                     href="#"
                     className=" flex items-center p-2 text-gray-900 rounded-lg dark:text-white  dark:hover:bg-gray-700"
                   >
@@ -96,12 +97,12 @@ export default function Sidebar() {
                     <span className=" text-start text-white flex-1 ml-3 whitespace-nowrap">
                       Users
                     </span>
-                  </a>
+                  </Link>
                 </button>
               </li>
               <li>
                 <button className="border bg-[#115061] rounded-xl w-80">
-                  <a
+                  <Link
                     href="/searchPage"
                     className=" flex items-center p-2 text-gray-900 rounded-lg dark:text-white  dark:hover:bg-gray-700"
                   >
@@ -121,7 +122,7 @@ export default function Sidebar() {
                     <span className="flex-1 ml-3 whitespace-nowrap text-white text-start">
                       Products
                     </span>
-                  </a>
+                  </Link>
                 </button>
               </li>
               <li>
@@ -129,7 +130,7 @@ export default function Sidebar() {
                   className="border bg-[#115061] rounded-xl w-80
  "
                 >
-                  <a
+                  <Link
                     href="/login"
                     className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white  dark:hover:bg-gray-700"
                   >
@@ -149,12 +150,12 @@ export default function Sidebar() {
                     <span className="flex-1 ml-3 whitespace-nowrap text-start text-white">
                       Sign In
                     </span>
-                  </a>
+                  </Link>
                 </button>
               </li>
               <li>
                 <button className="border bg-[#115061] rounded-xl w-80">
-                  <a
+                  <Link
                     href="/signup
                 "
                     className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white  dark:hover:bg-gray-700"
@@ -175,7 +176,7 @@ export default function Sidebar() {
                     <span className="flex-1 ml-3 whitespace-nowrap text-start text-white">
                       Sign Up
                     </span>
-                  </a>
+                  </Link>
                 </button>
               </li>
               <div className="divide-slate-950"></div>

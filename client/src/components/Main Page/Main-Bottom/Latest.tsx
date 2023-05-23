@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import agar from "../../../image/emiinsanlogo/agarfarm.png";
 import azi from "../../../image/emiinsanlogo/azifarmlogo.png";
 import hurmen from "../../../image/emiinsanlogo/hurmenlogo.webp";
@@ -36,19 +37,19 @@ export default function Latest() {
     <>
       <div className="container flex justify-between my-12">
         <h1 className="text-4xl  font-bold ">Latest news & articles</h1>
-        <a
+        <Link
           href="/"
           className="border bg-[#115061] rounded-xl py-3 px-9  text-white"
         >
           View All Blog
-        </a>
+        </Link>
       </div>
       <div className=" container grid grid-cols-4 gap-8 my-6 ">
         {data.map((datas) => {
           return (
             <>
               <div className="  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
-                <a href="#">
+                <Link href="#">
                   <Image
                     width={250}
                     height={200}
@@ -56,19 +57,19 @@ export default function Latest() {
                     src={datas.imgUrl}
                     alt="emiin sangiin logo"
                   />
-                </a>
+                </Link>
                 <div className="p-5 h-44">
-                  <a href="#">
+                  <Link href="#">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                       {datas.title}{" "}
                     </h5>
-                  </a>
+                  </Link>
                   <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                     {datas.description}
                   </p>
                 </div>
                 <div>
-                  <a
+                  <Link
                     href="#"
                     className="my-6 mx-5 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#115061] rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   >
@@ -86,7 +87,7 @@ export default function Latest() {
                         clip-rule="evenodd"
                       ></path>
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </>

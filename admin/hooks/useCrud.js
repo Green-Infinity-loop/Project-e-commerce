@@ -5,7 +5,7 @@ export const useCrud = (path) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/" + path).then((res) => {
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/` + path).then((res) => {
       setItems(res.data);
     });
   }, [path]);
@@ -29,7 +29,7 @@ export const useCrud = (path) => {
 
   const deleteItem = (id) => {
     axios
-      .delete("http://localhost:8080/" + path + "/" + id)
+      .delete(`${process.env.NEXT_PUBLIC_API_URL}/` + path + "/" + id)
       .then(() => {
         setItems(items.filter((item) => item._id !== id));
         showToast("", "success");
@@ -41,7 +41,7 @@ export const useCrud = (path) => {
 
   const updateItem = (item) => {
     axios
-      .patch("http://localhost:8080/" + path, item)
+      .patch(`${process.env.NEXT_PUBLIC_API_URL}/` + path, item)
       .then((res) => {
         setItems(items.map((item) => (item._id === id ? res.data : item)));
         showToast("", "success");
@@ -53,7 +53,7 @@ export const useCrud = (path) => {
 
   const createItem = (item) => {
     axios
-      .post("http://localhost:8080/" + path, item)
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/` + path, item)
       .then((res) => {
         setItems([...items, res.data]);
         console.log("res and items", [...items, res.data]);

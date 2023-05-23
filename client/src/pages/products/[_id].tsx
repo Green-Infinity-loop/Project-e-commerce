@@ -5,11 +5,9 @@ import { Button } from "@mui/material";
 import axios from "axios";
 import { GetServerSidePropsContext } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { FC, useState } from "react";
 import { toast } from "react-toastify";
-import { Layout } from "../layout";
-import { FaMinus, FaPlus, FaRegStar, FaStar } from "react-icons/fa";
+import { FaMinus, FaPlus } from "react-icons/fa";
 interface ProductViewProps{
     product:IProduct;
 }
@@ -41,13 +39,15 @@ const ProductView: FC<ProductViewProps> = ({product}) =>{
           <div className="md:flex md:items-center">
             <div className="md:w-1/2">
               <div className="aspect-square relative overflow-hidden border rounded">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={500}
-                  height={500}
-                  className="absolute inset-0 w-full h-full object-contain"
-                />
+                {product.image && (
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      width={500}
+                      height={500}
+                      className="absolute inset-0 w-full h-full object-contain"
+                    />
+                )}
               </div>
             </div>
             <div className="md:w-1/2 px-8">
@@ -94,7 +94,15 @@ const ProductView: FC<ProductViewProps> = ({product}) =>{
                   </button>
                 </div>
               </div>
-              <Button onClick={() => addToBasket(product._id, quantity, product.name, product.price, product.image  )}>
+              <Button onClick={() =>
+                  addToBasket(
+                    product._id,
+                    quantity,
+                    product.name,
+                    product.price,
+                    product.image || "" 
+                  )
+                }>
                 Add to Cart
               </Button>
             </div>
@@ -107,9 +115,14 @@ const ProductView: FC<ProductViewProps> = ({product}) =>{
 
 export const getServerSideProps = async (ctx:GetServerSidePropsContext) =>{
     console.log('server deer param', ctx.params)
-    const { _id } =ctx.params;
+    const _id = ctx.params?._id as string;
+    if (!_id) {
+    return {
+      notFound: true,
+    };
+  }
     const productRequest = await axios.get(
-        `http://localhost:8080/products/${_id}`
+        `process.env.NEXT_PUBLIC_API_URL/products/${_id}`
     );
     const product:IProduct = await productRequest.data;
     console.log('product:',product)
