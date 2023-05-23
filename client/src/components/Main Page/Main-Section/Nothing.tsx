@@ -58,14 +58,8 @@ const Stopwatch = () => {
           className="w-6 h-6 p-0 mb-3 mt-7 "
         ></Image>
         <span className="border p-3 text-xl  rounded mb-3 mt-3 ">
-<<<<<<< HEAD
-          {hours}hours
-        </span>
-        <Image
-=======
           {hours}hours{" "}</span>
           <Image
->>>>>>> adf0c9432a702f3931483de78fb509ab7eb7b551
           alt="Хаврын ядаргааг тайлж дархлаагаа дэмжье"
           src={"https://icons8.com/icon/25583/colon"}
           width={100}
