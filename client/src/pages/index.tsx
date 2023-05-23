@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 import { useQuery } from "@/Hooks/useQuery";
 import HomePageTop from "@/components/Main Page/Main-Section/HomePageTop";
-
-=======
-
-import { useQuery } from "@/Hooks/useQuery";
-import HomePageTop from "@/components/Main Page/Main-Section/HomePageTop";
->>>>>>> bd07e3dc9864eee9a30a1f9b6b4306044f5327ad
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
