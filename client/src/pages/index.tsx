@@ -23,7 +23,7 @@ import useLoader from "@/Hooks/useLoader";
 import TopBottom from "@/components/Main Page/Main-Bottom/TopBottom";
 import Nothing from "@/components/Main Page/Main-Section/Nothing";
 import ProductCard from "@/components/ProductCard/ProductCard";
-import { Layout } from "./layout";
+import Layout from "./layout";
 import style from "../styles/indexstyle.module.css";
 import Latest from "@/components/Main Page/Main-Bottom/Latest";
 

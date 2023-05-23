@@ -11,7 +11,7 @@ import style from "../../styles/basket.module.css"
 
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { Input } from "@mui/material";
-import { Layout } from "../layout";
+import Layout from "../layout";
 import Maps from "@/components/mapBox";
 
 

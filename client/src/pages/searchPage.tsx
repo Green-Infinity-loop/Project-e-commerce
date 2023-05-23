@@ -8,7 +8,7 @@ import { IProduct } from "@/interfaces/product";
 import { Button } from "@/components/atoms/Button";
 import { FC, useState } from "react";
 import { useBasket } from "@/Hooks/useBasket";
-import {Layout} from "./layout";
+import Layout from "./layout";
 import style from "../styles/ShopGrid.module.css"
 import style2 from '../styles/ShopGrid2.module.css'
 import ShopGrid from "./ShopGrid";

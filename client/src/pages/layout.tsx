@@ -15,7 +15,7 @@ interface LayoutProps {
   children: ReactNode;
 }
 
-export const Layout: FC<LayoutProps> = ({ children, title = "MedZone" }) => {
+const Layout: FC<LayoutProps> = ({ children, title = "MedZone" }) => {
   const { currentUser, setCurrentUser } = useCurrentUser();
   const { basket, setBasket } = useBasket();
   const loading = useLoader();
@@ -71,3 +71,5 @@ export const Layout: FC<LayoutProps> = ({ children, title = "MedZone" }) => {
     </>
   );
 };
+
+export default Layout
