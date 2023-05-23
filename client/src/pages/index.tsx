@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> adf0c9432a702f3931483de78fb509ab7eb7b551
 import { useQuery } from "@/Hooks/useQuery";
 import HomePageTop from "@/components/Main Page/Main-Section/HomePageTop";
 import * as React from "react";
@@ -10,7 +14,6 @@ import HomeCard from "@/components/Main Page/Main-Header/HomeCard";
 import Header from "@/components/Main Page/Main-Header/Header";
 import SignUp from "@/pages/signup";
 import Sidebar from "@/components/Main Page/Navbar/Sidebar";
-import { useToast } from "@/Hooks/useToast";
 import { Alert, AlertTitle, IconButton, Snackbar, Stack } from "@mui/material";
 import { GetServerSidePropsContext } from "next";
 import axios from "axios";
@@ -22,7 +25,7 @@ import useLoader from "@/Hooks/useLoader";
 import TopBottom from "@/components/Main Page/Main-Bottom/TopBottom";
 import Nothing from "@/components/Main Page/Main-Section/Nothing";
 import ProductCard from "@/components/ProductCard/ProductCard";
-import { Layout } from "./layout";
+import Layout from "./layout";
 import style from "../styles/indexstyle.module.css";
 import Latest from "@/components/Main Page/Main-Bottom/Latest";
 
@@ -30,7 +33,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;
   const { ordering = "", limit = 10 } = query;
   const response = await axios.get(
-    `process.env.NEXT_PUBLIC_API_URL/products?limit=${limit}`
+    `${process.env.NEXT_PUBLIC_API_URL}/products?limit=${limit}`
   );
   const { data } = response;
   return {
@@ -40,7 +43,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
 export default function Home({ data }: { data: IProduct[] }) {
   // const showModal = useModal();
-  const showToast = useToast();
   // const products = data;
   const router = useRouter();
   const { query } = router;

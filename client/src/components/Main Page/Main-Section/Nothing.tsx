@@ -52,14 +52,20 @@ const Stopwatch = () => {
         <span className="border p-3 text-xl  rounded mb-3 mt-3">{days}day</span>
         <Image
           src={Colon}
+          alt="Хаврын ядаргааг тайлж дархлаагаа дэмжье"
           width={30}
           height={30}
           className="w-6 h-6 p-0 mb-3 mt-7 "
         ></Image>
         <span className="border p-3 text-xl  rounded mb-3 mt-3 ">
+<<<<<<< HEAD
           {hours}hours
         </span>
         <Image
+=======
+          {hours}hours{" "}</span>
+          <Image
+>>>>>>> adf0c9432a702f3931483de78fb509ab7eb7b551
           alt="Хаврын ядаргааг тайлж дархлаагаа дэмжье"
           src={"https://icons8.com/icon/25583/colon"}
           width={100}
@@ -71,6 +77,7 @@ const Stopwatch = () => {
         </span>
         <Image
           src={Colon}
+          alt="Хаврын ядаргааг тайлж дархлаагаа дэмжье"
           width={30}
           height={30}
           className="w-6 h-6 p-0 mb-3 mt-7"
@@ -79,6 +86,7 @@ const Stopwatch = () => {
           {minutes}min
         </span>
         <Image
+        alt="Хаврын ядаргааг тайлж дархлаагаа дэмжье"
           src={Colon}
           width={30}
           height={30}
@@ -113,6 +121,7 @@ export default function App() {
               <div className="grid grid-cols-2  ">
                 <div className="text-white m-auto p-24 relative">
                   <Image
+                  alt="Хаврын ядаргааг тайлж дархлаагаа дэмжье"
                     src={Sale}
                     width={200}
                     height={200}

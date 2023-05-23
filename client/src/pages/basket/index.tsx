@@ -11,7 +11,7 @@ import style from "../../styles/basket.module.css"
 
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { Input } from "@mui/material";
-import { Layout } from "../layout";
+import Layout from "../layout";
 import Maps from "@/components/mapBox";
 
 
@@ -33,7 +33,7 @@ const Basket = ()=> {
                     'Content-Type':"Application/json"
                 }
             }
-             const response= await axios.post(`process.env.NEXT_PUBLIC_API_URL/products/ids`,ids)
+             const response= await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/products/ids`,ids)
                 const datas: IProduct[] = response.data;
                 setData(datas)
 
