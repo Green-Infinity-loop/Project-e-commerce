@@ -15,14 +15,14 @@ export default function Login() {
   const submitSingIn = () => {
     let status = 201;
     axios
-      .post("http://localhost:8080/signin", { email, password })
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/signin`, { email, password })
       .then((res) => {
         if (res.status === status) {
           localStorage.setItem("token", res.data);
           router.push("/");
         }
         // axios
-        //   .post("http://localhost:8080/me", {
+        //   .post(`${process.env.NEXT_PUBLIC_API_URL}/me`, {
         //     headers: {
         //       Authorization: "Bearer " + localStorage.getItem("token"),
         //     },
@@ -193,7 +193,7 @@ export default function Login() {
             </div>
 
             <p className="mt-4 text-sm text-center text-gray-400">
-              Don't have an account?{" "}
+              Dont have an account?{' '}
               <Link
                 href="/signup"
                 className="font-medium text-blue-600 hover:underline"
@@ -216,13 +216,13 @@ export default function Login() {
 //   const loginOnSubmit = async (e: any) => {
 //     e.preventDefault();
 //     axios
-//       .post("http://localhost:8080/otp/signin", {
+//       .post(`${process.env.NEXT_PUBLIC_API_URL}/otp/signin`, {
 //         email,
 //       })
 //       .then((res) => {
 //         const otp = window.prompt("Your OTP?");
 //         axios
-//           .post("http://localhost:8080/otp/signin/verify", { email, otp })
+//           .post(`${process.env.NEXT_PUBLIC_API_URL}/otp/signin/verify`, { email, otp })
 //           .then((res) => {
 //         if(res.status===status){
 

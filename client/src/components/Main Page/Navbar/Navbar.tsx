@@ -27,7 +27,7 @@ const navigation = [
   { name: "Pages", href: "#", current: false },
 ];
 
-function classNames(...classes) {
+function classNames(...classes:any) {
   return classes.filter(Boolean).join(" ");
 }
 
@@ -111,7 +111,7 @@ export const Navbar: FC<NavbarProps> = ({
                       <IoLogoElectron className="block h-8 w-auto lg:hidden" />
                       <IoLogoElectron className="hidden h-8 w-auto lg:block" />
                       <h1 className="px-4 text-bold text-xl font-black">
-                        <a href="/">MedZone</a>
+                        <Link href="/">MedZone</Link>
                       </h1>
                     </div>
                     <div className="hidden sm:ml-6 sm:block absolute right-24 font-light text-xs  place-content-center ">

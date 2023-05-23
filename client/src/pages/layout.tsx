@@ -23,7 +23,7 @@ export const Layout: FC<LayoutProps> = ({ children, title = "MedZone" }) => {
   useEffect(() => {
     if (!currentUser) {
       axios
-        .get("http://localhost:8080/me", {
+        .get(`${process.env.NEXT_PUBLIC_API_URL}/me`, {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
@@ -41,7 +41,7 @@ export const Layout: FC<LayoutProps> = ({ children, title = "MedZone" }) => {
   useEffect(() => {
     if (currentUser) {
       axios
-        .get("http://localhost:8080/baskets/main", {
+        .get(`${process.env.NEXT_PUBLIC_API_URL}/baskets/main`, {
           headers: { Authorization: "Bearer " + localStorage.getItem("token") },
         })
         .then((res) => {

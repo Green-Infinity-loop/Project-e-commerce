@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import { useCrud } from "@/hooks/useCrud";
 import Link from "next/link";
 
-export default function locations() {
+export default function Locations() {
   const { items: locations } = useCrud("locations");
   return (
     <Layout>

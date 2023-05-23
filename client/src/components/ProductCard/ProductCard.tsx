@@ -1,17 +1,21 @@
-import ReactStars from "react-rating-stars-component";
+
 import { IProduct } from "@/interfaces/product";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import React from "react";
+import ReactStars from "react-rating-stars-component";
 
 interface CardProps {
   product: IProduct;
+  styles: any;
 }
 const ProductCard: FC<CardProps> = ({ product, styles }) => {
+
   const { image, category, name, price, star } = product;
   const placeholder = "https://via.placeholder.com/160x230";
   const count = 1;
+  const ReactStarsComponent = ReactStars as any;
   // const starLoop = ({}) =>{
 
   //     while(count < star){

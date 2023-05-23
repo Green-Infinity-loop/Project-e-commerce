@@ -1,10 +1,12 @@
-import {useEffect, useState, useRef} from "react";
+import  React,{useEffect, useState, useRef}from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import axios from "axios";
 import Menus from "../Map Page/Menus";
 import { useBasket } from "@/Hooks/useBasket";
+import { Feature } from 'geojson';
 // import the mapbox-gl styles so that the map is displayed correctly
+
 
 function MapboxMap() {
   const [map, setMap] = useState<mapboxgl.Map>();
@@ -12,9 +14,9 @@ function MapboxMap() {
  
   
   const [currentLoc, setCurrentLoc] = useState([106.918162,47.915596]);
-  const [nearestLocation, setNearestLocation] = useState({});
-  const [node, setNode] = useState("");
-  const mapNode = useRef('');
+  const [nearestLocation, setNearestLocation] = useState<any>([]);
+  const [node, setNode] = useState<any>("");
+  const mapNode = useRef<HTMLDivElement>(null);
   const token = "pk.eyJ1IjoibXVuZ3Vuc2hhZ2FpIiwiYSI6ImNsaHUwMjhtNDBnZ3gzdGw5MXhxcGhoOXUifQ.7rdAZiweqotAkzdUXLAl5w"
 
 
@@ -46,9 +48,9 @@ useEffect(() => {
       const json = await query.json();
       console.log("yu irev:", json);
       const data = json.routes[0];
-      const route = data.geometry.coordinates;
+      const route = data?.geometry?.coordinates;
       console.log("route: ", route);
-      const geojson = {
+      const geojson:Feature = {
         type: "Feature",
         properties: {},
         geometry: {
@@ -81,7 +83,7 @@ useEffect(() => {
     async function findNearestLocation() {
           const ids = {ids:basket.items.map((item:any)=>item.productId)}
           console.log('current location:', currentLoc)
-    const res = await axios.post(`http://localhost:8080/products/${ids.ids[0]}/findnearest?lat=${currentLoc[0]}&long=${currentLoc[1]}`
+    const res = await axios.post(`process.env.NEXT_PUBLIC_API_URL/products/${ids.ids[0]}/findnearest?lat=${currentLoc[0]}&long=${currentLoc[1]}`
     );
     const data = await res.data;
     console.log('find nearest:' , data)
@@ -89,7 +91,7 @@ useEffect(() => {
   }
 
   setTimeout(async () => {
-        if (mapNode.current != "") {
+        if (mapNode.current != null) {
           const mapboxMap = new mapboxgl.Map({
             container: mapNode.current,
             accessToken:
@@ -100,7 +102,7 @@ useEffect(() => {
           });
           console.log('nearest',nearestLocation)
           const geojson = await getRoute(nearestLocation?.location.coordinates);
-            console.log('geojson', geojson)
+          console.log('geojson', geojson)
           mapboxMap?.on("load", async () => {
             mapboxMap.addLayer({
               id: "point",
@@ -115,7 +117,7 @@ useEffect(() => {
                       properties: {},
                       geometry: {
                         type: "Point",
-                        coordinates: geojson?.geometry.coordinates
+                        coordinates: nearestLocation?.location.coordinates
                       },
                     },
                   ],
@@ -129,7 +131,7 @@ useEffect(() => {
 
              if (mapboxMap?.getSource("route")) {
             console.log("map iishe orson");
-            mapboxMap.getSource("route").setData(geojson);
+            mapboxMap.getSource("route");
           }
           // otherwise, we'll make a new request
           else {

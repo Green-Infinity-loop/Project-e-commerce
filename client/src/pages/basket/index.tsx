@@ -10,9 +10,9 @@ import style from "../../styles/basket.module.css"
 
 
 import { FaMinus, FaPlus } from "react-icons/fa";
-import MapboxMap from "@/components/mapBox/mapBox";
 import { Input } from "@mui/material";
 import { Layout } from "../layout";
+import Maps from "@/components/mapBox";
 
 
   
@@ -21,9 +21,7 @@ const Basket = ()=> {
     const [quantity, setQuantity] = useState(1);
     const {basket} = useBasket();
     console.log("bakset:",basket)
-    const [data, setData] = useState([])
-    
-    // const data = basket.items[0].productId
+    const [data, setData] = useState<IProduct[]>([]);
         useEffect(()=>{
             fetchBasketItems()
         },[basket])
@@ -35,16 +33,14 @@ const Basket = ()=> {
                     'Content-Type':"Application/json"
                 }
             }
-             const response= await axios.post(`http://localhost:8080/products/ids`,ids)
-                const datas = await response.data
+             const response= await axios.post(`process.env.NEXT_PUBLIC_API_URL/products/ids`,ids)
+                const datas: IProduct[] = response.data;
                 setData(datas)
 
         }
         const updateProductCount = (count: number) => {
             setQuantity(quantity + count);
             };
-    // })
-    console.log('datas:', data)
     return(
         <>
         
@@ -63,17 +59,21 @@ const Basket = ()=> {
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 w-[100%] ">
+                
                     {data.map((row, index) => (
                         
                              <tr  key={index} >
                                 <div className="border-b-2 flex">
-                                <td className="w-[400px]  flex px-6 py-4 whitespace-nowrap"><Image
-                                className='w-[100px]'
-                                src={row.image}
-                                alt={row.name}
-                                width={1000}
-                                height={1000}
-                                />
+                                <td className="w-[400px] flex px-6 py-4 whitespace-nowrap">
+                                    {row.image && (
+                                    <Image
+                                        className="w-[100px]"
+                                        src={row.image}
+                                        alt={row.name}
+                                        width={1000}
+                                        height={1000}
+                                    />
+                                    )}
                                 <div className="m-10 w-[200px]">{row.name}</div>
                                 </td>
                                 <td className="px-6  py-4 whitespace-nowrap"></td>
@@ -147,7 +147,7 @@ const Basket = ()=> {
         </div>
         <div className="container border-xl">
         <div className="my-20">
-        <MapboxMap />
+        <Maps />
         </div>
         </div>
             </Layout>

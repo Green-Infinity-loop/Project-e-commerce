@@ -25,7 +25,8 @@ export default function HomePageTop() {
     <>
       <div className=" container   h-[50vh]  grid grid-cols-3 gap-4 mt-5 ">
         <div className="col-span-2 relative">
-          <img
+          <Image
+            alt="Хэрэглэгчээ эрхэмлэгч эрүүл мэндийн" 
             src={
               "https://images.pexels.com/photos/7956965/pexels-photo-7956965.jpeg?auto=compress&cs=tinysrgb&w=1600"
             }
@@ -48,7 +49,8 @@ export default function HomePageTop() {
           </button>
         </div>
         <div className="relative">
-          <img
+          <Image
+            alt="Хаврын ядаргааг тайлж дархлаагаа дэмжье" 
             width={100}
             height={100}
             src={

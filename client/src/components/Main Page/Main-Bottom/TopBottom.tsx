@@ -21,26 +21,26 @@ export default function TopBottom(){
            <div className="h-[70vh] object-cover bg-no-repeat col-span-2 mt-[70px] relative">
                 <div className="grid grid-cols-2 gap-4 place-content-center w-[50vh] absolute top-20 mt-5 left-[-120px]">
                     <div className="h-[20vh] text-center bg-white rounded-xl m-4 p-5 shadow-lg">
-                        <Image className="mx-auto p-3" src={monos} width={120} height={40}></Image>
+                        <Image alt="Хэрэглэгчээ эрхэмлэгч эрүүл мэндийн" className="mx-auto p-3" src={monos} width={120} height={40}></Image>
                         
                         <div className="p-6 text-[10px]">Хэрэглэгчээ эрхэмлэгч эрүүл мэндийн тэргүүлэх цахим худалдааны компани байна</div>
                     </div>
                     <div  className=" bg-white text-center rounded-xl m-4 p-5 shadow-lg">
                         
-                        <Image className="mx-auto p-3" src={agar} width={120} height={40}></Image>
+                        <Image alt="Хэрэглэгчээ эрхэмлэгч эрүүл мэндийн"  className="mx-auto p-3" src={agar} width={120} height={40}></Image>
                         
                         <div className="p-6 text-[10px]">Бүх нийтийн эрүүл мэндийн боловсрол, хэрэглээг дэлхийн жишигт хүргэнэ. </div>
                     </div>
                 </div>
                 <div className="grid grid-cols-2 gap-4 place-content-center w-[50vh] absolute bottom-20 mb-12 left-[-230px]">
                     <div className="h-[20vh] text-center bg-white rounded-xl m-4 p-5 shadow-lg">
-                        <Image className="mx-auto p-3" src={hurmen} width={120} height={40}></Image>
+                        <Image alt="Хэрэглэгчээ эрхэмлэгч эрүүл мэндийн"  className="mx-auto p-3" src={hurmen} width={120} height={40}></Image>
                         
                         <div className="p-6 text-[10px]">Үйлчлүүлэгч таны сэтгэлд хүрсэн зөвлөгөө туслалцааг хүргэн, таны амьдралд багахан ч гэсэн гэрэл гэгээг түгээх нь бидний зарчим юм</div>
                     
                     </div>
                     <div className=" bg-white text-center rounded-xl m-4 p-5 shadow-lg">
-                        <Image className="mx-auto p-3" src={azi} width={120} height={40}></Image>
+                        <Image alt="Хэрэглэгчээ эрхэмлэгч эрүүл мэндийн"  className="mx-auto p-3" src={azi} width={120} height={40}></Image>
                         
                         <div className="p-6 text-[10px]">Эрүүл энхийн үйлчилгээний дэвшилтэт хэв маягийг Таньд хүргэнэ</div>
                     </div>

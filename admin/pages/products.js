@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import { useCrud } from "@/hooks/useCrud";
 import Link from "next/link";
 
-export default function products() {
+export default function Products() {
   const { items: products } = useCrud("products");
   console.log(products);
   return (
@@ -25,8 +25,8 @@ export default function products() {
         </thead>
 
         <tbody>
-          {products.map((product) => (
-            <tr>
+          {products.map((product, idx) => (
+            <tr key={idx}>
               <td>{product.name}</td>
               <td>{product._id}</td>
               <td>{product.image}</td>
