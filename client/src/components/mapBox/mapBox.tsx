@@ -115,7 +115,7 @@ useEffect(() => {
                       properties: {},
                       geometry: {
                         type: "Point",
-                        coordinates: geojson
+                        coordinates: geojson?.geometry.coordinates
                       },
                     },
                   ],

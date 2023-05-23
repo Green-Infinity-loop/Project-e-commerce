@@ -18,10 +18,12 @@ export class Product {
   @Prop({ required: true })
   price: number;
 
+
+
   @Prop({ type: Types.ObjectId, ref: 'Locations' })
-  location: {
-    name: string;
-  };
+  location:[ {
+    
+  }]
   createdAt: Date;
   UpdatedAt: Date;
 }
