@@ -33,7 +33,7 @@ const Basket = ()=> {
                     'Content-Type':"Application/json"
                 }
             }
-             const response= await axios.post(`process.env.NEXT_PUBLIC_API_URL/products/ids`,ids)
+             const response= await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/products/ids`,ids)
                 const datas: IProduct[] = response.data;
                 setData(datas)
 

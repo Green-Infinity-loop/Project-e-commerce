@@ -122,7 +122,7 @@ export const getServerSideProps = async (ctx:GetServerSidePropsContext) =>{
     };
   }
     const productRequest = await axios.get(
-        `process.env.NEXT_PUBLIC_API_URL/products/${_id}`
+        `${process.env.NEXT_PUBLIC_API_URL}/products/${_id}`
     );
     const product:IProduct = await productRequest.data;
     console.log('product:',product)
