@@ -85,7 +85,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "m.media-amazon.com",
-        pathname: "/**"
+        pathname: "/**",
       },
       {
         protocol: "https",
@@ -102,8 +102,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "cdn.greensoft.mn",
         pathname: "/**",
-      }
-      ,
+      },
       {
         protocol: "https",
         hostname: "img.icons8.com",
@@ -113,7 +112,12 @@ const nextConfig = {
         protocol: "https",
         hostname: "icons8.com",
         pathname: "/**",
-      }
+      },
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org",
+        pathname: "/**",
+      },
     ],
   },
 };

@@ -8,6 +8,7 @@ import axios from "axios";
 import { error } from "console";
 import Head from "next/head";
 import { FC, ReactNode, useEffect, useState } from "react";
+import ButtonLink from "@/components/Main Page/Navbar/ButtonLink";
 
 interface LayoutProps {
   title?: string;

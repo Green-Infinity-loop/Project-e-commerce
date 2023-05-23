@@ -1,10 +1,5 @@
-import { Card } from "@/components/Main-Section/Card";
-import Footer from "@/components/atoms/Footer";
-
-import Bottom from "@/components/Main Page/Main-Bottom/Bottom";
 import { useQuery } from "@/Hooks/useQuery";
 import HomePageTop from "@/components/Main Page/Main-Section/HomePageTop";
-import LogIn from "@/pages/login";
 
 import * as React from "react";
 import Box from "@mui/material/Box";
@@ -34,8 +29,6 @@ import style from "../styles/indexstyle.module.css";
 import Latest from "@/components/Main Page/Main-Bottom/Latest";
 import { Link } from "react-router-dom";
 import { data } from "autoprefixer";
-
-
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;

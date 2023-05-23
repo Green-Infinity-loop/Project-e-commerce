@@ -5,6 +5,8 @@ import "swiper/css/pagination";
 import { Mousewheel, Pagination } from "swiper";
 import Image from "next/image";
 import Link from "next/link";
+import Colon from "../../../image/icon/colon.png";
+import Sale from "../../../image/icon/sale.png";
 
 const data = [
   {
@@ -46,19 +48,34 @@ const Stopwatch = () => {
     const seconds = timeInSeconds % 60;
 
     return (
-      <div className="stopwatch-time">
-        <span className="border p-6 text-2xl rounded  m-3">{days}day</span>
-        <span className="border p-6 text-2xl rounded  m-3">{hours}hours </span>
+      <div className="stopwatch-time flex mt-6">
+        <span className="border p-3 text-xl  rounded mb-3 mt-3">{days}day</span>
         <Image
-          src={"https://icons8.com/icon/25583/colon"}
-          width={100}
-          height={100}></Image>
-
-        <span className="border p-6 text-2xl rounded m-3">
-          {minutes}minutes{" "}
+          src={Colon}
+          width={30}
+          height={30}
+          className="w-6 h-6 p-0 mb-3 mt-7 "
+        />
+        <span className="border p-3 text-xl  rounded mb-3 mt-3 ">
+          {hours}hours{" "}
         </span>
-        <span className="border p-6 text-2xl rounded m-3">
-          {seconds}seconds{" "}
+        <Image
+          src={Colon}
+          width={30}
+          height={30}
+          className="w-6 h-6 p-0 mb-3 mt-7"
+        />
+        <span className="border p-3 text-xl rounded mb-3 mt-3 ">
+          {minutes}min
+        </span>
+        <Image
+          src={Colon}
+          width={30}
+          height={30}
+          className="w-6 h-6 p-0 mb-3 mt-7"
+        />
+        <span className="border p-3 text-xl rounded mb-3 mt-3">
+          {seconds}sec
         </span>
       </div>
     );
@@ -78,12 +95,19 @@ export default function App() {
           clickable: true,
         }}
         modules={[Mousewheel, Pagination]}
-        className="mySwiper h-[60vh] container bg-[#115061] my-6 rounded-xl border border-bg-[#115061] ">
+        className="mySwiper h-[60vh] container bg-[#115061] my-6 rounded-xl border border-bg-[#115061] "
+      >
         {data.map((datas) => {
           return (
             <SwiperSlide key={datas.title}>
-              <div className="grid grid-cols-2">
-                <div className="text-white m-auto p-24">
+              <div className="grid grid-cols-2  ">
+                <div className="text-white m-auto p-24 relative">
+                  <Image
+                    src={Sale}
+                    width={200}
+                    height={200}
+                    className="absolute top-0 -rotate-[16deg] left-7 w-28 "
+                  />
                   <h1 className="text-4xl font-bold mb-6">{datas.title}</h1>
                   <p className="text-lg font-semibold mb-6">
                     {datas.description}
@@ -93,13 +117,15 @@ export default function App() {
                   </Link>
                   <Stopwatch />
                 </div>
-                <Image
-                  src={datas.imgUrl}
-                  alt=""
-                  width={500}
-                  height={600}
-                  className="w-full h-[39.5rem]"
-                />
+                <div>
+                  <Image
+                    src={datas.imgUrl}
+                    alt=""
+                    width={500}
+                    height={600}
+                    className="w-full h-[39.5rem] "
+                  />
+                </div>
               </div>
             </SwiperSlide>
           );
