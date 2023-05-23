@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> adf0c9432a702f3931483de78fb509ab7eb7b551
 import { useQuery } from "@/Hooks/useQuery";
 import HomePageTop from "@/components/Main Page/Main-Section/HomePageTop";
 import * as React from "react";

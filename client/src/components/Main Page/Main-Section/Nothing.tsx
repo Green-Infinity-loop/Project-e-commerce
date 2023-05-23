@@ -41,7 +41,7 @@ const Stopwatch = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const formatTime = (timeInSeconds:any) => {
+  const formatTime = (timeInSeconds: any) => {
     const days = Math.floor(timeInSeconds / 86400);
     const hours = Math.floor((timeInSeconds % 86400) / 3600);
     const minutes = Math.floor((timeInSeconds % 3600) / 60);
@@ -56,14 +56,21 @@ const Stopwatch = () => {
           width={30}
           height={30}
           className="w-6 h-6 p-0 mb-3 mt-7 "
-        />
+        ></Image>
         <span className="border p-3 text-xl  rounded mb-3 mt-3 ">
+<<<<<<< HEAD
+          {hours}hours
+        </span>
+        <Image
+=======
           {hours}hours{" "}</span>
           <Image
+>>>>>>> adf0c9432a702f3931483de78fb509ab7eb7b551
           alt="Хаврын ядаргааг тайлж дархлаагаа дэмжье"
           src={"https://icons8.com/icon/25583/colon"}
           width={100}
-          height={100}></Image>
+          height={100}
+        ></Image>
 
         <span className="border p-6 text-2xl rounded m-3">
           {minutes}minutes{" "}
