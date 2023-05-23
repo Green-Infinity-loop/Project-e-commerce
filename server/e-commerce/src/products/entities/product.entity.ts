@@ -22,7 +22,7 @@ export class Product {
 
   @Prop({ type: Types.ObjectId, ref: 'Locations' })
   location:[ {
-    
+    name: string;
   }]
   createdAt: Date;
   UpdatedAt: Date;

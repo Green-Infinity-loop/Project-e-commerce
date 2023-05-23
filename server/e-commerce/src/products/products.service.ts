@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import mongoose, { Model } from 'mongoose';
 import { Brand } from 'src/brands/entities/brand.entity';
@@ -70,8 +70,9 @@ export class ProductsService {
 
   async findNearest(id,lat,long){
     const product = await this.productModel.findOne({id})
+    if(!product){ throw new HttpException ("Product none",HttpStatus.BAD_REQUEST)}
      console.log('lat long hevlegdlee', [parseFloat(long), parseFloat(lat)]);
-    return this.locationModel.findOne({
+    return this.productModel.findOne({
       location: {
         $near: {
           $geometry: {
