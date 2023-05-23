@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import { useCrud } from "@/hooks/useCrud";
 import { useState } from "react";
 
-export default function NewProduct({ locations }) {
+export default function NewProduct() {
   const [name, setName] = useState("");
   const [photo, setPhoto] = useState("");
   const [address, setAddress] = useState("");
@@ -10,21 +10,22 @@ export default function NewProduct({ locations }) {
   const [working_hours_start, setWorking_hours_start] = useState("");
   const [working_hours_end, setWorking_hours_end] = useState("");
   const { createItem } = useCrud("locations");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createItem({
+      name,
+      photo,
+      address,
+      working_hours_start,
+      working_hours_end,
+      location,
+    });
+  };
   return (
     <Layout>
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          createItem({
-            image,
-            photo,
-            address,
-            working_hours_start,
-            working_hours_end,
-            location,
-          });
-        }}
-      >
+        onSubmit={handleSubmit}>
         <input
           value={name}
           type="text"
@@ -66,4 +67,3 @@ export default function NewProduct({ locations }) {
     </Layout>
   );
 }
-location;
