@@ -27,12 +27,11 @@ export const useCrud = (path) => {
     }
   };
 
-  const deleteItem = (id) => {
+  const deleteItem = (_id) => {
     axios
-      .delete(`${process.env.NEXT_PUBLIC_API_URL}/` + path + "/" + id)
+      .delete(`${process.env.NEXT_PUBLIC_API_URL}/` + path + "/" + _id)
       .then(() => {
-        setItems(items.filter((item) => item._id !== id));
-        showToast("", "success");
+        setItems(items.filter((item) => item._id !== _id));
       })
       .catch((err) => {
         // showErrorToast(err.status.code);

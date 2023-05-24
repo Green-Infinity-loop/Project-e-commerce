@@ -63,6 +63,7 @@ export class ProductsService {
 
   async remove(_id: string) {
     await this.productModel.deleteOne({ _id });
+    console.log(_id);
 
     return _id;
   }

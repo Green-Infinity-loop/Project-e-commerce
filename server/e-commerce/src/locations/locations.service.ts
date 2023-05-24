@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import axios from 'axios';
 import { Model } from 'mongoose';
@@ -23,6 +23,25 @@ export class LocationsService {
   findNearest(lat, long) {
     console.log('lat long hevlegdlee', [parseFloat(long), parseFloat(lat)]);
     return this.locationModel.findOne({
+      location: {
+        $near: {
+          $geometry: {
+            type: 'Point',
+            coordinates: [parseFloat(long), parseFloat(lat)],
+          },
+          $minDistance: 0,
+          $maxDistance: 5000,
+        },
+      },
+    });
+  }
+
+  async findNearestId(_id, lat, long) {
+    const locationId = await this.locationModel.findOne({ _id });
+    if (!locationId) {
+      throw new HttpException('Location none', HttpStatus.BAD_REQUEST);
+    }
+    return await this.locationModel.findOne({
       location: {
         $near: {
           $geometry: {

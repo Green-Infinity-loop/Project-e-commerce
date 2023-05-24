@@ -7,6 +7,8 @@ import { Locations } from 'src/locations/entities/location.entity';
 
 @Schema({ timestamps: true })
 @Schema({timestamps:true})
+@Schema({ timestamps: true })
+@Schema({ timestamps: true })
 export class Product {
   // @Prop({ default: () => nanoid(), type: String })
   // _id: string;
