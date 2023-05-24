@@ -22,15 +22,17 @@ export class ProductsService {
   async findAll(search: string, limit: number, filter: string, page: number) {
     const condition: any = {};
     console.log('limit is ', limit);
+    console.log('search', search);
 
     if (filter) {
       condition.genres = { $regex: new RegExp(`${filter}`, 'i') };
     }
 
     if (search) {
-      condition.title = { $regex: new RegExp(`${search}`, 'i') };
+      condition.name = { $regex: new RegExp(`${search}`, 'i') };
     }
     const skip = Number(limit * page);
+    console.log('condition:', condition);
 
     return await this.productModel
       .find(condition)
@@ -50,7 +52,7 @@ export class ProductsService {
     const product = await this.productModel.findOne({
       _id: new mongoose.Types.ObjectId(_id),
     });
-    return product.populate("location");
+    return product.populate('location');
   }
 
   async update(_id: string, updateProductDto: UpdateProductDto) {
@@ -68,10 +70,12 @@ export class ProductsService {
     return await this.productModel.find().count({});
   }
 
-  async findNearest(id,lat,long){
-    const product = await this.productModel.findOne({id})
-    if(!product){ throw new HttpException ("Product none",HttpStatus.BAD_REQUEST)}
-     console.log('lat long hevlegdlee', [parseFloat(long), parseFloat(lat)]);
+  async findNearest(id, lat, long) {
+    const product = await this.productModel.findOne({ id });
+    if (!product) {
+      throw new HttpException('Product none', HttpStatus.BAD_REQUEST);
+    }
+    console.log('lat long hevlegdlee', [parseFloat(long), parseFloat(lat)]);
     return this.productModel.findOne({
       location: {
         $near: {
@@ -84,8 +88,5 @@ export class ProductsService {
         },
       },
     });
-
   }
-
-
 }

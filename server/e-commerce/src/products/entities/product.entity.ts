@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 import { Brand } from 'src/brands/entities/brand.entity';
 import { Locations } from 'src/locations/entities/location.entity';
 
-@Schema()
+@Schema({ timestamps: true })
 export class Product {
   // @Prop({ default: () => nanoid(), type: String })
   // _id: string;
@@ -18,12 +18,8 @@ export class Product {
   @Prop({ required: true })
   price: number;
 
-
-
   @Prop({ type: Types.ObjectId, ref: 'Locations' })
-  location:[ {
-    name: string;
-  }]
+  location: [{}];
   createdAt: Date;
   UpdatedAt: Date;
 }
