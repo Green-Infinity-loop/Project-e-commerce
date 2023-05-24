@@ -43,7 +43,7 @@ export default function Sidebar() {
           <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
             <button className="absolute top-2 right-5 ">
               <IoCloseCircleOutline
-                className="w-9 h-9 text-gray"
+                className="w-9 h-9 text-gray cl:mr-9"
                 onClick={() => {
                   setSidebar(!sideBar);
                 }}

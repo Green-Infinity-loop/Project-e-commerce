@@ -52,14 +52,14 @@ export default function App() {
           return (
             <>
               <SwiperSlide>
-                <div className="h-[75vh]  bg-[#115061] ">
+                <div className="h-[75vh]  bg-[#115061]">
                   <div className="grid grid-cols-2 ">
-                    <div className="p-64 animate-fade-in">
-                      <h1 className="text-white  text-6xl font-bold m-auto ">
+                    <div className="p-64 animate-fade-in  ">
+                      <h1 className="text-white  text-6xl font-bold m-auto  ">
                         {head.title}
                       </h1>
-                      <p className="my-6 text-white">{head.description}</p>
-                      <div className="grid grid-cols-2 gap-8">
+                      <p className="my-6 text-white  ">{head.description}</p>
+                      <div className="grid grid-cols-2 gap-8 ">
                         <button className="bg-white p-6 rounded-lg text-black ">
                           Set Appointment
                         </button>
