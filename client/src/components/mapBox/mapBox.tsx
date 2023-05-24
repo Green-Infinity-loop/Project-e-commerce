@@ -83,7 +83,7 @@ useEffect(() => {
     async function findNearestLocation() {
           const ids = {ids:basket.items.map((item:any)=>item.productId)}
           console.log('current location:', currentLoc)
-    const res = await axios.post(`process.env.NEXT_PUBLIC_API_URL/products/${ids.ids[0]}/findnearest?lat=${currentLoc[0]}&long=${currentLoc[1]}`
+    const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/products/${ids.ids[0]}/findnearest?lat=${currentLoc[0]}&long=${currentLoc[1]}`
     );
     const data = await res.data;
     console.log('find nearest:' , data)

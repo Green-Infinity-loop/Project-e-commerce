@@ -42,6 +42,7 @@ export const Navbar: FC<NavbarProps> = ({
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("white");
   const [navText, setnavText] = useState("black");
+  const [button, setButton] = useState("true");
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setnavColor("#115061") : setnavColor("white");
     window.scrollY > 10 ? setnavSize("5rem") : setnavSize("10rem");

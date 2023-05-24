@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
 import { CaegoriesService } from './caegories.service';
 import { CreateCaegoryDto } from './dto/create-caegory.dto';
 import { UpdateCaegoryDto } from './dto/update-caegory.dto';
@@ -17,18 +25,18 @@ export class CaegoriesController {
     return this.caegoriesService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.caegoriesService.findOne(+id);
+  @Get(':_id')
+  findOne(@Param('id') _id: string) {
+    return this.caegoriesService.findOne(_id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCaegoryDto: UpdateCaegoryDto) {
-    return this.caegoriesService.update(+id, updateCaegoryDto);
+  @Patch(':_id')
+  update(@Param('id') _id: string, @Body() updateCaegoryDto: UpdateCaegoryDto) {
+    return this.caegoriesService.update(_id, updateCaegoryDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.caegoriesService.remove(+id);
+  @Delete(':_id')
+  remove(@Param('id') _id: string) {
+    return this.caegoriesService.remove(_id);
   }
 }

@@ -35,7 +35,7 @@ export const useCrud = (path) => {
         showToast("", "success");
       })
       .catch((err) => {
-        showErrorToast(err.status.code);
+        // showErrorToast(err.status.code);
       });
   };
 
