@@ -38,7 +38,7 @@ export class ProductsService {
       .find(condition)
       .skip(Number(skip))
       .limit(Number(limit))
-      .populate('location')
+      .populate('location.locationId')
       .exec();
   }
 
@@ -52,11 +52,12 @@ export class ProductsService {
     const product = await this.productModel.findOne({
       _id: new mongoose.Types.ObjectId(_id),
     });
-    return product.populate('location');
+    return product.populate('location.locationId');
   }
 
   async update(_id: string, updateProductDto: UpdateProductDto) {
-    const result = await this.productModel.updateOne({ _id }, updateProductDto);
+    console.log('_id', _id)
+    const result = await this.productModel.updateOne({ _id:_id }, updateProductDto);
     return result;
   }
 
@@ -70,23 +71,23 @@ export class ProductsService {
     return await this.productModel.find().count({});
   }
 
-  async findNearest(id, lat, long) {
-    const product = await this.productModel.findOne({ id });
-    if (!product) {
-      throw new HttpException('Product none', HttpStatus.BAD_REQUEST);
-    }
-    console.log('lat long hevlegdlee', [parseFloat(long), parseFloat(lat)]);
-    return this.productModel.findOne({
-      location: {
-        $near: {
-          $geometry: {
-            type: 'Point',
-            coordinates: [parseFloat(lat), parseFloat(long)],
-          },
-          $minDistance: 0,
-          $maxDistance: 10000,
-        },
-      },
-    });
-  }
+  // async findNearest(id, lat, long) {
+  //   const product = await this.productModel.findOne({ id });
+  //   if (!product) {
+  //     throw new HttpException('Product none', HttpStatus.BAD_REQUEST);
+  //   }
+  //   console.log('lat long hevlegdlee', [parseFloat(long), parseFloat(lat)]);
+  //   return this.productModel.findOne({
+  //     location: {
+  //       $near: {
+  //         $geometry: {
+  //           type: 'Point',
+  //           coordinates: [parseFloat(lat), parseFloat(long)],
+  //         },
+  //         $minDistance: 0,
+  //         $maxDistance: 10000,
+  //       },
+  //     },
+  //   });
+  // }
 }

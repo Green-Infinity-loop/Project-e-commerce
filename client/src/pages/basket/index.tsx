@@ -147,7 +147,7 @@ const Basket = ()=> {
         </div>
         <div className="container border-xl">
         <div className="my-20">
-        <Maps />
+        {/* <Maps /> */}
         </div>
         </div>
             </Layout>

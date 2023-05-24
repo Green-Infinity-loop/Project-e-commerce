@@ -8,12 +8,21 @@ import Image from "next/image";
 import { FC, useState } from "react";
 import { toast } from "react-toastify";
 import { FaMinus, FaPlus } from "react-icons/fa";
+import Link from "next/link";
+import Map from "@/components/Map Page/Map/DynamicMap";
+import Maps from "@/components/mapBox";
+import { useRouter } from "next/router";
 interface ProductViewProps{
     product:IProduct;
 }
 
 
 const ProductView: FC<ProductViewProps> = ({product}) =>{
+  // const {query} = useRouter()
+  // function 
+  // const locationdata= axios.get(`process.env.NEXT_PUBLIC_API_URL/products/${product}`)
+  const [locData, setLocData] = useState([])
+  
     const [quantity, setQuantity] = useState(1);
     const { addToBasket } = useBasket();
     const updateProductCount = (count: number) => {
@@ -27,6 +36,7 @@ const ProductView: FC<ProductViewProps> = ({product}) =>{
     }
     setQuantity(quantity + count);
   };
+  console.log("pro:",product.location[0].locationId)
 
   // function myFunction(){
   //   updateProductCount(1);
@@ -105,8 +115,52 @@ const ProductView: FC<ProductViewProps> = ({product}) =>{
                 }>
                 Add to Cart
               </Button>
+              
+              
+              
             </div>
+            
+           
           </div>
+          <div className="flex gap-3">
+            {product.location&&product.location.map((loc:any)=>{
+              return (  
+                <div onClick={(()=>{
+                    setLocData(loc.locationId)
+                })} className="grid grid-cols-2 gap-4  border my-5 p-2 ">
+                <div>{loc.locationId.name}</div>
+                <div className="flex justify-end">{loc.quantity}ш</div>
+              </div>
+              
+              )
+
+            })}
+                {/* <Link href={'/mapBox/'+product.location[0].locationId._id}>
+                <div className="grid grid-cols-2 gap-4  border my-5 p-2 ">
+                <div>{product.location[0].locationId.name}</div>
+                <div className="flex justify-end">{product.location[0].quantity}ш</div>
+              </div>
+              </Link>
+              <Link href='/mapBox'>
+                <div className="grid grid-cols-2 gap-4  border my-5 p-2 ">
+                <div>{product.location[1].locationId.name}</div>
+                <div className="flex justify-end">{product.location[1].quantity}ш</div>
+              </div>
+              </Link>
+              <Link href='/mapBox'>
+                <div className="grid grid-cols-2 gap-4  border my-5 p-2 ">
+                <div>{product.location[2].locationId.name}</div>
+                <div className="flex justify-end">{product.location[2].quantity}ш</div>
+              </div>
+              </Link>
+              <Link href='/mapBox'>
+                <div className="grid grid-cols-2 gap-4  border my-5 p-2 ">
+                <div>{product.location[3].locationId.name}</div>
+                <div className="flex justify-end">{product.location[3].quantity}ш</div>
+              </div>
+              </Link> */}
+              </div>
+          <Maps props={locData}/>
         </div>
       // </Layout>
     )

@@ -90,12 +90,12 @@ export class ProductsController {
     return await this.productsService.findOne(_id);
   }
 
-  @Post(':_ids/findnearest')
-  findNearest(@Param('_id') id:string ,@Query('lat') lat: number, @Query('long') long: number) {
-    console.log(id);
+  // @Post(':_ids/findnearest')
+  // findNearest(@Param('_id') id:string ,@Query('lat') lat: number, @Query('long') long: number) {
+  //   console.log(id);
     
-    return this.productsService.findNearest(id,lat, long);
-  }
+  //   return this.productsService.findNearest(id,lat, long);
+  // }
 
   @Patch(':_id')
   update(

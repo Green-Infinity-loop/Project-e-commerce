@@ -6,7 +6,8 @@ export default function NewProduct() {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [price, setPrice] = useState("");
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState('');
+  
   const { items: locations } = useCrud("locations");
   const { createItem } = useCrud("products");
   console.log("location is", location);
@@ -51,6 +52,10 @@ export default function NewProduct() {
             </option>
           ))}
         </select>
+        <input
+        value={2000} />
+        <button>Add</button>
+        
         <button className="btn-primary" type="submit">
           Ilgeeh
         </button>
