@@ -36,6 +36,6 @@ export class CaegoriesService {
   async remove(_id: string) {
     await this.caegoryModel.deleteOne({ _id });
 
-    return _id;
+    return await this.caegoryModel.find();
   }
 }

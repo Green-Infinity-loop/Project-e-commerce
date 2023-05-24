@@ -49,6 +49,7 @@ export default function Products() {
                 <button
                   onClick={() => {
                     deleteItem(categorie._id);
+                    console.log("id:", categorie._id);
                   }}
                 >
                   <svg
