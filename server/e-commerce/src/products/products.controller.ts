@@ -96,16 +96,16 @@ export class ProductsController {
     
   //   return this.productsService.findNearest(id,lat, long);
   // }
-  @Post(':_ids/findnearest')
-  findNearest(
-    @Param('_id') id: string,
-    @Query('lat') lat: number,
-    @Query('long') long: number,
-  ) {
-    console.log(id);
+  // @Post(':_ids/findnearest')
+  // findNearest(
+  //   @Param('_id') id: string,
+  //   @Query('lat') lat: number,
+  //   @Query('long') long: number,
+  // ) {
+  //   console.log(id);
 
-    return this.productsService.findNearest(id, lat, long);
-  }
+  //   return this.productsService.findNearest(id, lat, long);
+  // }
   @Patch(':_id')
   update(
     @Param('_id') _id: string,

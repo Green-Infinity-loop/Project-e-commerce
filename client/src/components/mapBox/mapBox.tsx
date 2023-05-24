@@ -8,8 +8,10 @@ import Link from "next/link";
 // import the mapbox-gl styles so that the map is displayed correctly
 
 
-function MapboxMap(props) {
+function MapboxMap(data:any) {
   const [map, setMap] = useState<mapboxgl.Map>();
+  console.log('props:',data.data)
+  console.log('propstype:',typeof(data))
   
  
   
@@ -18,7 +20,7 @@ function MapboxMap(props) {
   const [node, setNode] = useState<any>("");
   const mapNode = useRef<HTMLDivElement>(null);
   const token = "pk.eyJ1IjoibXVuZ3Vuc2hhZ2FpIiwiYSI6ImNsaHUwMjhtNDBnZ3gzdGw5MXhxcGhoOXUifQ.7rdAZiweqotAkzdUXLAl5w"
-
+  console.log('nea:',nearestLocation)
 
 useEffect(() => {
     getMyLocation();
@@ -34,8 +36,6 @@ useEffect(() => {
 
   async function getRoute(end:any) {
     // const end = coords.location.coordinates;
-    console.log('end:',end);
-     console.log('current loc:',currentLoc)
 
     try {
       const query = await fetch(
@@ -43,10 +43,8 @@ useEffect(() => {
         { method: "GET" }
       );
       const json = await query.json();
-      console.log("yu irev:", json);
       const data = json.routes[0];
       const route = data?.geometry?.coordinates;
-      console.log("route: ", route);
       const geojson:Feature = {
         type: "Feature",
         properties: {},
@@ -78,26 +76,25 @@ useEffect(() => {
   }
 
    async function findNearestLocation() {
-     const loction = props
-     console.log("loction:",loction)
-     if(loction){
-        const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/locations/${loction}/findnearest?lat=${currentLoc[1]}&long=${currentLoc[0]}`
-    );
-    const data = await res.data;
-    console.log('data:',data)
-    setNearestLocation(data);
+     
+     
+     
+     
+    //  if(data){
+       
+    setNearestLocation(data.data);
+    console.log("plus:",nearestLocation)
 
 
-     }else{
-        const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/locations/findnearest?lat=${currentLoc[1]}&long=${currentLoc[0]}`
-    );
-    const data = await res.data;
-    console.log('data:',data)
-    setNearestLocation(data);
+  //    }
+  //       const res = await axios.get(
+  //     `${process.env.NEXT_PUBLIC_API_URL}/locations/findnearest?lat=${currentLoc[1]}&long=${currentLoc[0]}`
+  //   );
+  //   const data1 = await res.data;
+  //   setNearestLocation(data1);
+  //   console.log('data2:',data1)
 
-     }
+     
    
   }
 
@@ -112,8 +109,16 @@ useEffect(() => {
             zoom: 15,
           });
           if(nearestLocation.length!==0){
-             const geojson = await getRoute(nearestLocation?.location.coordinates);
+            let geojson:any = [0,0]
+            if(nearestLocation?.location){
+              geojson = await getRoute(nearestLocation?.location.coordinates);
+            }
+            else{
+                geojson = await getRoute(nearestLocation);
+            }
+           
           console.log('geojson', geojson)
+          
           mapboxMap?.on("load", async () => {
             mapboxMap.addLayer({
               id: "point",

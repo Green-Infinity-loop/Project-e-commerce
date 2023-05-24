@@ -36,6 +36,8 @@ export class LocationsController {
     @Query('lat') lat: number,
     @Query('long') long: number,
   ) {
+    console.log(_id);
+    
     return this.locationsService.findNearestId(_id, lat, long);
   }
   @Get(':id')

@@ -12,6 +12,7 @@ import Link from "next/link";
 import Map from "@/components/Map Page/Map/DynamicMap";
 import Maps from "@/components/mapBox";
 import { useRouter } from "next/router";
+import MapboxMap from "@/components/mapBox/mapBox";
 interface ProductViewProps{
     product:IProduct;
 }
@@ -20,8 +21,10 @@ interface ProductViewProps{
 const ProductView: FC<ProductViewProps> = ({product}) =>{
   // const {query} = useRouter()
   // function 
-  // const locationdata= axios.get(`process.env.NEXT_PUBLIC_API_URL/products/${product}`)
+  const locationdata= axios.get(`process.env.NEXT_PUBLIC_API_URL/products/${product}`)
   const [locData, setLocData] = useState([])
+
+  console.log('logData:',locData)
   
     const [quantity, setQuantity] = useState(1);
     const { addToBasket } = useBasket();
@@ -125,10 +128,15 @@ const ProductView: FC<ProductViewProps> = ({product}) =>{
           <div className="flex gap-3">
             {product.location&&product.location.map((loc:any)=>{
               return (  
+                
                 <div onClick={(()=>{
-                    setLocData(loc.locationId)
+                  // console.log("loc1:",loc.locationID._id)
+                    setLocData(loc.locationId.location.coordinates)
+                    
+                    
                 })} className="grid grid-cols-2 gap-4  border my-5 p-2 ">
                 <div>{loc.locationId.name}</div>
+                
                 <div className="flex justify-end">{loc.quantity}ш</div>
               </div>
               
@@ -160,7 +168,8 @@ const ProductView: FC<ProductViewProps> = ({product}) =>{
               </div>
               </Link> */}
               </div>
-          <Maps props={locData}/>
+          {/* <Maps /> */}
+          <MapboxMap data={locData}/>
         </div>
       // </Layout>
     )

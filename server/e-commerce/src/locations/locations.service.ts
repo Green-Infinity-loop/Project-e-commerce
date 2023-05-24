@@ -21,7 +21,6 @@ export class LocationsService {
   }
 
   findNearest(lat, long) {
-    console.log('lat long hevlegdlee', [parseFloat(long), parseFloat(lat)]);
     return this.locationModel.findOne({
       location: {
         $near: {
@@ -37,7 +36,11 @@ export class LocationsService {
   }
 
   async findNearestId(_id, lat, long) {
+    console.log('lat long hevlegdlee', [parseFloat(long), parseFloat(lat)]);
+
     const locationId = await this.locationModel.findOne({ _id });
+    console.log("locationId",locationId);
+    
     if (!locationId) {
       throw new HttpException('Location none', HttpStatus.BAD_REQUEST);
     }
@@ -49,7 +52,7 @@ export class LocationsService {
             coordinates: [parseFloat(long), parseFloat(lat)],
           },
           $minDistance: 0,
-          $maxDistance: 5000,
+          $maxDistance: 100000,
         },
       },
     });
