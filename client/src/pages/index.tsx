@@ -1,4 +1,3 @@
-
 import { useQuery } from "@/Hooks/useQuery";
 import HomePageTop from "@/components/Main Page/Main-Section/HomePageTop";
 import * as React from "react";
@@ -14,9 +13,15 @@ import ProductCard from "@/components/ProductCard/ProductCard";
 import Layout from "./layout";
 import style from "../styles/indexstyle.module.css";
 import Latest from "@/components/Main Page/Main-Bottom/Latest";
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+=======
+import { LocationContext } from "@/context/LocationContext";
+
+import { useEffect, useContext } from "react";
+>>>>>>> f1749b129bb5c613aa1f9080652f531ac37ccce8
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;
@@ -24,14 +29,21 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const response = await axios.get(
     `${process.env.NEXT_PUBLIC_API_URL}/products?limit=${limit}`
   );
+<<<<<<< HEAD
   const data = await response.data
   
+=======
+  const data = response.data;
+
+>>>>>>> f1749b129bb5c613aa1f9080652f531ac37ccce8
   return {
     props: {data} 
   };
 }
 
 export default function Home({ data }: { data: IProduct[] }) {
+  const { currentLoc, setCurrentLoc } = useContext(LocationContext);
+
   // const showModal = useModal();
   // const products = data;
   const router = useRouter();
@@ -39,6 +51,7 @@ export default function Home({ data }: { data: IProduct[] }) {
   const loading = useLoader();
   const { limit = 24 } = query;
   const { addQuery } = useQuery();
+  console.log("currentLoc", currentLoc);
 
   return (
     <Layout>

@@ -5,6 +5,7 @@ import type { AppProps } from "next/app";
 
 import Layout from "@/components/Layout";
 import { RecoilRoot } from "recoil";
+import { LocationProvider } from "@/context/LocationContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -12,9 +13,12 @@ export default function App({ Component, pageProps }: AppProps) {
     // <ModalProvider>
     <RecoilRoot>
       <Layout>
-        <Component {...pageProps} />
+        <LocationProvider>
+          <Component {...pageProps} />
+        </LocationProvider>
       </Layout>
     </RecoilRoot>
+
     // </ModalProvider>
     // </ToastProvider>
   );

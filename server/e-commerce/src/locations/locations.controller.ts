@@ -30,16 +30,7 @@ export class LocationsController {
   findNearest(@Query('lat') lat: number, @Query('long') long: number) {
     return this.locationsService.findNearest(lat, long);
   }
-  @Get(':_id/findnearest')
-  findNearestId(
-    @Param('_id') _id: string,
-    @Query('lat') lat: number,
-    @Query('long') long: number,
-  ) {
-    console.log(_id);
-    
-    return this.locationsService.findNearestId(_id, lat, long);
-  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     this.locationsService.findOne(+id);
