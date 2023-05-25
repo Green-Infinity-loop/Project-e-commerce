@@ -56,8 +56,11 @@ export class ProductsService {
   }
 
   async update(_id: string, updateProductDto: UpdateProductDto) {
-    console.log('_id', _id)
-    const result = await this.productModel.updateOne({ _id:_id }, updateProductDto);
+    console.log('_id', _id);
+    const result = await this.productModel.updateOne(
+      { _id: _id },
+      updateProductDto,
+    );
     return result;
   }
 

@@ -21,41 +21,21 @@ export class LocationsService {
   }
 
   findNearest(lat, long) {
-    return this.locationModel.findOne({
-      location: {
-        $near: {
-          $geometry: {
-            type: 'Point',
-            coordinates: [parseFloat(long), parseFloat(lat)],
-          },
-          $minDistance: 0,
-          $maxDistance: 5000,
-        },
-      },
-    });
-  }
-
-  async findNearestId(_id, lat, long) {
     console.log('lat long hevlegdlee', [parseFloat(long), parseFloat(lat)]);
-
-    const locationId = await this.locationModel.findOne({ _id });
-    console.log("locationId",locationId);
-    
-    if (!locationId) {
-      throw new HttpException('Location none', HttpStatus.BAD_REQUEST);
-    }
-    return await this.locationModel.findOne({
-      location: {
-        $near: {
-          $geometry: {
-            type: 'Point',
-            coordinates: [parseFloat(long), parseFloat(lat)],
+    try {
+      return this.locationModel.findOne({
+        location: {
+          $near: {
+            $geometry: {
+              type: 'Point',
+              coordinates: [parseFloat(long), parseFloat(lat)],
+            },
+            $minDistance: 0,
+            $maxDistance: 5000,
           },
-          $minDistance: 0,
-          $maxDistance: 100000,
         },
-      },
-    });
+      });
+    } catch (error) {}
   }
 
   findOne(id: number) {

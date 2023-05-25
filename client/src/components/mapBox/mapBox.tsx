@@ -1,41 +1,32 @@
-import  React,{useEffect, useState, useRef}from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import axios from "axios";
-import { Feature } from 'geojson';
+import { Feature } from "geojson";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { LocationContext } from "@/context/LocationContext";
 // import the mapbox-gl styles so that the map is displayed correctly
 
-
-function MapboxMap(data:any) {
+function MapboxMap(data: any) {
   const [map, setMap] = useState<mapboxgl.Map>();
-  console.log('props:',data.data)
-  console.log('propstype:',typeof(data))
-  
- 
-  
-  const [currentLoc, setCurrentLoc] = useState([106.918162,47.915596]);
-  const [nearestLocation, setNearestLocation] = useState<any>([]);
+  const { currentLoc } = useContext(LocationContext);
+  console.log("currentLoc map", currentLoc);
+
+  const { nearestLocation } = data;
+
+  console.log("nearestLocation map", nearestLocation);
+
   const [node, setNode] = useState<any>("");
   const mapNode = useRef<HTMLDivElement>(null);
-  const token = "pk.eyJ1IjoibXVuZ3Vuc2hhZ2FpIiwiYSI6ImNsaHUwMjhtNDBnZ3gzdGw5MXhxcGhoOXUifQ.7rdAZiweqotAkzdUXLAl5w"
-  console.log('nea:',nearestLocation)
-
-useEffect(() => {
-    getMyLocation();
+  const token =
+    "pk.eyJ1IjoibXVuZ3Vuc2hhZ2FpIiwiYSI6ImNsaHUwMjhtNDBnZ3gzdGw5MXhxcGhoOXUifQ.7rdAZiweqotAkzdUXLAl5w";
+  useEffect(() => {
     setNode(mapNode.current);
   }, []);
 
-useEffect(() => {
-    if (typeof window !== "undefined") {
-       findNearestLocation();
-    }
-  }, [node, currentLoc]);
-  
-
-  async function getRoute(end:any) {
-    // const end = coords.location.coordinates;
+  async function getRoute(end: any) {
+    console.log("end map");
 
     try {
       const query = await fetch(
@@ -43,9 +34,11 @@ useEffect(() => {
         { method: "GET" }
       );
       const json = await query.json();
+      console.log(json);
+
       const data = json.routes[0];
       const route = data?.geometry?.coordinates;
-      const geojson:Feature = {
+      const geojson: Feature = {
         type: "Feature",
         properties: {},
         geometry: {
@@ -59,93 +52,53 @@ useEffect(() => {
     }
   }
 
-  function getMyLocation() {
-    if (typeof window != "undefined" && navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setCurrentLoc([position.coords.longitude, position.coords.latitude]);
-         
-        },
-        (error) => {
-          console.error("aldaaa", error);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser.");
-    }
-  }
-
-   async function findNearestLocation() {
-     
-     
-     
-     
-    //  if(data){
-       
-    setNearestLocation(data.data);
-    console.log("plus:",nearestLocation)
-
-
-  //    }
-  //       const res = await axios.get(
-  //     `${process.env.NEXT_PUBLIC_API_URL}/locations/findnearest?lat=${currentLoc[1]}&long=${currentLoc[0]}`
-  //   );
-  //   const data1 = await res.data;
-  //   setNearestLocation(data1);
-  //   console.log('data2:',data1)
-
-     
-   
-  }
-
   setTimeout(async () => {
-        if (mapNode.current != null) {
-          const mapboxMap = new mapboxgl.Map({
-            container: mapNode.current,
-            accessToken:
-              "pk.eyJ1IjoibXVuZ3Vuc2hhZ2FpIiwiYSI6ImNsaHUwMjhtNDBnZ3gzdGw5MXhxcGhoOXUifQ.7rdAZiweqotAkzdUXLAl5w",
-            style: "mapbox://styles/mapbox/navigation-night-v1",
-            center: [currentLoc[0], currentLoc[1]],
-            zoom: 15,
-          });
-          if(nearestLocation.length!==0){
-            let geojson:any = [0,0]
-            if(nearestLocation?.location){
-              geojson = await getRoute(nearestLocation?.location.coordinates);
-            }
-            else{
-                geojson = await getRoute(nearestLocation);
-            }
-           
-          console.log('geojson', geojson)
-          
-          mapboxMap?.on("load", async () => {
-            mapboxMap.addLayer({
-              id: "point",
-              type: "circle",
-              source: {
-                type: "geojson",
-                data: {
-                  type: "FeatureCollection",
-                  features: [
-                    {
-                      type: "Feature",
-                      properties: {},
-                      geometry: {
-                        type: "Point",
-                        coordinates: nearestLocation?.location.coordinates
-                      },
-                    },
-                  ],
-                },
-              },
-              paint: {
-                "circle-radius": 10,
-                "circle-color": "#3887be",
-              },
-            });
+    if (mapNode.current != null) {
+      const mapboxMap = new mapboxgl.Map(
+        {
+          container: mapNode.current,
+          accessToken:
+            "pk.eyJ1IjoibXVuZ3Vuc2hhZ2FpIiwiYSI6ImNsaHUwMjhtNDBnZ3gzdGw5MXhxcGhoOXUifQ.7rdAZiweqotAkzdUXLAl5w",
+          style: "mapbox://styles/mapbox/navigation-night-v1",
+          center: [currentLoc[0], currentLoc[1]],
+          zoom: 15,
+        },
+        5000
+      );
+      if (nearestLocation.length !== 0) {
+        let geojson: any = [0, 0];
 
-             if (mapboxMap?.getSource("route")) {
+        geojson = await getRoute(nearestLocation);
+
+        console.log("geojson", geojson);
+
+        mapboxMap?.on("load", async () => {
+          mapboxMap.addLayer({
+            id: "point",
+            type: "circle",
+            source: {
+              type: "geojson",
+              data: {
+                type: "FeatureCollection",
+                features: [
+                  {
+                    type: "Feature",
+                    properties: {},
+                    geometry: {
+                      type: "Point",
+                      coordinates: geojson.geometry.coordinates,
+                    },
+                  },
+                ],
+              },
+            },
+            paint: {
+              "circle-radius": 10,
+              "circle-color": "#3887be",
+            },
+          });
+
+          if (mapboxMap.getSource("route")) {
             console.log("map iishe orson");
             mapboxMap.getSource("route");
           }
@@ -170,41 +123,33 @@ useEffect(() => {
               },
             });
           }
-            // this is where the code from the next step will go
-          });
+          // this is where the code from the next step will go
+        });
 
-         
-          const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-            "<h1>Таны одоогийн байршил</h1>"
-          );
+        const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+          "<h1>Таны одоогийн байршил</h1>"
+        );
 
-          
-          const marker = new mapboxgl.Marker({ color: "red" })
-            .setLngLat([currentLoc[0], currentLoc[1]])
-            .setPopup(popup)
-            .addTo(mapboxMap);
+        const marker = new mapboxgl.Marker({ color: "red" })
+          .setLngLat([currentLoc[0], currentLoc[1]])
+          .setPopup(popup)
+          .addTo(mapboxMap);
 
-             const marker2 = new mapboxgl.Marker({ color: "green" })
-            .setLngLat([nearestLocation?.location.coordinates[0], nearestLocation?.location.coordinates[1]])
-            .setPopup(popup)
-            .addTo(mapboxMap);
-
-          }
-        }
-      }, 0);
-  //     const response =  axios.get(
-  //   `${process.env.NEXT_PUBLIC_API_URL}/products/6464a93c2c787ed27f47a38c`
-  // ).then(response => {
-  //   const data = response.data.location
-  //   setLocationData(data)
-  // });
+        const marker2 = new mapboxgl.Marker({ color: "green" })
+          .setLngLat([nearestLocation[0], nearestLocation[1]])
+          .setPopup(popup)
+          .addTo(mapboxMap);
+      }
+    }
+  }, 0);
 
   return (
-      <>
-      
-        <div ref={mapNode} style={{ width: "100%", height: "70vh", borderRadius:'100px' }} />
-        
-      </>
+    <>
+      <div
+        ref={mapNode}
+        style={{ width: "100%", height: "70vh", borderRadius: "100px" }}
+      />
+    </>
   );
 }
 
