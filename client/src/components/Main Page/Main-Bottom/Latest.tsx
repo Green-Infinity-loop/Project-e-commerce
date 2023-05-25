@@ -44,7 +44,7 @@ export default function Latest() {
           View All Blog
         </Link>
       </div>
-      <div className=" container grid grid-cols-4 gap-8 my-6 ">
+      <div className=" container grid grid-cols-4   gap-8 my-6 ">
         {data.map((datas) => {
           return (
             <>
@@ -53,7 +53,7 @@ export default function Latest() {
                   <Image
                     width={250}
                     height={200}
-                    className="rounded-t-lg h-60 m-auto"
+                    className="rounded-t-lg m-auto h-40 p-10"
                     src={datas.imgUrl}
                     alt="emiin sangiin logo"
                   />

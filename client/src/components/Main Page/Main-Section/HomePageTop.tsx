@@ -23,7 +23,7 @@ export default function HomePageTop() {
 
   return (
     <>
-      <div className=" container   h-[50vh]  grid grid-cols-3 gap-4 mt-5 ">
+      <div className=" container h-[40vh]  grid grid-cols-3 gap-4 mt-5 ">
         <div className="col-span-2 relative">
           <Image
             alt="Хэрэглэгчээ эрхэмлэгч эрүүл мэндийн"
@@ -48,7 +48,7 @@ export default function HomePageTop() {
             Shop now
           </button>
         </div>
-        <div className="relative">
+        <div className="relative col-span-1">
           <Image
             alt="Хаврын ядаргааг тайлж дархлаагаа дэмжье"
             width={100}

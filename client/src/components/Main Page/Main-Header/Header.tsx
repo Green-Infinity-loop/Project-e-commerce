@@ -48,19 +48,20 @@ export default function App() {
         modules={[Pagination, Navigation]}
         className="mySwiper "
       >
+        sm: md: lg: xl:
         {header.map((head) => {
           return (
             <>
               <SwiperSlide>
-                <div className="h-[75vh]  bg-[#115061] ">
+                <div className=" sm:h-[30vh] md:h-[40vh] lg:h-[60vh] xl:h-[75vh]  bg-[#115061] ">
                   <div className="grid grid-cols-2 ">
-                    <div className="p-64 animate-fade-in">
-                      <h1 className="text-white  text-6xl font-bold m-auto ">
+                    <div className="sm: md:p-[120px] lg:p-[200px] xl:p-64  animate-fade-in">
+                      <h1 className="text-white  font-bold m-auto ">
                         {head.title}
                       </h1>
                       <p className="my-6 text-white">{head.description}</p>
                       <div className="grid grid-cols-2 gap-8">
-                        <button className="bg-white p-6 rounded-lg text-black ">
+                        <button className="bg-white p-6 rounded-lg text-black sm: md: lg: xl:p-4">
                           Set Appointment
                         </button>
                         <button className="text-white p-6 rounded-lg flex  ">
@@ -73,7 +74,7 @@ export default function App() {
                     <Image
                       src={head.image}
                       alt="header img"
-                      className=" m-auto pt-[120px] transition duration-150 ease-in-out animate-slide-left  "
+                      className=" m-auto p-40 transition duration-150 ease-in-out animate-slide-left "
                       width={650}
                       height={300}
                     />

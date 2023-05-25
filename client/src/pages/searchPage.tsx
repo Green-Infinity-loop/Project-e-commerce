@@ -57,10 +57,10 @@ const SearchPage: FC<ProductViewProps> = ({ data }) => {
   // }
   return (
     <Layout>
-      <div className="container">
+      <div className="container ">
         <h1 className="text-[44px] font-[500] mb-[6px]">Shop Grid</h1>
         <div className="my-10">
-          <div className="grid grid-cols-12 gap-4">
+          <div className="grid lg:grid-cols-12 md:grid-cols-1 gap-4">
             <div className="col-span-3">
               <div className="text-black">
                 <Filter />
@@ -172,7 +172,7 @@ const SearchPage: FC<ProductViewProps> = ({ data }) => {
                   </div>
                   {show === "button1" && (
                     <div className="add">
-                      <ul className=" grid grid-cols-3 flex w-[100%] gap-[20px]">
+                      <ul className=" grid grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 flex w-[100%] gap-[20px]">
                         {data?.map((products) => (
                           <li
                             className="h-[490px] relative group"
