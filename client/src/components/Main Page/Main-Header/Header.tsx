@@ -48,7 +48,6 @@ export default function App() {
         modules={[Pagination, Navigation]}
         className="mySwiper "
       >
-        sm: md: lg: xl:
         {header.map((head) => {
           return (
             <>

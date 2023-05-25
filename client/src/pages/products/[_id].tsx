@@ -63,10 +63,10 @@ const ProductView: FC<ProductViewProps> = ({ product }) => {
 
   return (
     // <Layout title={product.title}>
-    <div className="max-w-4xl mx-auto my-8 h-[100vh]">
-      <div className="md:flex md:items-center">
-        <div className="md:w-1/2">
-          <div className="aspect-square relative overflow-hidden border rounded">
+    <div className="max-w-4xl mx-auto my-8 h-[70vh] grid grid-cols-2 xl:grid-cols-2 md:grid-cols-1 max-lg:grid-cols-1 min-sm:grid-cols-1 max-sm:grid-cols-1 gap-4 container-xxl">
+      <div className=" md:items-center p-10">
+        <div className="w-full p-10">
+          <div className="aspect-square relative overflow-hidden  rounded">
             {product.image && (
               <Image
                 src={product.image}
@@ -78,18 +78,16 @@ const ProductView: FC<ProductViewProps> = ({ product }) => {
             )}
           </div>
         </div>
-        <div className="md:w-1/2 px-8">
+        <div className="md:w-full px-8">
           <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
           <p className="text-gray-700 mb-4"></p>
           <div className="flex mb-4">
             <div className="text-gray-700 mr-2">Category:</div>
-            <div className="text-blue-500 font-bold">Category Name</div>
+            <div className="text-blue-500 font-bold">Тархи мэдрэл</div>
           </div>
           <div className="flex mb-4">
             <p>
-              Өсөлт удааширах, жин хэт багатай, хоолны найрлага зохимжгүй байх,
-              хоолны дуршил буурах, ой ухаан сулрах, ядарч сульдах, стресс,
-              өвчлөлийн дараа эдгэрэлтийг түргэсэхийн тулд тус тус хэрэглэнэ
+              Толгойн өвдөлт, мигрень, шүдний өвдөлт, мэдрүүл, булчин үений өвдөлт, гэмтэл түлэгдэлтийн өвдөлт зэрэг бүх төрлийн өвдөлтийн үед өвдөлт намдаах зорилгоор хэрэглэнэ.
             </p>
           </div>
           <div className="flex items-center mb-8">
@@ -98,7 +96,8 @@ const ProductView: FC<ProductViewProps> = ({ product }) => {
               {product.price}₮
             </div>
           </div>
-          <div className="mb-8">
+          <div className="flex">
+            <div className="mb-8">
             <label className="text-gray-700">Quantity:</label>
             <div className="flex items-center mt-2">
               <button
@@ -124,7 +123,8 @@ const ProductView: FC<ProductViewProps> = ({ product }) => {
               </button>
             </div>
           </div>
-          <Button
+          <div className="flex justify-end">
+            <Button
             onClick={() =>
               addToBasket(
                 product._id,
@@ -137,9 +137,15 @@ const ProductView: FC<ProductViewProps> = ({ product }) => {
           >
             Add to Cart
           </Button>
+          </div>
+          </div>
         </div>
       </div>
-      <div className="flex gap-3">
+      <div >
+        <span className="text-[30px]">Ойролцоо байршил</span>
+        <div className="overflow-x-scroll ">
+          
+          <div className="flex gap-3 border rounded-xl mb-10 w-[1000px] ">
         {product.location &&
           product.location.map((loc: any) => {
             return (
@@ -148,43 +154,20 @@ const ProductView: FC<ProductViewProps> = ({ product }) => {
                   // console.log("loc1:",loc.locationID._id)
                   setNearestLocation(loc.locationId.location.coordinates);
                 }}
-                className="grid grid-cols-2 gap-4  border my-5 p-2 "
+                className="grid grid-cols-2 cursor-pointer gap-4 w-[400px] my-4 p-1 border rounded-xl "
               >
-                <div>{loc.locationId.name}</div>
+                <div className="text-sm w-[200px]">{loc.locationId.name}</div>
 
                 <div className="flex justify-end">{loc.quantity}ш</div>
               </div>
             );
           })}
-        {/* <Link href={'/mapBox/'+product.location[0].locationId._id}>
-                <div className="grid grid-cols-2 gap-4  border my-5 p-2 ">
-                <div>{product.location[0].locationId.name}</div>
-                <div className="flex justify-end">{product.location[0].quantity}ш</div>
-              </div>
-              </Link>
-              <Link href='/mapBox'>
-                <div className="grid grid-cols-2 gap-4  border my-5 p-2 ">
-                <div>{product.location[1].locationId.name}</div>
-                <div className="flex justify-end">{product.location[1].quantity}ш</div>
-              </div>
-              </Link>
-              <Link href='/mapBox'>
-                <div className="grid grid-cols-2 gap-4  border my-5 p-2 ">
-                <div>{product.location[2].locationId.name}</div>
-                <div className="flex justify-end">{product.location[2].quantity}ш</div>
-              </div>
-              </Link>
-              <Link href='/mapBox'>
-                <div className="grid grid-cols-2 gap-4  border my-5 p-2 ">
-                <div>{product.location[3].locationId.name}</div>
-                <div className="flex justify-end">{product.location[3].quantity}ш</div>
-              </div>
-              </Link> */}
-      </div>
-      {/* <Maps /> */}
+        </div>
+        </div>
       {nearestLocation && currentLoc && (
         <MapboxMap nearestLocation={nearestLocation} />
       )}
+      </div>
     </div>
     // </Layout>
   );

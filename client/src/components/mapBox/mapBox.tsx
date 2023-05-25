@@ -147,7 +147,7 @@ function MapboxMap(data: any) {
     <>
       <div
         ref={mapNode}
-        style={{ width: "100%", height: "70vh", borderRadius: "100px" }}
+        style={{ width: "100%", height: "70vh", borderRadius: "20px" }}
       />
     </>
   );
