@@ -50,11 +50,13 @@ export default function App() {
             <SwiperSlide key={head.title}>
               <div className="h-[30vh] sm:h-[40vh] md:h-[60vh] lg:h-[75vh] xl:h-[75vh] bg-[#115061]">
                 <div className="grid grid-cols-1 sm:grid-cols-2">
-                  <div className="p-8 sm:p-12 md:p-20 lg:p-32 xl:p-64 animate-fade-in">
-                    <h1 className="text-white font-bold">{head.title}</h1>
+                  <div className="p-8 sm:m-12 md:m-20 lg:m-32 xl:m-64 animate-fade-in  ">
+                    <h1 className="text-white font-bold text-6xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl  ">
+                      {head.title}
+                    </h1>
                     <p className="my-6 text-white">{head.description}</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                      <button className="bg-white p-6 rounded-lg text-black">
+                      <button className="bg-white p-6 rounded-lg text-black sm:p-1 md:p-2 lg:p-5 xl:p-6">
                         Set Appointment
                       </button>
                       <button className="text-white p-6 rounded-lg flex items-center">
@@ -67,8 +69,8 @@ export default function App() {
                     <Image
                       src={head.image}
                       alt="header img"
-                      className="absolute inset-0 object-cover w-full h-full transition duration-150 ease-in-out animate-slide-left"
-                      layout="fill"
+                      className="absolute inset-0 object-cover w-350 h-300 transition duration-150 ease-in-out animate-slide-left m-auto"
+                      // layout="fill"
                     />
                   </div>
                 </div>
