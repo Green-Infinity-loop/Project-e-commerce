@@ -17,6 +17,7 @@ import Latest from "@/components/Main Page/Main-Bottom/Latest";
 import { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import TopBottom from "@/components/Main Page/Main-Bottom/TopBottom";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;
@@ -45,7 +46,7 @@ export default function Home({ data }: { data: IProduct[] }) {
       <Header />
       <HomeCard />
       <h1 className="container text-3xl font-bold ">Trending Products</h1>
-      <div className="container grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 md:gap-10 lg:grid-cols-5 lg:gap-2 xl:grid-cols-7 my-5 text-center">
+      <div className="container grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 md:gap-10 lg:grid-cols-5 lg:gap-2 xl:grid-cols-5 my-5 text-center">
         {data.map((datas) => (
           <>
             <ProductCard product={datas} styles={style} />
@@ -54,8 +55,9 @@ export default function Home({ data }: { data: IProduct[] }) {
       </div>
 
       <HomePageTop />
+      <TopBottom/>
       <Nothing />
-      <Latest />
+      {/* <Latest /> */}
     </Layout>
   );
 }

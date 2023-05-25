@@ -14,7 +14,7 @@ export default function TopBottom(){
                    <div className="text-[60px]">Here is, Our four pharmacy branches</div>
                <div className="py-20 text-[15px]">On the flip side.Hill is grateful that their belated diagnosis allowed them to live care-free It allowed them to have the time to indulge in adventures like bungee jumping to play college soccer, and even to study abroad</div>
                <div className="gap-4 text-[15px]">
-                   <button className="border p-6 px-20 rounded-lg text-white bg-[#ea4c89]">View Detail</button>
+                   <button className="border p-6 px-20 rounded-lg text-white bg-[#115061]">View Detail</button>
                </div>
                </div>
            </div>
