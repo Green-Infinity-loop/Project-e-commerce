@@ -40,10 +40,10 @@ export default function Sidebar() {
           className="fixed top-0 right-0 z-40 w-[25rem] h-screen transition-transform -translate-x-full sm:translate-x-0"
           aria-label="Sidebar"
         >
-          <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-            <button className="absolute top-2 right-5 ">
+          <div className="h-full px-3 py-3 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+            <button className="absolute top-2 right-1  ">
               <IoCloseCircleOutline
-                className="w-9 h-9 text-gray"
+                className="w-9 h-9 text-gray bg-black"
                 onClick={() => {
                   setSidebar(!sideBar);
                 }}

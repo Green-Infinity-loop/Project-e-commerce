@@ -30,14 +30,9 @@ export default function Footer(): any {
               <div className="mb-10 w-full">
                 <Link
                   href="javascript:void(0)"
-                  className="mb-6 bg-white rounded-[35px] inline-block max-w-[160px]"
+                  className="mb-6 text-4xl mt-6 rounded-[35px] inline-block max-w-[160px]"
                 >
-                  <Image
-                    src="icon/logo.svg"
-                    alt="Picture of the author"
-                    width={500}
-                    height={500}
-                  />
+                  🅼🅴🅳🆉🅾🅽🅴
                 </Link>
 
                 <div className="text-body-color mb-7 text-base">

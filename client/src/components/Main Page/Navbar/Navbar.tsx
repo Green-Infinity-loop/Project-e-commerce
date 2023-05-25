@@ -145,17 +145,17 @@ export const Navbar: FC<NavbarProps> = ({
                         <Link href="/">MedZone</Link>
                       </h1>
                     </div>
-                    <div className="hidden sm:ml-6 sm:block absolute right-24 font-light text-xs  place-content-center ">
-                      <div className="flex space-x-4">
+                    <div className="hidden sm:ml-6 sm:block absolute right-32 font-light text-xs  place-content-center">
+                      <div className="flex space-x-4 ">
                         {navigation.map((item) => (
                           <Link
                             key={item.name}
                             href={item.href}
                             className={classNames(
                               item.current
-                                ? "  text-black hover:bg-black hover:rounded-xl "
-                                : " text-black hover:bg-black hover:rounded-xl",
-                              " px-3 py-2 text-sm font-medium text-white "
+                                ? "  text-black hover:text-white  hover:bg-black hover:rounded-xl "
+                                : " text-black hover:text-white  hover:bg-black hover:rounded-xl",
+                              " px-3 py-2 text-sm font-medium text-black  "
                             )}
                             aria-current={item.current ? "page" : undefined}
                           >
@@ -173,7 +173,7 @@ export const Navbar: FC<NavbarProps> = ({
                         onClick={() => {
                           setSearch(!search);
                         }}
-                        className="h-5 w-5 text-xs ml-9 "
+                        className="h-5 w-5 text-xs "
                         aria-hidden="true"
                       />
                     </button>
@@ -190,7 +190,7 @@ export const Navbar: FC<NavbarProps> = ({
                         {cartCount}
                       </span>
                     )}
-                    <div className=" mb-6 ml-3">
+                    <div className=" mb-6 ml-12">
                       <Sidebar />
                     </div>
                   </div>
