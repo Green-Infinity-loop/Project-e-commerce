@@ -7,9 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Colon from "../../../image/icon/colon.png";
 import Sale from "../../../image/icon/sale.png";
-import imageC from '../Main-Section/vitaminC.png'
-import vitaminFiber from '../Main-Section/vitaminFiber.png'
-import vitaminWal from '../Main-Section/vitaminWal-Born.png'
+import imageC from "../Main-Section/vitaminC.png";
+import vitaminFiber from "../Main-Section/vitaminFiber.png";
+import vitaminWal from "../Main-Section/vitaminWal-Born.png";
 
 const data = [
   {
@@ -52,15 +52,15 @@ const Stopwatch = () => {
 
     return (
       <div className="stopwatch-time flex mt-6">
-        <span className="border p-3 text-xl  rounded mb-3 mt-3">{days}day</span>
+        <span className="border p-3 text-xl rounded mb-3 mt-3">{days}day</span>
         <Image
           src={Colon}
           alt="Хаврын ядаргааг тайлж дархлаагаа дэмжье"
           width={30}
           height={30}
-          className="w-6 h-6 p-0 mb-3 mt-7 "
+          className="w-6 h-6 p-0 mb-3 mt-7"
         ></Image>
-        <span className="border p-3 text-xl  rounded mb-3 mt-3 ">
+        <span className="border p-3 text-xl rounded mb-3 mt-3">
           {hours}hours{" "}
         </span>
         <Image
@@ -71,7 +71,7 @@ const Stopwatch = () => {
           className="w-6 h-6 p-0 mb-3 mt-7 rounded"
         />
 
-        <span className="border p-3 text-xl rounded mb-3 mt-3 ">
+        <span className="border p-3 text-xl rounded mb-3 mt-3">
           {minutes}min
         </span>
         <Image
@@ -87,6 +87,7 @@ const Stopwatch = () => {
       </div>
     );
   };
+
   return <div className="stopwatch-container">{formatTime(time)}</div>;
 };
 
@@ -102,38 +103,38 @@ export default function App() {
           clickable: true,
         }}
         modules={[Mousewheel, Pagination]}
-        className="mySwiper relative sm:h-[20vh] md:h-[20vh] lg:h-[40vh] xl:h-[60vh] container bg-[#115061] my-6 rounded-xl border border-bg-[#115061] "
+        className="mySwiper relative sm:h-[20vh] md:h-[20vh] lg:h-[40vh] xl:h-[60vh] container bg-[#115061] my-6 rounded-xl border border-bg-[#115061]"
       >
         {data.map((datas) => {
           return (
             <SwiperSlide key={datas.title}>
-              <div className="grid grid-cols-2 absolute top-0">
-                <div className="text-white m-auto p-24relative">
+              <div className="grid grid-cols-1 md:grid-cols-2 absolute top-0">
+                <div className="text-white m-auto p-24 relative">
                   <Image
                     alt="Хаврын ядаргааг тайлж дархлаагаа дэмжье"
                     src={Sale}
                     width={200}
                     height={200}
-                    className="absolute top-0 -rotate-[16deg] left-7 w-28 "
+                    className="absolute top-0 -rotate-[16deg] left-7 w-28"
                   />
                   <div className="p-40 pt-0">
                     <h1 className="text-4xl font-bold mb-6">{datas.title}</h1>
-                  <p className="text-lg font-semibold mb-6">
-                    {datas.description}
-                  </p>
-                  <Link href={"./"} className="border p-4 rounded-lg w-48">
-                    Shop now
-                  </Link>
-                  <Stopwatch />
+                    <p className="text-lg font-semibold mb-6">
+                      {datas.description}
+                    </p>
+                    <Link href={"./"} className="border p-4 rounded-lg w-48">
+                      Shop now
+                    </Link>
+                    <Stopwatch />
                   </div>
                 </div>
-                <div className=" sm:p-20  xl:p-20">
+                <div className="sm:p-20 xl:p-20">
                   <Image
                     src={datas.imgUrl}
                     alt=""
                     width={500}
                     height={600}
-                    className="w-full  py-40 sm:py-60  lg:px-20 lg:h-[32rem]  sm:pt-0  md:pt-0 pt-0 md:h-[39.5rem]  rounded-xl"
+                    className="w-full py-40 sm:py-60 lg:px-20 lg:h-[32rem] sm:pt-0 md:pt-0 pt-0 md:h-[39.5rem] rounded-xl"
                   />
                 </div>
               </div>
