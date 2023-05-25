@@ -10,8 +10,10 @@ import { LocationContext } from "@/context/LocationContext";
 
 function MapboxMap(data: any) {
   const [map, setMap] = useState<mapboxgl.Map>();
-  const { currentLoc } = useContext(LocationContext);
+  const { currentLoc }:any = useContext(LocationContext);
   console.log("currentLoc map", currentLoc);
+
+  
 
   const { nearestLocation } = data;
 
@@ -63,7 +65,6 @@ function MapboxMap(data: any) {
           center: [currentLoc[0], currentLoc[1]],
           zoom: 15,
         },
-        5000
       );
       if (nearestLocation.length !== 0) {
         let geojson: any = [0, 0];
