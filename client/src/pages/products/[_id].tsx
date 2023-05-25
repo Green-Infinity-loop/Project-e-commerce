@@ -7,20 +7,18 @@ import Image from "next/image";
 import { FC, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { FaMinus, FaPlus } from "react-icons/fa";
-import Link from "next/link";
-import Map from "@/components/Map Page/Map/DynamicMap";
-import Maps from "@/components/mapBox";
 import { useRouter } from "next/router";
 import MapboxMap from "@/components/mapBox/mapBox";
 import { LocationContext } from "@/context/LocationContext";
 interface ProductViewProps {
   product: IProduct;
+  location: IProduct;
 }
 
 const ProductView: FC<ProductViewProps> = ({ product }) => {
   const { query } = useRouter();
   const { _id } = query;
-  const { currentLoc } = useContext(LocationContext);
+  const { currentLoc }:any = useContext(LocationContext);
   console.log("currentLoc _Id:", currentLoc);
 
   const [locData, setLocData] = useState([]);
@@ -146,8 +144,8 @@ const ProductView: FC<ProductViewProps> = ({ product }) => {
         <div className="overflow-x-scroll ">
           
           <div className="flex gap-3 border rounded-xl mb-10 w-[1000px] ">
-        {product.location &&
-          product.location.map((loc: any) => {
+        {product?.location && Array.isArray(product.location) &&
+          product?.location.map((loc: any) => {
             return (
               <div
                 onClick={() => {

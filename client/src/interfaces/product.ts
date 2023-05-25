@@ -5,4 +5,5 @@ export interface IProduct {
     star:number;
     price:number;
     image?:string;
+    location?:string;
 }

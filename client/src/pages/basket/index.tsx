@@ -1,21 +1,9 @@
-import ProductCard from "@/components/ProductCard/ProductCard";
 import { useBasket } from "@/Hooks/useBasket";
 import { IProduct } from "@/interfaces/product";
 import axios from "axios";
-
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import trash from '../../image/icon/trash.png'
-import style from "../../styles/basket.module.css"
-
-
-import { FaMinus, FaPlus } from "react-icons/fa";
-import { Input } from "@mui/material";
 import Layout from "../layout";
-import Maps from "@/components/mapBox";
-
-
-  
 
 const Basket = ()=> {
     const [quantity, setQuantity] = useState(1);

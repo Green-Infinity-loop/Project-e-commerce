@@ -1,6 +1,11 @@
 import React, { createContext, useEffect, useState } from "react";
 
-const LocationContext = createContext(null);
+interface LocationContextType {
+  setCurrentLoc: React.Dispatch<React.SetStateAction<any>>;
+  currentLoc: React.Dispatch<React.SetStateAction<any>>;
+}
+
+const LocationContext = createContext<LocationContextType | null>(null);
 
 const LocationProvider = ({ children }: { children: React.ReactNode }) => {
   const [currentLoc, setCurrentLoc] = useState<any>([106.9338801, 47.9238657]);
