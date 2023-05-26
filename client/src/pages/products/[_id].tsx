@@ -53,12 +53,6 @@ const ProductView: FC<ProductViewProps> = ({ product }) => {
     }
     setQuantity(quantity + count);
   };
-  // console.log("pro:", product.location[0].locationId);
-
-  // function myFunction(){
-  //   updateProductCount(1);
-  //   addToBasket(data._id, quantity)
-  // }
 
   return (
     <Layout>

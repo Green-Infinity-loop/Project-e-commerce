@@ -21,8 +21,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   console.log("search :", search);
 
   const response = await axios.get(
-    // `http://localhost:8080/products?search=${search}`
-    `http://localhost:8080/products`
+    `http://localhost:8080/products?search=${search}`
+    // `http://localhost:8080/products`
   );
   const { data } = response;
   console.log("data", data);
