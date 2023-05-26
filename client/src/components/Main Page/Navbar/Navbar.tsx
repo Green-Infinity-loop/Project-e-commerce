@@ -83,7 +83,7 @@ export const Navbar: FC<NavbarProps> = ({
     }, [search1, router]);
     return (
       <div className="relative ">
-        <div className="  fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-70 z-40 w-full">
+        <div className="  fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-70  w-full">
           <form>
             <input
               type="text"

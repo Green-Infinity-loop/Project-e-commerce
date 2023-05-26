@@ -66,10 +66,10 @@ const Layout: FC<LayoutProps> = ({ children, title = "MedZone" }) => {
         />
         <div>{children}</div>
         {loading}
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );
 };
 
-export default Layout
+export default Layout;
