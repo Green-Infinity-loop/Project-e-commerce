@@ -10,10 +10,8 @@ import { LocationContext } from "@/context/LocationContext";
 
 function MapboxMap(data: any) {
   const [map, setMap] = useState<mapboxgl.Map>();
-  const { currentLoc }:any = useContext(LocationContext);
+  const { currentLoc }: any = useContext(LocationContext);
   console.log("currentLoc map", currentLoc);
-
-  
 
   const { nearestLocation } = data;
 
@@ -25,7 +23,7 @@ function MapboxMap(data: any) {
     "pk.eyJ1IjoibXVuZ3Vuc2hhZ2FpIiwiYSI6ImNsaHUwMjhtNDBnZ3gzdGw5MXhxcGhoOXUifQ.7rdAZiweqotAkzdUXLAl5w";
   useEffect(() => {
     setNode(mapNode.current);
-  }, []);
+  }, [nearestLocation]);
 
   async function getRoute(end: any) {
     console.log("end map");
@@ -56,16 +54,14 @@ function MapboxMap(data: any) {
 
   setTimeout(async () => {
     if (mapNode.current != null) {
-      const mapboxMap = new mapboxgl.Map(
-        {
-          container: mapNode.current,
-          accessToken:
-            "pk.eyJ1IjoibXVuZ3Vuc2hhZ2FpIiwiYSI6ImNsaHUwMjhtNDBnZ3gzdGw5MXhxcGhoOXUifQ.7rdAZiweqotAkzdUXLAl5w",
-          style: "mapbox://styles/mapbox/navigation-night-v1",
-          center: [currentLoc[0], currentLoc[1]],
-          zoom: 15,
-        },
-      );
+      const mapboxMap = new mapboxgl.Map({
+        container: mapNode.current,
+        accessToken:
+          "pk.eyJ1IjoibXVuZ3Vuc2hhZ2FpIiwiYSI6ImNsaHUwMjhtNDBnZ3gzdGw5MXhxcGhoOXUifQ.7rdAZiweqotAkzdUXLAl5w",
+        style: "mapbox://styles/mapbox/navigation-night-v1",
+        center: [currentLoc[0], currentLoc[1]],
+        zoom: 15,
+      });
       if (nearestLocation.length !== 0) {
         let geojson: any = [0, 0];
 
