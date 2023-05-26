@@ -1,4 +1,3 @@
-
 import { useQuery } from "@/Hooks/useQuery";
 import HomePageTop from "@/components/Main Page/Main-Section/HomePageTop";
 import * as React from "react";
@@ -17,6 +16,7 @@ import Latest from "@/components/Main Page/Main-Bottom/Latest";
 import { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import TopBottom from "@/components/Main Page/Main-Bottom/TopBottom";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;
@@ -24,10 +24,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const response = await axios.get(
     `${process.env.NEXT_PUBLIC_API_URL}/products?limit=${limit}`
   );
-  const data = await response.data
-  
+  const data = await response.data;
+
   return {
-    props: {data} 
+    props: { data },
   };
 }
 
@@ -44,8 +44,8 @@ export default function Home({ data }: { data: IProduct[] }) {
     <Layout>
       <Header />
       <HomeCard />
-      <h1 className="container text-3xl font-bold ">Trending Products</h1>
-      <div className="container grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 md:gap-10 lg:grid-cols-5 lg:gap-2 xl:grid-cols-7 my-5 text-center">
+      <h1 className="container text-6xl font-bold ">𝑻𝒓𝒆𝒏𝒅𝒊𝒏𝒈 𝑷𝒓𝒐𝒅𝒖𝒄𝒕𝒔</h1>
+      <div className="container grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 md:gap-10 lg:grid-cols-5 lg:gap-2 xl:grid-cols-5 my-5 text-center">
         {data.map((datas) => (
           <>
             <ProductCard product={datas} styles={style} />
@@ -54,13 +54,9 @@ export default function Home({ data }: { data: IProduct[] }) {
       </div>
 
       <HomePageTop />
+      <TopBottom />
       <Nothing />
-      <Latest />
+      {/* <Latest /> */}
     </Layout>
   );
 }
-
-
-
-
-

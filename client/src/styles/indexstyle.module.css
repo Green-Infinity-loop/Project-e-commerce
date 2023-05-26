@@ -134,7 +134,7 @@
 
 @media (min-width: 1536px) {
   .card {
-    width: 100%;
+    width: 250px;
     height: 100%;
   }
   .main {
@@ -144,11 +144,11 @@
 }
 @media (max-width: 1536px) {
   .card {
-    width: 100%;
+    width: 200px;
     height: 100%;
   }
   .main {
-    width: 130px;
+    width: 200px;
     margin: auto;
   }
 }

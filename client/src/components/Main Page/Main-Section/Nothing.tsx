@@ -109,14 +109,7 @@ export default function App() {
           return (
             <SwiperSlide key={datas.title}>
               <div className="grid grid-cols-1 md:grid-cols-2 absolute top-0">
-                <div className="text-white m-auto p-24 relative">
-                  <Image
-                    alt="Хаврын ядаргааг тайлж дархлаагаа дэмжье"
-                    src={Sale}
-                    width={200}
-                    height={200}
-                    className="absolute top-0 -rotate-[16deg] left-7 w-28"
-                  />
+                <div className="text-white m-auto p-25 relative">
                   <div className="p-40 pt-0">
                     <h1 className="text-4xl font-bold mb-6">{datas.title}</h1>
                     <p className="text-lg font-semibold mb-6">
@@ -128,13 +121,13 @@ export default function App() {
                     <Stopwatch />
                   </div>
                 </div>
-                <div className="sm:p-20 xl:p-20">
+                <div className="sm:p-20 xl:p-40">
                   <Image
                     src={datas.imgUrl}
                     alt=""
-                    width={500}
-                    height={600}
-                    className="w-full py-40 sm:py-60 lg:px-20 lg:h-[32rem] sm:pt-0 md:pt-0 pt-0 md:h-[39.5rem] rounded-xl"
+                    width={900}
+                    height={900}
+                    className="w-full py-10 sm:py-40 lg:px-1 lg:h-[32rem] sm:pt-0 md:pt-0 pt-0 md:h-[39.5rem] rounded-xl"
                   />
                 </div>
               </div>
