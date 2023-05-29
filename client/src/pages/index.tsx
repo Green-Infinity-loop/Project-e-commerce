@@ -44,8 +44,10 @@ export default function Home({ data }: { data: IProduct[] }) {
     <Layout>
       <Header />
       <HomeCard />
-      <h1 className="container text-6xl font-bold ">𝑻𝒓𝒆𝒏𝒅𝒊𝒏𝒈 𝑷𝒓𝒐𝒅𝒖𝒄𝒕𝒔</h1>
-      <div className="container grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 md:gap-10 lg:grid-cols-5 lg:gap-2 xl:grid-cols-5 my-5 text-center">
+      <h1 className="container text-6xl font-bold xl:text-4xl xl:my-9">
+        𝑻𝒓𝒆𝒏𝒅𝒊𝒏𝒈 𝑷𝒓𝒐𝒅𝒖𝒄𝒕𝒔
+      </h1>
+      <div className="container grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 md:gap-10 lg:grid-cols-5 lg:gap-2 xl:grid-cols-5    my-5 text-center">
         {data.map((datas) => (
           <>
             <ProductCard product={datas} styles={style} />

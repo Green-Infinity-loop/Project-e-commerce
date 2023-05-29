@@ -58,8 +58,7 @@ const Stopwatch = () => {
           alt="Хаврын ядаргааг тайлж дархлаагаа дэмжье"
           width={30}
           height={30}
-          className="w-6 h-6 p-0 mb-3 mt-7"
-        ></Image>
+          className="w-6 h-6 p-0 mb-3 mt-7"></Image>
         <span className="border p-3 text-xl rounded mb-3 mt-3">
           {hours}hours{" "}
         </span>
@@ -103,11 +102,10 @@ export default function App() {
           clickable: true,
         }}
         modules={[Mousewheel, Pagination]}
-        className="mySwiper relative sm:h-[20vh] md:h-[20vh] lg:h-[40vh] xl:h-[60vh] container bg-[#115061] my-6 rounded-xl border border-bg-[#115061]"
-      >
+        className="mySwiper relative sm:h-[20vh] md:h-[20vh] lg:h-[40vh] xl:h-[60vh] container bg-[#115061] my-6 rounded-xl border border-bg-[#115061] xl:mb-20">
         {data.map((datas) => {
           return (
-            <SwiperSlide key={datas.title}>
+            <SwiperSlide key={datas.title} className="xl:text-2xl">
               <div className="grid grid-cols-1 md:grid-cols-2 absolute top-0">
                 <div className="text-white m-auto p-25 relative">
                   <div className="p-40 pt-0">

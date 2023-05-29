@@ -22,8 +22,8 @@ export default function HomePageTop() {
 
   return (
     <>
-      <div className="container h-[40vh] grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
-        <div className="relative">
+      <div className="container h-[40vh] grid grid-cols-1 md:grid-cols-2 gap-4 mt-5 xl:grid-cols-3">
+        <div className="relative col-span-2">
           <Image
             alt="Хэрэглэгчээ эрхэмлэгч эрүүл мэндийн"
             src={

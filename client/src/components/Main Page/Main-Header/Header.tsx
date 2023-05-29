@@ -43,23 +43,22 @@ export default function App() {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper "
-      >
+        className="mySwiper ">
         {header.map((head) => {
           return (
             <SwiperSlide key={head.title}>
               <div className="h-[30vh] sm:h-[40vh] md:h-[60vh] lg:h-[75vh] xl:h-[75vh] bg-[#115061]">
                 <div className="grid grid-cols-1 sm:grid-cols-2">
-                  <div className="p-8 sm:m-12 md:m-20 lg:m-32 xl:m-64 animate-fade-in  ">
-                    <h1 className="text-white font-bold text-6xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl  ">
+                  <div className="  animate-fade-in md:m-20 xl:p-20">
+                    <h1 className="text-white font-bold   sm:text-xs md:text-[1rem]  lg:text-3xl xl:text-[2.75rem]  ">
                       {head.title}
                     </h1>
-                    <p className="my-6 text-white">{head.description}</p>
+                    <p className=" text-white xl:my-3">{head.description}</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                      <button className="bg-white p-6 rounded-lg text-black sm:p-1 md:p-2 lg:p-5 xl:p-6">
+                      <button className="bg-white rounded-lg text-black sm:p-1 md:p-2 lg:p-2 xl:p-[10px]">
                         Set Appointment
                       </button>
-                      <button className="text-white p-6 rounded-lg flex items-center">
+                      <button className="text-white p-6 rounded-lg flex items-center sm:p-1 md:p-2 lg:p-2 xl:p-[10px]">
                         Set Appointment
                         <FiArrowRight className="w-4 h-4 ml-2" />
                       </button>
@@ -69,7 +68,7 @@ export default function App() {
                     <Image
                       src={head.image}
                       alt="header img"
-                      className="absolute inset-0 object-cover w-350 h-300 transition duration-150 ease-in-out animate-slide-left m-auto"
+                      className=" xl:mt-16 xl:p-20 absolute inset-0 object-cover w-350 h-300 transition duration-150 ease-in-out animate-slide-left m-auto"
                       // layout="fill"
                     />
                   </div>
