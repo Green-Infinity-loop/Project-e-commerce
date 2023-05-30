@@ -13,8 +13,7 @@ import vitaminWal from "../Main-Section/vitaminWal-Born.png";
 
 const data = [
   {
-    title:
-      "Vitamin C Immune Support Gummies, 1000 mg, Assorted Fruit (Packaging May Vary)",
+    title: "Vitamin C Immune Support Gummies, 1000 mg.",
     description:
       "May help support immune system. Compare to Airborne Original Immune Support.",
     imgUrl: imageC,
@@ -28,7 +27,7 @@ const data = [
   {
     title: "Immune Support Elderberry Gummies",
     description:
-      "Compare vs. Airborne Elderberry Immune Support Supplement Gummies.May support your immune system.Antioxidant Support.High in Vitamins C & EExcellent source of Vitamin D .Natural Blackberry Flavor",
+      "Compare vs. Airborne Elderberry Immune Support Supplement Gummies.May support your immune system.",
     imgUrl: vitaminWal,
   },
 ];
@@ -51,8 +50,8 @@ const Stopwatch = () => {
     const seconds = timeInSeconds % 60;
 
     return (
-      <div className="stopwatch-time flex mt-6">
-        <span className="border p-3 text-xl rounded mb-3 mt-3">{days}day</span>
+      <div className="stopwatch-time flex mt-6 xl:mt-3">
+        <span className="border p-3 text-xl rounded mb-3 mt-3 ">{days}day</span>
         <Image
           src={Colon}
           alt="Хаврын ядаргааг тайлж дархлаагаа дэмжье"
@@ -78,7 +77,7 @@ const Stopwatch = () => {
           src={Colon}
           width={30}
           height={30}
-          className="w-6 h-6 p-0 mb-3 mt-7"
+          className="w-6 h-6 p-0 mb-7 mt-7"
         />
         <span className="border p-3 text-xl rounded mb-3 mt-3">
           {seconds}sec
@@ -102,30 +101,34 @@ export default function App() {
           clickable: true,
         }}
         modules={[Mousewheel, Pagination]}
-        className="mySwiper relative sm:h-[20vh] md:h-[20vh] lg:h-[40vh] xl:h-[60vh] container bg-[#115061] my-6 rounded-xl border border-bg-[#115061] xl:mb-20">
+        className="mySwiper relative sm:h-[20vh] md:h-[20vh] lg:h-[40vh] xl:h-[60vh]  container bg-[#115061] mt-6 rounded-xl border border-bg-[#115061] mb-64 ">
         {data.map((datas) => {
           return (
-            <SwiperSlide key={datas.title} className="xl:text-2xl">
+            <SwiperSlide key={datas.title} className="xl:text-xl ">
               <div className="grid grid-cols-1 md:grid-cols-2 absolute top-0">
-                <div className="text-white m-auto p-25 relative">
-                  <div className="p-40 pt-0">
-                    <h1 className="text-4xl font-bold mb-6">{datas.title}</h1>
-                    <p className="text-lg font-semibold mb-6">
+                <div className="text-white m-auto xl:m-4   ">
+                  <div className=" pt-0 xl:p-10">
+                    <h1 className="text-4xl font-bold  xl:text-3xl">
+                      {datas.title}
+                    </h1>
+                    <p className="text-lg  xl:text-lg xl:my-5">
                       {datas.description}
                     </p>
-                    <Link href={"./"} className="border p-4 rounded-lg w-48">
+                    <Link
+                      href={"/products"}
+                      className="border p-4 rounded-lg w-48 xl:w-32 xl:p-3 xl:mt-5">
                       Shop now
                     </Link>
                     <Stopwatch />
                   </div>
                 </div>
-                <div className="sm:p-20 xl:p-40">
+                <div className="sm:p-12 xl:p-12">
                   <Image
                     src={datas.imgUrl}
                     alt=""
                     width={900}
                     height={900}
-                    className="w-full py-10 sm:py-40 lg:px-1 lg:h-[32rem] sm:pt-0 md:pt-0 pt-0 md:h-[39.5rem] rounded-xl"
+                    className="w-full py-10 sm:py-40 lg:px-1 lg:h-[32rem] sm:pt-0 md:pt-0 pt-0 md:h-[39.5rem] rounded-xl "
                   />
                 </div>
               </div>
